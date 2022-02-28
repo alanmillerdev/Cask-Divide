@@ -6,7 +6,11 @@ include 'Components/RequiredComponents/bootstrapCSS.inc.php';
 
 ?>
 
+<?php
 
+include 'Components/LoginComponents/loginForm.inc.php'
+
+?>
 
 <?php
 
