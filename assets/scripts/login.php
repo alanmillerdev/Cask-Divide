@@ -1,18 +1,19 @@
 <?php
 //Pull variables from the form
-$username = $_POST["uname"];
+$email = $_POST["email"];
 $password = $_POST["psw"];
-//
+
 // Connect to the database
 $con = mysqli_connect("", "", "", "")
 or die("Cannot Connect to Database");
 
 //Check if fields not empty
-if ( !isset($_POST['uname'], $_POST['psw']) ) {
+if ( !isset($_POST['email'], $_POST['psw']) ) {
 	exit('Please fill both the username and password fields!');
 }
+
 //Check if username and password exist in the database
-$sql = "SELECT  * FROM register WHERE username = '$username' and password = '$password'";
+$sql = "SELECT  * FROM register WHERE email = '$email' and password = '$password'";
 $result = mysqli_query($con, $sql);
 $count = mysqli_num_rows($result);
 while($row = mysqli_fetch_array($result) ){
@@ -23,12 +24,12 @@ while($row = mysqli_fetch_array($result) ){
 if($count == 1){
 	if($user_type == "user"){
   session_start();
-  $_SESSION["USER_ID"] = $username;
+  $_SESSION["USER_ID"] = $email;
   header("Location:");
 }
 elseif ($user_type == "admin") {
 	session_start();
-  $_SESSION["USER_ID"] = $username;
+  $_SESSION["USER_ID"] = $email;
 	$_SESSION["admin"] = "true";
   header("Location:");
 }
