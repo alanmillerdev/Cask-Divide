@@ -43,7 +43,7 @@ $headers .= "Reply-To: $email_address";
 mail($to,$email_subject,$email_body,$headers);
 
 //Notify the user of successful e-mail, redirect to home page
-header("refresh:5;url=https://meteorelectronics.online/" . $redirect);
+header("refresh:5;url=" . $redirect);
 echo "Thank you for contacting us, we will get back to you shortly.";
 echo "You will be redirected to the home page.";
 
