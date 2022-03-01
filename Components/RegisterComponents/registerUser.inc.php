@@ -12,16 +12,16 @@ $lastName = $_POST['LastName'];
 $dob = $_POST['DOB'];
 $phoneNo = $_POST['PhoneNo'];
 
+//Dupe Email Check
 $select = mysqli_query($dbConnection, "SELECT * FROM user WHERE email = '" . $email . "'");
 if (mysqli_num_rows($select)) {
-    //Dupe Email
-    header('../../register.php?msg=dupe');
+    header('location: ../../register.php?msg=dupe');
+    exit();
 }
-
-if($password != $passwordConfirm)
-{
-    //Password Mismatch
-    header('../../index.php?msg=mismatch');
+//Password Mismatch Check
+if ($password != $passwordConfirm) {
+    header('location: ../../register.php?msg=mismatch');
+    exit();
 }
 
 //Prepared Statement
