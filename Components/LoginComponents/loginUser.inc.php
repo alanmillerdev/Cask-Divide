@@ -24,20 +24,23 @@ if ($stmt) {
 
     // Verify user's password $password being input and $hash being the stored hash
     if (password_verify($password, $hash)) {
+        // Password is correct
         if ($userType == "Admin") {
             session_start();
             $_SESSION["UserType"] = "Admin";
             $_SESSION["UserID"] = $userID;
+            $dbConnection->close();
             header('Location: ../../index.php');
         } else {
             session_start();
             $_SESSION["UserType"] = "User";
             $_SESSION["UserID"] = $userID;
+            $dbConnection->close();
             header('Location: ../../index.php');
         }
-        // Password is correct
+        // Password is incorrect
     } else {
         header('Location: ../../login.php?msg=err');
-        // Password is incorrect
+        $dbConnection->close();
     }
 }

@@ -17,11 +17,13 @@ $select = mysqli_query($dbConnection, "SELECT * FROM user WHERE email = '" . $em
 if (mysqli_num_rows($select)) {
     header('location: ../../register.php?msg=dupe');
     exit();
+    $dbConnection->close();
 }
 //Password Mismatch Check
 if ($password != $passwordConfirm) {
     header('location: ../../register.php?msg=mismatch');
     exit();
+    $dbConnection->close();
 }
 
 //Prepared Statement
