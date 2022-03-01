@@ -8,9 +8,7 @@ include 'Components/RequiredComponents/bootstrapCSS.inc.php';
 
 <?php
 
-require 'Database/dbConnect.inc.php';
 
-$dbConnection = Connect();
 
 ?>
 
