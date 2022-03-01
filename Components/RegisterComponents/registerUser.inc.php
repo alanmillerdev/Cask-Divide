@@ -15,13 +15,13 @@ $phoneNo = $_POST['PhoneNo'];
 $select = mysqli_query($dbConnection, "SELECT * FROM user WHERE email = '" . $email . "'");
 if (mysqli_num_rows($select)) {
     //Dupe Email
-    header('?error:email');
+    header('../../register.php?msg=dupe');
 }
 
 if($password != $passwordConfirm)
 {
     //Password Mismatch
-    header('?error:pwdMM');
+    header('../../index.php?msg=mismatch');
 }
 
 //Prepared Statement
