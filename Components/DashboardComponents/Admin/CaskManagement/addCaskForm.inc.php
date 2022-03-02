@@ -1,4 +1,4 @@
-<form action="Components/RegisterComponents/addCask.inc.php" method="post">
+<form action="addCask.inc.php" method="post">
 
     <label for="NameOfCask">Name of Cask</label><br>
     <input type="text" id="NameOfCask" name="NameOfCask" value=""><br>
@@ -26,18 +26,18 @@
 
     <label for="DistilleryName">Distilled At</label><br>
     <select name="DistilleryName">
-    <?php
+        <?php
 
-    include '../../../../Database/dbConnect.inc.php';
+        include '../../../../Database/dbConnect.inc.php';
 
-    $dbConnection = Connect();
+        $dbConnection = Connect();
 
-    $result = mysqli_query($dbConnection, "SELECT DistilleryName FROM `distillery`");
+        $result = mysqli_query($dbConnection, "SELECT DistilleryName FROM `distillery`");
 
-    while ($row = mysqli_fetch_array($result)) {
-        echo "<option>" . $row["DistilleryName"] . "</option>";
-    }
-    ?>
+        while ($row = mysqli_fetch_array($result)) {
+            echo "<option>" . $row["DistilleryName"] . "</option>";
+        }
+        ?>
     </select><br><br>
     <input type="submit" value="Submit">
 </form>
