@@ -12,8 +12,8 @@
     <label for="OLA">OLA</label><br>
     <input type="number" id="OLA" name="OLA" value=""><br>
 
-    <label for="OLA">RLA</label><br>
-    <input type="number" id="OLA" name="OLA" value=""><br>
+    <label for="RLA">RLA</label><br>
+    <input type="number" id="RLA" name="RLA" value=""><br>
 
     <label for="PercentageAlcohol">Percentage Alchohol</label><br>
     <input type="number" id="PercentageAlcohol" name="PercentageAlcohol" value=""><br>
