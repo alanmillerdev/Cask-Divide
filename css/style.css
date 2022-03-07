@@ -1,0 +1,229 @@
+/* GENERAL */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Unordered Lists */
+ul {
+  list-style-type: none;
+}
+
+/* Form Styling */
+.input-style {
+  border: 2px solid #BF9139;
+  background-color: #303030;
+  width: 400px;
+  height: 50px;
+  margin: auto;
+  display: block;
+}
+
+
+.input-style::placeholder {
+  color: #FFFFFF;
+  padding-left: 10px;
+}
+
+.input-style:focus, input:focus {
+  color: #FFFFFF;
+
+}
+
+.input-style, select, textarea {
+  color: #FFFFFF;
+}
+
+/* Navbar */
+.navbar {
+  border-bottom: #fff 1px solid;
+  opacity: 0.9;
+}
+
+#home-section {
+  background: url(../images/highlands.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+#home-section .home-inner {
+  padding-top: 150px;
+}
+
+.nav_button:hover {
+  background-color: #54462C;
+}
+
+.browse_button{
+  color: white;
+  background-color: #BF9139;
+  border-color: #BF9139;
+  text-decoration: none;
+  border-radius: 25px;
+}
+
+.browse_button:hover{
+  color: white;
+  background-color: #505557;
+  border-color: #505557;
+  text-decoration: none;
+}
+
+/* CIRCULAR LOGO */
+.logo_img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: solid 1px white;
+  margin-right: 300px;
+}
+
+/* Icons */
+.fab {
+  color: white;
+}
+
+/* Colours and Fonts */
+.nav-hover:hover{
+  background-color: #505557;
+}
+
+.primary-text{
+  color: #BF9139;
+}
+
+.primary-background{
+  background-color: #BF9139;
+}
+
+.form-background{
+  background-color: #303030;
+}
+
+
+/* FORM STYLING */
+#form-styling{
+  background: url(../img/highlands.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding-top: 150px;
+}
+
+.form-styling-button{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #BF9139;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 10px;
+  width: 250px;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 3px;
+  }
+
+.form-styling-button:hover{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #505557;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 10px;
+  width: 250PX;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 3px;
+}
+  
+.form-styling-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+  
+.form-styling-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.3s;
+}
+  
+.form-styling-button:hover span {
+  padding-right: 25px;
+}
+  
+.form-styling-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.sign-up-button{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #BF9139;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.3s;
+  cursor: pointer;
+  }
+
+.sign-up-button:hover{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #505557;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    width: 100px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+  
+.sign-up-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+  
+.sign-up-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.3s;
+}
+  
+.sign-up-button:hover span {
+  padding-right: 15px;
+}
+  
+.sign-up-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* Footer */
+.footer_logo {
+  height: auto;
+  width: 200px;
+}
