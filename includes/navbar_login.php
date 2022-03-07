@@ -19,16 +19,16 @@
 
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Casks</a>
+        <a class="nav-link" href="casks.php">Casks</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
+        <a class="nav-link" href="about.php">About Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link" href="contact.php">Contact</a>
       </li>
       
     </ul>

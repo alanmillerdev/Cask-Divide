@@ -28,7 +28,7 @@ include 'Components/RequiredComponents/bootstrapCSS.inc.php';
     <div class="home-inner container">
       <div class="row">
         <div class="col-lg-8 d-none d-lg-block">
-          <h1 class="display-4">INVEST IN SCOTCH WHISKEY</h1>
+          <h1 class="display-4" id="main-title">INVEST IN SCOTCH WHISKEY</h1>
           <div class="d-flex">
             <div class="py-4 align-self-end">
               Whisky casks are growing as a investment oppertunity for the general public and consumers. With casks ranging from several hundreds to tens of thousands of pounds, 

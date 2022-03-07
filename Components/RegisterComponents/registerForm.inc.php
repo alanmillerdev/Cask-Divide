@@ -1,25 +1,50 @@
+<!--NAVBAR INCLUDE-->
+    <?php
+    $page='home';
+    include('./includes/navbar_login.php');
+    ?>
+
+<!-- REGISTER SECTION -->
+  <section id="form-styling">
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center ">
+            <div class=" rounded-3 text-light bg-dark px-4 py-1">
+                  <div class="text-center">
+                    <h3>Register</h3>
+                  </div>
+
 <form  action="Components/RegisterComponents/registerUser.inc.php" method="post">
   
-  <label for="EmailAddress">Email Address:</label><br>
-  <input type="text" id="Email" name="EmailAddress" value=""><br>
-  
-  <label for="Password">Password:</label><br>
-  <input type="Password" id="Password" name="Password" value=""><br><br>
+            <div class="form-outline mb-4">
+                      <input type="" id="" class="input-style" placeholder="Name"/>
+                    </div>
+                    
+                    <div class="form-outline mb-4">
+                      <input type="email" id="" class="input-style" placeholder="Email"/>
+                    </div>
 
-  <label for="PasswordConfirm">Confirm Password:</label><br>
-  <input type="Password" id="PasswordConfirm" name="PasswordConfirm" value=""><br><br>
-  
-  <label for="FirstName">First Name:</label><br>
-  <input type="text" id="FirstName" name="FirstName" value=""><br><br>
+                    <div class="form-outline mb-4">
+                      <input type="password" id="" class="input-style" placeholder="Password"/>
+                    </div>
 
-  <label for="LastName">Last Name:</label><br>
-  <input type="text" id="LastName" name="LastName" value=""><br><br>
+                    <div class="form-outline mb-4">
+                      <input type="password" id="" class="input-style" placeholder="Confirm Password"/>
+                    </div>
 
-  <label for="DOB">Date Of Birth:</label><br>
-  <input type="date" id="DOB" name="DOB" value=""><br><br>
+                    <div class="form-outline mb-4">
+                      <input type="date" id="" class="input-style" placeholder="Date of Birth"/>
+                    </div>
 
-  <label for="PhoneNo">Phone Number (Optional):</label><br>
-  <input type="tel" id="PhoneNo" name="PhoneNo"><br><br>
-  
-  <input type="submit" value="Submit">
-</form>
+                    <div class="form-outline mb-4">
+                      <input type="text" id="" class="input-style" placeholder="Phone Number"/>
+                    </div>
+
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="form-styling-button" type="button"><span>Register</span></button>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">Aready have an account?</p>
+                      <button type="button" class="sign-up-button ml-3"><span>LOG IN</span></button>
+                    </div>
+              </form>

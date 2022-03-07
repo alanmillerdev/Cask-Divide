@@ -1,19 +1,21 @@
 @font-face {
   font-family: 'tequila_sunsetregular';
-  src: url("fonts/tequilasunset-regular-webfont.woff2") format("woff2"), url("fonts/tequilasunset-regular-webfont.woff") format("woff");
+  src: url('fonts/tequilasunset-regular-webfont.woff2') format('woff2'),
+    url('fonts/tequilasunset-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
+
+
 /* GENERAL */
-* {
+*{
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-#main-title {
+#main-title{
   font-family: tequila_sunsetregular;
   font-size: 80px;
 }
@@ -33,20 +35,6 @@ ul {
   display: block;
 }
 
-.input-style::-webkit-input-placeholder {
-  color: #FFFFFF;
-  padding-left: 10px;
-}
-
-.input-style:-ms-input-placeholder {
-  color: #FFFFFF;
-  padding-left: 10px;
-}
-
-.input-style::-ms-input-placeholder {
-  color: #FFFFFF;
-  padding-left: 10px;
-}
 
 .input-style::placeholder {
   color: #FFFFFF;
@@ -55,6 +43,7 @@ ul {
 
 .input-style:focus, input:focus {
   color: #FFFFFF;
+
 }
 
 .input-style, select, textarea {
@@ -83,7 +72,7 @@ ul {
   background-color: #54462C;
 }
 
-.browse_button {
+.browse_button{
   color: white;
   background-color: #BF9139;
   border-color: #BF9139;
@@ -91,7 +80,7 @@ ul {
   border-radius: 25px;
 }
 
-.browse_button:hover {
+.browse_button:hover{
   color: white;
   background-color: #505557;
   border-color: #505557;
@@ -113,24 +102,25 @@ ul {
 }
 
 /* Colours and Fonts */
-.nav-hover:hover {
+.nav-hover:hover{
   background-color: #505557;
 }
 
-.primary-text {
+.primary-text{
   color: #BF9139;
 }
 
-.primary-background {
+.primary-background{
   background-color: #BF9139;
 }
 
-.form-background {
+.form-background{
   background-color: #303030;
 }
 
+
 /* FORM STYLING */
-#form-styling {
+#form-styling{
   background: url(../img/highlands.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -139,7 +129,7 @@ ul {
   padding-top: 150px;
 }
 
-.form-styling-button {
+.form-styling-button{
   display: inline-block;
   border-radius: 4px;
   background-color: #BF9139;
@@ -149,13 +139,12 @@ ul {
   font-size: 22px;
   padding: 10px;
   width: 250px;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
   margin: 3px;
-}
+  }
 
-.form-styling-button:hover {
+.form-styling-button:hover{
   display: inline-block;
   border-radius: 4px;
   background-color: #505557;
@@ -165,40 +154,37 @@ ul {
   font-size: 22px;
   padding: 10px;
   width: 250PX;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
   margin: 3px;
 }
-
+  
 .form-styling-button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
+  
 .form-styling-button span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
   top: 0;
   right: -20px;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-
+  
 .form-styling-button:hover span {
   padding-right: 25px;
 }
-
+  
 .form-styling-button:hover span:after {
   opacity: 1;
   right: 0;
 }
 
-.sign-up-button {
+.sign-up-button{
   display: inline-block;
   border-radius: 4px;
   background-color: #BF9139;
@@ -208,48 +194,44 @@ ul {
   font-size: 14px;
   padding: 10px;
   width: 100px;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
-}
+  }
 
-.sign-up-button:hover {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #505557;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 14px;
-  padding: 10px;
-  width: 100px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  cursor: pointer;
+.sign-up-button:hover{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #505557;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    width: 100px;
+    transition: all 0.3s;
+    cursor: pointer;
 }
-
+  
 .sign-up-button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
+  
 .sign-up-button span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
   top: 0;
   right: -20px;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-
+  
 .sign-up-button:hover span {
   padding-right: 15px;
 }
-
+  
 .sign-up-button:hover span:after {
   opacity: 1;
   right: 0;
@@ -260,4 +242,3 @@ ul {
   height: auto;
   width: 200px;
 }
-/*# sourceMappingURL=style.css.map */
