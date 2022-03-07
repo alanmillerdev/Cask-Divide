@@ -14,33 +14,33 @@
                   </div>
 
 <form  action="Components/RegisterComponents/registerUser.inc.php" method="post">
-  
+
             <div class="form-outline mb-4">
-                      <input type="" id="" class="input-style" placeholder="Name"/>
+                      <input type="text" id="" name="FullName" class="input-style" placeholder="Name"/>
                     </div>
                     
                     <div class="form-outline mb-4">
-                      <input type="email" id="" class="input-style" placeholder="Email"/>
+                      <input type="email" id="" name="EmailAddress" class="input-style" placeholder="Email"/>
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="password" id="" class="input-style" placeholder="Password"/>
+                      <input type="password" id="" name="Password" class="input-style" placeholder="Password"/>
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="password" id="" class="input-style" placeholder="Confirm Password"/>
+                      <input type="password" id="" name="PasswordConfirm" class="input-style" placeholder="Confirm Password"/>
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="date" id="" class="input-style" placeholder="Date of Birth"/>
+                      <input type="date" id="" name="DOB" class="input-style" placeholder="Date of Birth"/>
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="text" id="" class="input-style" placeholder="Phone Number"/>
+                      <input type="text" id="" name="PhoneNumber" class="input-style" placeholder="Phone Number"/>
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button class="form-styling-button" type="button"><span>Register</span></button>
+                      <button type="submit" class="form-styling-button"><span>Register</span></button>
                     </div>
 
                     <div class="d-flex align-items-center justify-content-center pb-4">
