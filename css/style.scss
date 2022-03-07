@@ -6,6 +6,18 @@
   font-style: normal;
 }
 
+$colors: (background: #272727,
+  foreground:#B8BABC,
+  primary:#BF9139,
+  text:#ffffff,
+  secondary: #FFA800);
+
+$padding: 20px;
+$borders: 60px;
+
+@function color($color-name) {
+  @return map-get($colors, $color-name)
+}
 
 
 /* GENERAL */
@@ -27,8 +39,8 @@ ul {
 
 /* Form Styling */
 .input-style {
-  border: 2px solid #BF9139;
-  background-color: #303030;
+  border: 2px solid color(primary);
+  background-color: color(background);
   width: 400px;
   height: 50px;
   margin: auto;
@@ -74,8 +86,8 @@ ul {
 
 .browse_button{
   color: white;
-  background-color: #BF9139;
-  border-color: #BF9139;
+  background-color: color(primary);
+  border-color: color(primary);
   text-decoration: none;
   border-radius: 25px;
 }
@@ -107,15 +119,15 @@ ul {
 }
 
 .primary-text{
-  color: #BF9139;
+  color: color(primary);
 }
 
 .primary-background{
-  background-color: #BF9139;
+  background-color: color(primary);
 }
 
 .form-background{
-  background-color: #303030;
+  background-color: color(background);
 }
 
 
@@ -132,7 +144,7 @@ ul {
 .form-styling-button{
   display: inline-block;
   border-radius: 4px;
-  background-color: #BF9139;
+  background-color: color(primary);
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -187,7 +199,7 @@ ul {
 .sign-up-button{
   display: inline-block;
   border-radius: 4px;
-  background-color: #BF9139;
+  background-color: color(primary);
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -238,6 +250,10 @@ ul {
 }
 
 /* Footer */
+footer{
+  background-color: color(background);
+}
+
 .footer_logo {
   height: auto;
   width: 200px;

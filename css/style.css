@@ -26,7 +26,7 @@ ul {
 /* Form Styling */
 .input-style {
   border: 2px solid #BF9139;
-  background-color: #303030;
+  background-color: #272727;
   width: 400px;
   height: 50px;
   margin: auto;
@@ -126,7 +126,7 @@ ul {
 }
 
 .form-background {
-  background-color: #303030;
+  background-color: #272727;
 }
 
 /* FORM STYLING */
@@ -256,6 +256,10 @@ ul {
 }
 
 /* Footer */
+footer {
+  background-color: #272727;
+}
+
 .footer_logo {
   height: auto;
   width: 200px;

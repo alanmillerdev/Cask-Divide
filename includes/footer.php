@@ -1,7 +1,7 @@
 <footer>
     <div class="d-flex justify-content-around align-items-center">
       <div class="">
-        <a href="index.php"><img class="footer_logo d-none d-md-block" src="..images/logo-1.png" alt="Scotch Whiskey Casks Logo"></a>
+        <a href="index.php"><img class="footer_logo d-none d-md-block" src="./images/logo-1.png" alt="Scotch Whiskey Casks Logo"></a>
       </div>
       <div class="">
         <ul class="d-flex">
