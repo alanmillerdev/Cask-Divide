@@ -6,10 +6,15 @@ include 'Components/RequiredComponents/styles.inc.php';
 
 ?>
 
-<!--NAVBAR INCLUDE-->
+<!--NAVBAR INCLUDE AND ERROR MESSAGE-->
 <?php
 include('Components/RequiredComponents/navbar.inc.php');
+
+include 'Components/LoginComponents/loginErrorHandling.inc.php';
+
 ?>
+
+
 
 <!-- LOGIN SECTION -->
 <section id="form-styling">

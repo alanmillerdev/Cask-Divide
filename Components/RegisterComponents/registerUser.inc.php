@@ -7,7 +7,7 @@ $dbConnection = Connect();
 $email = $_POST['EmailAddress'];
 $password = $_POST['Password'];
 $passwordConfirm = $_POST['PasswordConfirm'];
-$fullName = split_name($_POST['FullName']); 
+$fullName = split_name($_POST['FullName']);
 $dob = $_POST['DOB'];
 $phoneNo = $_POST['PhoneNumber'];
 
@@ -18,7 +18,7 @@ $lastName = $fullName[1];
 $select = mysqli_query($dbConnection, "SELECT * FROM user WHERE email = '" . $email . "'");
 if (mysqli_num_rows($select)) {
     header('location: ../../register.php?msg=dupe');
-    echo('<h1>hi</h1>');
+    echo ('<h1>hi</h1>');
     exit();
     $dbConnection->close();
 }
@@ -46,10 +46,13 @@ $stmt->execute();
 $stmt->close();
 $dbConnection->close();
 
+header('location: ../../login.php?msg=success');
+
 // uses regex that accepts any word character or hyphen in last name
-function split_name($name) {
+function split_name($name)
+{
     $name = trim($name);
     $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
-    $first_name = trim( preg_replace('#'.preg_quote($last_name,'#').'#', '', $name ) );
+    $first_name = trim(preg_replace('#' . preg_quote($last_name, '#') . '#', '', $name));
     return array($first_name, $last_name);
 }
