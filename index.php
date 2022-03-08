@@ -18,7 +18,7 @@ include 'Components/RequiredComponents/styles.inc.php';
   <div class="hero">
     <img class="img-fluid" src="./images/glencoe.png" alt="main page background image">
     <div class="herotext">
-      <h1>Invest in Scotch Whisky</h1>
+      <h1>Invest in lovely Whisky</h1>
       <button class="button hvr-hollow" onclick="window.location.href='casks.php'">Browse our Casks</button>
     </div>
     <div class="caskimg">
