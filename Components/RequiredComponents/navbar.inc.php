@@ -35,8 +35,10 @@
             <ul class="navbar-nav">
                 <?php
 
-                if (isset($_SESSION['user_id'])) {
-                    echo '<a href="logout.php"><button type="button" class="btn btn-outline-primary me-2">Log Out</button></a>';
+                session_start();
+
+                if (isset($_SESSION['UserID'])) {
+                    echo '<a href="Components/LogoutComponents/logoutUser.inc.php"><button type="button" class="btn btn-outline-primary me-2">Log Out</button></a>';
                 } else {
                     echo '<a href="login.php"><button type="button" class="btn btn-primary">Login/Register</button></a>';
                 }
