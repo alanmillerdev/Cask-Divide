@@ -6,6 +6,8 @@ include 'Components/RequiredComponents/styles.inc.php';
 
 ?>
 
+<div class="content">
+
 <body data-spy="scroll" data-target="#main-nav" id="home" class="bg-dark">
 
   <?php include 'Components/RequiredComponents/navbar.inc.php'; ?>
