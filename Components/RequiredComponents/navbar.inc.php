@@ -40,7 +40,7 @@
                 if (isset($_SESSION['UserID'])) {
                     echo '<a href="Components/LogoutComponents/logoutUser.inc.php"><button type="button" class="btn btn-outline-primary me-2">Log Out</button></a>';
                 } else {
-                    echo 
+                    echo
                     '<ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="login.php">Login</a>

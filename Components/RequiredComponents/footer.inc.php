@@ -47,7 +47,7 @@
                 </a></li>
             <li class="nav-item px-3"><a href="#" class="nav-link">
                     <h6 class="text-muted">Cookie Policy</h6>
-            </a></li>
+                </a></li>
         </ul>
     </div>
 

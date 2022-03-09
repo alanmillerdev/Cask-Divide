@@ -18,11 +18,11 @@
           </div>
 
           <div class="form-outline mb-4">
-            <input type="password" id="" name="Password" class="input-style" placeholder="Password" required/>
+            <input type="password" id="" name="Password" class="input-style" placeholder="Password" required />
           </div>
 
           <div class="form-outline mb-4">
-            <input type="password" id="" name="PasswordConfirm" class="input-style" placeholder="Confirm Password" required/>
+            <input type="password" id="" name="PasswordConfirm" class="input-style" placeholder="Confirm Password" required />
           </div>
 
           <div class="form-outline mb-4">

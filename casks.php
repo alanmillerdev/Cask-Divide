@@ -1,7 +1,7 @@
 <?php
 $PageTitle = "Casks";
 include 'Components/RequiredComponents/header.inc.php';
-include 'Components/RequiredComponents/styles.inc.php';?>
+include 'Components/RequiredComponents/styles.inc.php'; ?>
 
   <?php include 'Components/RequiredComponents/navbar.inc.php'; ?>
 
