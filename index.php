@@ -8,11 +8,13 @@ include 'Components/RequiredComponents/styles.inc.php';
 
 <div class="content">
 
-  <!--NAVBAR INCLUDE-->
-  <?php
-  $page = 'home';
-  include('Components/RequiredComponents/navbar.inc.php');
-  ?>
+
+<?php
+
+$page = 'home';
+include('Components/RequiredComponents/navbar.inc.php');
+
+?>
 
 <?php
 
@@ -20,8 +22,18 @@ include('Components/IndexComponents/IndexBanner.inc.php');
 
 ?>
 
+<?php
 
-<!--footer-->
+include('Components/IndexComponents/IndexAboutUs.inc.php');
+
+?>
+<?php
+
+include('Components/IndexComponents/IndexCarousel.inc.php');
+
+?>
+
+
 <?php
 
 include('Components/RequiredComponents/footer.inc.php');
