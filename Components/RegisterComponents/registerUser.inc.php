@@ -18,10 +18,24 @@ $lastName = $fullName[1];
 $select = mysqli_query($dbConnection, "SELECT * FROM user WHERE email = '" . $email . "'");
 if (mysqli_num_rows($select)) {
     header('location: ../../register.php?msg=dupe');
-    echo ('<h1>hi</h1>');
     exit();
     $dbConnection->close();
 }
+
+//Email Address Validation
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    list($userName, $mailDomain) = explode("@", $email);
+    if (!checkdnsrr($mailDomain, "MX")) {
+        header('location: ../../register.php?msg=domain');
+        exit();
+        $dbConnection->close();
+    }
+} else {
+    header('location: ../../register.php?msg=email');
+    exit();
+    $dbConnection->close();
+}
+
 //Password Mismatch Check
 if ($password != $passwordConfirm) {
     header('location: ../../register.php?msg=mismatch');

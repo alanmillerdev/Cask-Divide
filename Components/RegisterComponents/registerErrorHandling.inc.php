@@ -10,7 +10,27 @@ switch ($_GET["msg"]) {
         </div>
         ');
         break;
-    case "err":
+    case "email":
+        echo ('
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Error!</strong> You have entered an invalid email address.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                ');
+        break;
+    case "domain":
+        echo ('
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> Invalid Email Domain!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            ');
+        break;
+    case "mismatch":
         echo ('
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Error!</strong> Entered passwords do not match!
