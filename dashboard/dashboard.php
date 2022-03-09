@@ -49,6 +49,13 @@
 
                     <li class="nav-link">
                         <a href="#">
+                            <img class="caskimg" src="css/icons/cask-icon.svg">
+                            <span class="text nav-text">Casks</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
                             <i class='bx bx-bar-chart-alt-2 icon' ></i>
                             <span class="text nav-text">Revenue</span>
                         </a>
@@ -77,20 +84,7 @@
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>
-                </li>
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-                
+                </li>                
             </div>
         </div>
 
