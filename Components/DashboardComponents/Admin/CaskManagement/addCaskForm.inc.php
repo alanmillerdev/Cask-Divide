@@ -1,4 +1,4 @@
-<form action="addCask.inc.php" method="post">
+<form action="addCask.inc.php" method="post" enctype="multipart/form-data">
 
     <label for="NameOfCask">Name of Cask</label><br>
     <input type="text" id="NameOfCask" name="NameOfCask" value=""><br>
@@ -25,7 +25,7 @@
     <input type="text" id="WoodType" name="WoodType" value=""><br>
 
     <label for="CaskImage">Cask Image</label><br>
-    <input type="file" id="CaskImage" name="CaskImage" accept="">
+    <input type="file" id="CaskImage" name="CaskImage" accept=""><br>
 
     <label for="DistilleryName">Distilled At</label><br>
     <select name="DistilleryName">

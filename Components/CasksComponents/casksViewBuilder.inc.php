@@ -5,13 +5,13 @@ require 'generateCask.inc.php';
 
 $dbConnection = Connect();
 
-$sql = "SELECT CaskID, CaskName, PercentageAvailable, CaskImageLocation FROM cask ORDER BY CaskID";
+$sql = "SELECT CaskID, CaskName, PercentageAvailable, CaskImage FROM cask ORDER BY CaskID";
 $query = mysqli_query($dbConnection, $sql);
 
 $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 foreach ($result as $cask) {
-    echo generateCask($cask['CaskID'], $cask['CaskName'], $cask['PercentageAvailable'], $cask['CaskImageLocation']);
+    echo generateCask($cask['CaskID'], $cask['CaskName'], $cask['PercentageAvailable'], $cask['CaskImage']);
 };
 
 // Free result set
