@@ -68,19 +68,15 @@ ul {
 }
 
 #home-section {
-  background: url(../images/highlands.jpg);
+  background: url(../images/glencoe.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 #home-section .home-inner {
   padding-top: 150px;
-}
-
-.nav_button:hover {
-  background-color: #54462C;
 }
 
 .browse_button {
@@ -98,25 +94,12 @@ ul {
   text-decoration: none;
 }
 
-/* CIRCULAR LOGO */
-.logo_img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: solid 1px white;
-  margin-right: 300px;
-}
-
 /* Icons */
 .fab {
   color: white;
 }
 
 /* Colours and Fonts */
-.nav-hover:hover {
-  background-color: #505557;
-}
-
 .primary-text {
   color: #BF9139;
 }
@@ -131,7 +114,7 @@ ul {
 
 /* FORM STYLING */
 #form-styling {
-  background: url(../img/highlands.jpg);
+  background: url(../images/highlands.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -286,7 +269,7 @@ body {
 
 .content nav .nav-link {
   font-size: 20px;
-  color: #ffffff !important;
+  color: !important;
 }
 
 .content .btn-primary {
@@ -296,7 +279,8 @@ body {
 }
 
 .content .nav-link:hover {
-  color: #BF9139 !important;
+  color: !important;
+  background-color: #BF9139;
 }
 
 .content #right-items li {
