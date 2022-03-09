@@ -26,7 +26,7 @@
           </div>
 
           <div class="form-outline mb-4">
-            <input type="date" id="" name="DOB" class="input-style" placeholder="Date of Birth" />
+            <input placeholder="Date of Birth" class="input-style" type="text" name="DOB" onfocus="(this.type='date')" onblur="(this.type='text')" onsubmit="(this.type='date')">
           </div>
 
           <div class="form-outline mb-4">
@@ -40,7 +40,7 @@
           <div class="d-flex align-items-center justify-content-center pb-4">
             <p class="mb-0 me-2">Aready have an account?</p>
             <a href="login.php">
-            <button type="button" class="sign-up-button ml-3"><span>LOG IN</span></button>
+              <button type="button" class="sign-up-button ml-3"><span>LOG IN</span></button>
             </a>
           </div>
         </form>
