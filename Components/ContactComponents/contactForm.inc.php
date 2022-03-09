@@ -7,7 +7,7 @@
             <h3 class="mt-1 mb-5" id="decor-title">Contact</h3>
           </div>
 
-          <form class="d-flex flex-column" id="contactForm" name="sentMessage" novalidate="novalidate" action="contactFormLogic.inc.php">
+          <form class="d-flex flex-column" id="contactForm" name="sentMessage" novalidate="novalidate" >
             <div class="form-outline form-group mb-4">
               <input type="text" name="name" id="name" required="required" data-validation-required-message="Please enter your name." class="input-style" placeholder="Name" />
              <p class="help-block text-light"></p>
