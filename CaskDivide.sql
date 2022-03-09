@@ -1,6 +1,6 @@
-CREATE DATABASE CaskDivide2;
+CREATE DATABASE CaskDivide;
 
-CREATE TABLE CaskDivide2.User(
+CREATE TABLE CaskDivide.User(
     UserID INTEGER NOT NULL AUTO_INCREMENT,
     Email VARCHAR(255) NOT NULL,
     Password VARCHAR(255) NOT NULL,
@@ -13,20 +13,20 @@ CREATE TABLE CaskDivide2.User(
     PRIMARY KEY (UserID)
 );
 
-CREATE TABLE CaskDivide2.Admin(
+CREATE TABLE CaskDivide.Admin(
     UserID INTEGER NOT NULL,
     LastLogin DATETIME NOT NULL,
     PRIMARY KEY (UserID),
     FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
 
-CREATE TABLE CaskDivide2.Distillery(
+CREATE TABLE CaskDivide.Distillery(
     DistilleryName VARCHAR(80) NOT NULL,
     Description VARCHAR(2000) NOT NULL,
     PRIMARY KEY (DistilleryName)
 );
 
-CREATE TABLE CaskDivide2.Cask(
+CREATE TABLE CaskDivide.Cask(
     CaskID INTEGER NOT NULL AUTO_INCREMENT,
     CaskName VARCHAR(80) NOT NULL,
     CaskDescription VARCHAR(255) NOT NULL,
@@ -43,14 +43,14 @@ CREATE TABLE CaskDivide2.Cask(
     FOREIGN KEY (DistilleryName) REFERENCES Distillery(DistilleryName)
 );
 
-CREATE TABLE CaskDivide2.Payment(
+CREATE TABLE CaskDivide.Payment(
     TransactionID INTEGER NOT NULL AUTO_INCREMENT,
     StripeTransactionID VARCHAR(255) NOT NULL,
     StripeCustomerID VARCHAR(255) NOT NULL,
     PRIMARY KEY (TransactionID)
 );
 
-CREATE TABLE CaskDivide2.Investment(
+CREATE TABLE CaskDivide.Investment(
     InvestmentID INTEGER NOT NULL AUTO_INCREMENT,
     UserID INTEGER NOT NULL,
     CaskID INTEGER NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE CaskDivide2.Investment(
     FOREIGN KEY (TransactionID) REFERENCES Payment(TransactionID)
 );
 
-CREATE TABLE CaskDivide2.UserInvestments(
+CREATE TABLE CaskDivide.UserInvestments(
     UserInvestmentID INTEGER NOT NULL AUTO_INCREMENT,
     UserID INTEGER NOT NULL,
     InvestmentID INTEGER NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE CaskDivide2.UserInvestments(
     FOREIGN KEY (InvestmentID) REFERENCES Investment(InvestmentID)
 );
 
-CREATE TABLE CaskDivide2.AdminLogItem(
+CREATE TABLE CaskDivide.AdminLogItem(
     ID INTEGER NOT NULL AUTO_INCREMENT,
     UserID INTEGER NOT NULL,
     CaskID INTEGER NOT NULL,
