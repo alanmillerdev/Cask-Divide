@@ -11,7 +11,6 @@ $query = mysqli_query($dbConnection, $sql);
 $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 foreach ($result as $cask) {
-
     echo generateCask($cask['CaskID'], $cask['CaskName'], $cask['PercentageAvailable'], $cask['CaskImageLocation']);
 };
 
