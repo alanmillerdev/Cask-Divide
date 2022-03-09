@@ -55,6 +55,10 @@ else{echo 'File not uploaded';}
 }
 
 
+if ($caskImagePath == null) {
+    $caskImagePath = "cask1.png";
+};
+
 //Prepared Statement
 $stmt = $dbConnection->prepare("INSERT INTO cask (CaskName, PercentageAvailable, WholeCaskPrice, OLA, RLA, PercentageAlcohol, CaskType, WoodType, DistilleryName, CaskImageLocation) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sddddissss", $CaskName, $PercentageAvailable, $WholeCaskPrice, $OLA, $RLA, $PercentageAlcohol, $CaskType, $WoodType, $DistilleryName, $CaskImageLocation);
