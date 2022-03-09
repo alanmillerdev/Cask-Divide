@@ -15,13 +15,21 @@ $caskType = $_POST['CaskType'];
 $woodType = $_POST['WoodType'];
 $distilleryName = $_POST['DistilleryName'];
 $caskImage = base64_encode(file_get_contents($_FILES["CaskImage"]["tmp_name"]));
-$file_type = $_FILES['foreign_character_upload']['type']; //returns the mimetype
-$allowed = array("image/jpeg", "image/jpg", "image/png");
 
-if(!in_array($file_type, $allowed)) {
-  $error_message = 'Only jpg, jpeg, and png files are allowed.';
-  $error = 'yes';
+$allowed_types =array('jpg','png', 'jpeg')
+$error = null;
+
+// Get the file extension
+$extension = pathinfo($caskImage, PATHINFO_EXTENSION);
+
+// Search the array for the allowed file type
+
+if (in_array($extension, $allowed_types, false) != true) {
+
+    $error = "ERROR: ILLEGAL FILE TYPE";
+    return $error; // or use  exit;
 }
+
 
 //Prepared Statement
 $stmt = $dbConnection->prepare("INSERT INTO cask (CaskName, CaskDescription, PercentageAvailable, WholeCaskPrice, OLA, RLA, PercentageAlcohol, CaskType, WoodType, DistilleryName, CaskImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
