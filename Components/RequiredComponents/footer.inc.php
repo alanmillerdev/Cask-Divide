@@ -20,7 +20,7 @@
                         <h5>Services</h5>
                     </a></li>
             </ul>
-            <img class="px-3 pb-2" src="images/stripeimage.png" alt="">
+            <img class="px-3 pb-2" src="images/payment.png" alt="">
         </div>
         <div class="">
             <ul class="d-flex">

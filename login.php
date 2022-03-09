@@ -20,7 +20,7 @@ include 'Components/LoginComponents/loginErrorHandling.inc.php';
 <section id="form-styling">
   <div class="container">
     <div class="d-flex justify-content-center align-items-center">
-      <div class=" rounded-3 text-light bg-dark p-5">
+      <div class=" rounded-3 text-light p-5">
         <div class="text-center">
           <h3>LOGIN</h3>
         </div>
