@@ -24,6 +24,9 @@
     <label for="WoodType">Wood Type</label><br>
     <input type="text" id="WoodType" name="WoodType" value=""><br>
 
+    <label for="CaskImage">Cask Image</label><br>
+    <input type="file" id="CaskImage" name="CaskImage" accept="">
+
     <label for="DistilleryName">Distilled At</label><br>
     <select name="DistilleryName">
         <?php
