@@ -1,7 +1,3 @@
-<div id="decor-title" style="margin-top: 30px;">
-  <h1>Browse our Whisky Casks</h1>
-</div>
-
 <section id="icon-boxes" class="py-5">
     <div class="container mb-4">
       <div class="row">
