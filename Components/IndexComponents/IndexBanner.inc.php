@@ -13,7 +13,7 @@
         </div>
         
         <div class="col-lg-4">
-          <img class="" src="images/cask1.png" alt="Image of a Scotch Whiskey Cask">
+          <img class="" src="images/cask1.png" alt="Image of a Scotch Whiskey Cask" height="650" width="650">
         </div>
       </div>
     </div>
