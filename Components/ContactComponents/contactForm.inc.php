@@ -2,9 +2,9 @@
   <section id="form-styling">
     <div class="container">
       <div class="d-flex justify-content-center">
-        <div class="rounded-3 text-light bg-dark p-5">
+        <div class="rounded-3 text-light p-5" style="background-color: #272727;">
           <div class="text-center">
-            <h3 class="mt-1 mb-5">Contact</h3>
+            <h3 class="mt-1 mb-5" id="decor-title">Contact</h3>
           </div>
 
           <form class="d-flex flex-column" id="contactForm" name="sentMessage" novalidate="novalidate" action="contactFormLogic.inc.php">

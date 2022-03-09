@@ -80,7 +80,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="../index.php">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -110,17 +110,7 @@ toggle.addEventListener("click" , () =>{
 searchBtn.addEventListener("click" , () =>{
     sidebar.classList.remove("close");
 })
-
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Light mode";
-    }else{
-        modeText.innerText = "Dark mode";
-        
-    }
-});
+;
     </script>
 
 </body>
