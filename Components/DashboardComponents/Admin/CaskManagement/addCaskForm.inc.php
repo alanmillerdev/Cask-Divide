@@ -28,7 +28,7 @@
     <input type="text" id="WoodType" name="WoodType" value=""><br>
 
     <label for="CaskImage">Cask Image</label><br>
-    <input type="file" id="CaskImage" name="CaskImage" accept=""><br>
+    <input type="file" id="CaskImage" name="CaskImage" accept=".png, .jpg, .jpeg"><br>
 
     <label for="DistilleryName">Distilled At</label><br>
     <select name="DistilleryName">
