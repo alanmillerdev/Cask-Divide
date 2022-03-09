@@ -1,4 +1,4 @@
-<? include 'bootstrapJS.inc.php' ?>
+<?php include 'bootstrapJS.inc.php' ?>
 
 <footer>
     <div class="d-flex justify-content-around align-items-center border-light border-top">
