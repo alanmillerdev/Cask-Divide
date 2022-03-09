@@ -16,3 +16,7 @@ include 'Components/ContactComponents/contactForm.inc.php';
 include 'Components/RequiredComponents/footer.inc.php';
 
 include 'Components/ContactComponents/contactFormLogic.inc.php';
+
+include 'Components/RequiredComponents/bootstrapJS.inc.php';
+
+?>
