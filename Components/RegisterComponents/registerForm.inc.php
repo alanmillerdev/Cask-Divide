@@ -10,27 +10,27 @@
         <form action="Components/RegisterComponents/registerUser.inc.php" method="post">
 
           <div class="form-outline mb-4">
-            <input type="text" id="" name="FullName" class="input-style" placeholder="Name" />
+            <input type="text" id="" name="FullName" class="input-style" placeholder="Name" required />
           </div>
 
           <div class="form-outline mb-4">
-            <input type="email" id="" name="EmailAddress" class="input-style" placeholder="Email" />
+            <input type="email" id="" name="EmailAddress" class="input-style" placeholder="Email" required />
           </div>
 
           <div class="form-outline mb-4">
-            <input type="password" id="" name="Password" class="input-style" placeholder="Password" />
+            <input type="password" id="" name="Password" class="input-style" placeholder="Password" required/>
           </div>
 
           <div class="form-outline mb-4">
-            <input type="password" id="" name="PasswordConfirm" class="input-style" placeholder="Confirm Password" />
+            <input type="password" id="" name="PasswordConfirm" class="input-style" placeholder="Confirm Password" required/>
           </div>
 
           <div class="form-outline mb-4">
-            <input placeholder="Date of Birth" class="input-style" type="text" name="DOB" onfocus="(this.type='date')" onblur="(this.type='text')" onsubmit="(this.type='date')">
+            <input placeholder="Date of Birth" class="input-style" type="text" name="DOB" onfocus="(this.type='date')" onblur="(this.type='text')" onsubmit="(this.type='date')" required>
           </div>
 
           <div class="form-outline mb-4">
-            <input type="text" id="" name="PhoneNumber" class="input-style" placeholder="Phone Number" />
+            <input type="text" id="" name="PhoneNumber" class="input-style" placeholder="Phone Number (Optional)" />
           </div>
 
           <div class="text-center pt-1 mb-5 pb-1">
