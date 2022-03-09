@@ -7,3 +7,4 @@
     <?php include('styles.inc.php');  ?>
     <title>Cask Divide - <?php echo $PageTitle ?></title>
 </head>
+<div class="content">
