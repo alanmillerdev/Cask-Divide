@@ -2,9 +2,9 @@
 <section id="form-styling">
   <div class="container mt-0">
     <div class="d-flex justify-content-center align-items-center ">
-      <div class=" rounded-3 text-light bg-dark px-4 py-1">
+      <div class=" rounded-3 text-light px-4 py-1" style="background-color: #272727;">
         <div class="text-center">
-          <h3 class="p-2">Register</h3>
+          <h3 class="mt-1 mb-5" id="decor-title">Register</h3>
         </div>
 
         <form action="Components/RegisterComponents/registerUser.inc.php" method="post">
