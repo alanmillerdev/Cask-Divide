@@ -42,7 +42,7 @@ if((phoneNumber.length > 11 || phoneNumber.length < 7 || phoneNumber.match(phone
           $this = $("#sendMessageButton");
           $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
           $.ajax({
-            url: "../Components/ContactComponents/contactFormLogic.inc.php",
+            url: "../Cask-Divide/Components/ContactComponents/contactFormLogic.inc.php",
             type: "POST",
             data: {
               name: name,
