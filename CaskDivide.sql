@@ -37,6 +37,7 @@ CREATE TABLE CaskDivide.Cask(
     CaskType VARCHAR(60) NOT NULL,
     WoodType VARCHAR(60) NOT NULL,
     DistilleryName VARCHAR(80) NOT NULL,
+    CaskImageLocation VARCHAR(255) NOT NULL,
     PRIMARY KEY (CaskID),
     FOREIGN KEY (DistilleryName) REFERENCES Distillery(DistilleryName)
 );

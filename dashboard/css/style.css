@@ -10,12 +10,12 @@
 
 :root {
   /* ===== Colors ===== */
-  --body-color: #E4E9F7;
-  --sidebar-color: #FFF;
+  --body-color: #272727;
+  --sidebar-color: #242526;
   --primary-color: #BF9139;
-  --primary-color-light: #F6F5FF;
-  --toggle-color: #DDD;
-  --text-color: #707070;
+  --primary-color-light: #3a3b3c;
+  --toggle-color: #fff;
+  --text-color: #ccc;
   /* ====== Transition ====== */
   --tran-03: all 0.2s ease;
   --tran-03: all 0.3s ease;
@@ -38,15 +38,6 @@ body {
 ::selection {
   background-color: var(--primary-color);
   color: #fff;
-}
-
-body.dark {
-  --body-color: #272727;
-  --sidebar-color: #242526;
-  --primary-color: #BF9139;
-  --primary-color-light: #3a3b3c;
-  --toggle-color: #fff;
-  --text-color: #ccc;
 }
 
 /* ===== Sidebar ===== */
@@ -86,6 +77,28 @@ body.dark {
   border-radius: 6px;
 }
 
+.sidebar header .image,
+.sidebar .caskimg {
+  min-width: 60px;
+  border-radius: 6px;
+}
+
+.sidebar .caskimg {
+  min-width: 60px;
+  border-radius: 6px;
+  height: 45%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 20px;
+}
+
 .sidebar .icon {
   min-width: 60px;
   border-radius: 6px;
@@ -100,6 +113,13 @@ body.dark {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 20px;
+}
+
+.sidebar .text,
+.sidebar .caskimg {
+  color: var(--text-color);
+  -webkit-transition: var(--tran-03);
+  transition: var(--tran-03);
 }
 
 .sidebar .text,

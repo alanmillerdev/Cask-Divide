@@ -32,6 +32,7 @@ $percentageAlcohol = $_POST['PercentageAlcohol'];
 $caskType = $_POST['CaskType'];
 $woodType = $_POST['WoodType'];
 $distilleryName = $_POST['DistilleryName'];
+<<<<<<< HEAD
 $uploadDir = '../';
 $fileName = $_FILES['fileToUpload']['name'];
 $filePath = $uploadDir . $fileName;
@@ -54,10 +55,13 @@ else{echo 'File not uploaded';}
 
 }
 
+=======
+$caskImagePath = $_POST[''];
+>>>>>>> 501cc3812595d92ac7df26dc5817836fbf9fe500
 
 //Prepared Statement
-$stmt = $dbConnection->prepare("INSERT INTO cask (CaskName, PercentageAvailable, WholeCaskPrice, OLA, RLA, PercentageAlcohol, CaskType, WoodType, DistilleryName) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sddddisss", $CaskName, $PercentageAvailable, $WholeCaskPrice, $OLA, $RLA, $PercentageAlcohol, $CaskType, $WoodType, $DistilleryName);
+$stmt = $dbConnection->prepare("INSERT INTO cask (CaskName, PercentageAvailable, WholeCaskPrice, OLA, RLA, PercentageAlcohol, CaskType, WoodType, DistilleryName, CaskImageLocation) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sddddissss", $CaskName, $PercentageAvailable, $WholeCaskPrice, $OLA, $RLA, $PercentageAlcohol, $CaskType, $WoodType, $DistilleryName, $CaskImageLocation);
 
 $CaskName = $distilleryName;
 $PercentageAvailable = $percentageAvailable;
@@ -68,6 +72,7 @@ $PercentageAlcohol = $percentageAlcohol;
 $CaskType = $caskType;
 $WoodType = $woodType;
 $DistilleryName = $distilleryName;
+$CaskImageLocation = $caskImageLocation;
 
 $stmt->execute();
 $stmt->close();

@@ -2,12 +2,6 @@
 <?php 
 
 include('../includes/dbconnect.php');
-
-if(!isset($_SESSION['admin']))
-{
-  header('location: ../home.php');
-  exit();
-}
 ?>
 <html lang="en">
 <head>
