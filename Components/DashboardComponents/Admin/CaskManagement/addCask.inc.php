@@ -15,6 +15,13 @@ $caskType = $_POST['CaskType'];
 $woodType = $_POST['WoodType'];
 $distilleryName = $_POST['DistilleryName'];
 $caskImage = base64_encode(file_get_contents($_FILES["CaskImage"]["tmp_name"]));
+$file_type = $_FILES['foreign_character_upload']['type']; //returns the mimetype
+$allowed = array("image/jpeg", "image/jpg", "image/png");
+
+if(!in_array($file_type, $allowed)) {
+  $error_message = 'Only jpg, jpeg, and png files are allowed.';
+  $error = 'yes';
+}
 
 //Prepared Statement
 $stmt = $dbConnection->prepare("INSERT INTO cask (CaskName, CaskDescription, PercentageAvailable, WholeCaskPrice, OLA, RLA, PercentageAlcohol, CaskType, WoodType, DistilleryName, CaskImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
