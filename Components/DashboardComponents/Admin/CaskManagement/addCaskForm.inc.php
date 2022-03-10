@@ -33,7 +33,7 @@
     <label for="DistilleryName">Distilled At</label><br>
     <select name="DistilleryName">
         <?php
-        define('MyConst', TRUE);
+        define('SecurityCheck', TRUE);
 
         include '../../../../Database/dbConnect.inc.php';
 

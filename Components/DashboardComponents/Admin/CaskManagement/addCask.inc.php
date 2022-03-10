@@ -1,6 +1,7 @@
 <?php
-if(!defined('MyConst')) {
-  die('Direct access not permitted');
+if(!defined('SecurityCheck')) {
+  header('../../../../../index.php');
+  exit();
 }
 include '../../../../Database/dbConnect.inc.php';
 
