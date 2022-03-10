@@ -5,8 +5,6 @@ if (getenv('REQUEST_METHOD') != "POST" && !defined('SecurityCheck')) {
 }
 
 
-define('SecurityCheck', TRUE);
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   header('../../contact.php');
