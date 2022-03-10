@@ -33,12 +33,16 @@
             </a>
 
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white p-4 m-0" href="./dashboard/dashboard.php">Dashboard</a>
+                </li>
+
                 <?php
 
                 session_start();
 
                 if (isset($_SESSION['UserID'])) {
-                    echo '<a href="Components/LogoutComponents/logoutUser.inc.php"><button type="button" class="btn btn-outline-primary me-2">Log Out</button></a>';
+                    echo '<a href="Components/LogoutComponents/logoutUser.inc.php"><button type="button" class="border-left nav-link text-white p-4 m-0">Log Out</button></a>';
                 } else {
                     echo
                     '<ul class="navbar-nav">
