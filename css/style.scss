@@ -31,6 +31,7 @@ $borders: 60px;
 #main-title{
   font-family: tequila_sunsetregular;
   font-size: 80px;
+  color: color(text);
 }
 
 #decor-title{
@@ -72,6 +73,30 @@ ul {
 }
 
 .input-style, select, textarea {
+  color: #FFFFFF;
+}
+
+.textarea-style {
+  border: 2px solid color(primary);
+  background-color: color(background);
+  width: 400px;
+  height: 150px;
+  margin: auto;
+  display: block;
+}
+
+
+.textarea-style::placeholder {
+  color: #FFFFFF;
+  padding-left: 10px;
+}
+
+.textarea-style:focus, input:focus {
+  color: #FFFFFF;
+
+}
+
+.textarea-style, select, textarea {
   color: #FFFFFF;
 }
 
@@ -367,256 +392,19 @@ body {
   }
 }
 
+/*FOOTER*/
 
+footer{
 
-/*Shop cards*/
-
-.py-5 {
-  padding-bottom: 0 !important;
-}
-
-.album {
-
-  margin-top: 0px;
-  margin-bottom: 90px;
-
-
-
-  a.col {
-    text-decoration: none;
-  }
-
-  .card {
-    border: none;
-    color: #000;
-    text-decoration: none;
-    text-transform: none;
-
-
-    .card-title {
-      font-size: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      text-transform: none;
-    }
-
-    .card-text {
-      font-size: 20px;
-      text-decoration: none;
-      text-transform: none;
-    }
-
-
-
-    .btn-primary {
-      padding: 20px 30px;
-      background: linear-gradient(135deg, rgba(155, 81, 224, 1) 0%, rgba(45, 156, 219, 1) 100%);
-      box-sizing: border-box;
-      text-decoration: none;
-      color: #FFFFFF;
-      text-align: center;
-      transition: all 0.2s;
-      border-radius: 0%;
-      border: 0;
-      margin: 20px;
-      float: right;
-      font-size: 20px;
-      vertical-align: middle;
-      -webkit-transform: perspective(1px) translateZ(0);
-      transform: perspective(1px) translateZ(0);
-      -webkit-transition-duration: 0.3s;
-      transition-duration: 0.3s;
-      -webkit-transition-property: transform;
-      transition-property: transform;
-
-      i {
-        margin: 5px;
-      }
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:active {
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1);
-    }
-
-
-
-
-  }
-}
-
-
-/*footer*/
-.footer-main {
   margin-top: 50px;
-  width: 100%;
-  background: color(foreground);
-  height: auto;
-  margin: auto;
-  padding-top: 20px;
+  
+  .fa-facebook-square:hover {
+    color: #3B5998;
+  }
 
-
-}
-
-.footer-icons {
-  width: 100%;
-  height: auto;
-  margin: auto;
-
-}
-
-.footer-icons ul {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-
-.footer-icons ul li {
-  display: inline-block;
-  width: 70px;
-  height: 70px;
-  margin: 0px 10px;
-  border-radius: 100%;
-  background: color(foreground);
-  box-shadow: 14px 14px 29px #425460,
-    -14px -14px 29px #5e788a;
-
-}
-
-.footer-icons ul li a {
-  color: color(text);
-  font-size: 35px;
-  display: block;
-
-}
-
-.footer-icons ul li a i {
-  line-height: 70px;
-
-}
-
-.footer-icons .fa-facebook-f:hover {
-  color: #fff;
-  background: #3B5998;
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-.footer-icons .fa-twitter:hover {
-  color: #fff;
-  background: #1DA1F2;
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-.footer-icons .fa-instagram:hover {
-  color: #fff;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-.footer-icons .fa-youtube:hover {
-  color: #fff;
-  background: #DE0000;
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-
-
-.footer-menu-one {
-  width: 100%;
-  height: auto;
-  margin: auto;
-  margin-top: 25px
-}
-
-.footer-menu-one ul {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-.footer-menu-one ul li {
-  display: inline-block;
-  margin: 0px 15px;
-}
-
-.footer-menu-one ul li a {
-  font-size: 20px;
-  font-weight: 400;
-  color: color(text);
-  text-transform: uppercase;
-  text-decoration: none;
-  outline: none;
-  transition-duration: 0.2s;
-}
-
-.footer-menu-one ul li a:hover {
-  color: color(primary);
-}
-
-.footer-menu-two {
-  width: 100%;
-  height: auto;
-  margin: auto;
-  margin-top: 15px
-}
-
-.footer-menu-two ul {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-.footer-menu-two ul li {
-  display: inline-block;
-  margin: 0px 15px;
-}
-
-.footer-menu-two ul li a {
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 400;
-  color: color(text);
-  text-transform: uppercase;
-  text-decoration: none;
-  outline: none;
-  transition-duration: 0.2s;
-}
-
-.footer-menu-two ul li a:hover {
-  color: color(primary);
-}
-
-.footer-bottom {
-  margin-top: 20px;
-  height: auto;
-  margin: auto;
-  background: linear-gradient(90deg, rgba(155, 81, 224, 1) 0%, rgba(45, 156, 219, 1) 100%);
-  padding: 5px;
-}
-
-.footer-bottom {
-  font-family: 'Poppins', sans-serif;
-  font-size: 17px;
-  margin-top: 20px;
-  text-align: center;
-  color: color(text);
-
-  p {
-    margin: 15px;
+  .fa-instagram:hover {
+    color: #fff;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-radius: 20%;
   }
 }
