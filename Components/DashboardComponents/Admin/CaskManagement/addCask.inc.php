@@ -1,5 +1,7 @@
 <?php
-
+if(!defined('MyConst')) {
+  die('Direct access not permitted');
+}
 include '../../../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
