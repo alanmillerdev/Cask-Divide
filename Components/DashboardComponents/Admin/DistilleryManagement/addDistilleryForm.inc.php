@@ -1,3 +1,8 @@
+<?php
+if(!defined('SecurityCheck')) {
+    exit(header("Location: ../../../../index.php"));
+  }
+?>
 <form action="AddDistillery.inc.php" id="addDist" method="post">
 
     <label for="NameOfDistillery">Name Of Distillery</label><br>

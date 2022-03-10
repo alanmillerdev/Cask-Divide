@@ -1,5 +1,5 @@
   <?php
-
+  define('SecurityCheck', TRUE);
   $PageTitle = "Contact";
 
 

@@ -33,7 +33,9 @@
     <label for="DistilleryName">Distilled At</label><br>
     <select name="DistilleryName">
         <?php
-        define('SecurityCheck', TRUE);
+        if(!defined('SecurityCheck')) {
+            exit(header("Location: ../../../../index.php"));
+          }
 
         include '../../../../Database/dbConnect.inc.php';
 

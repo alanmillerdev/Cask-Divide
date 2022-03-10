@@ -1,3 +1,8 @@
+<?php
+if(!defined('SecurityCheck')) {
+  exit(header("Location: ../../index.php"));
+}
+?>
 <section id="explore-section" class="bg-light text-muted py-5">
     <div class="container">
       <div class="row">

@@ -1,4 +1,8 @@
 <?php
+if(!defined('SecurityCheck')) {
+  exit(header("Location: ../../index.php"));
+}
+
 //Destroy session, redirect user to logged out index
 function LogOut()
 {

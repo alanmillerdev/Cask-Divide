@@ -1,4 +1,5 @@
 <?php
+define('SecurityCheck', TRUE);
 
 $PageTitle = "Login";
 include 'Components/RequiredComponents/header.inc.php';

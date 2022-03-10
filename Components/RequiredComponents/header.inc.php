@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+if(!defined('SecurityCheck')) {
+    exit(header("Location: ../../index.php"));
+  }
+?>
 <html lang="en">
 
 <head>

@@ -1,4 +1,7 @@
 <?php
+if(!defined('SecurityCheck')) {
+    exit(header("Location: ../../index.php"));
+  }
 
 require '../../Database/dbconnect.inc.php';
 
