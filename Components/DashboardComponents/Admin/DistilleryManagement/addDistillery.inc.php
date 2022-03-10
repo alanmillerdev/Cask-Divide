@@ -1,8 +1,10 @@
 <?php
-if(!defined('SecurityCheck')) {
-    exit(header("Location: ../../../../index.php"));
-  }
-  
+if (!$_SERVER['REQUEST_METHOD'] === 'POST') {
+  header("Location: ../../../../index.php");
+}
+
+define('SecurityCheck', TRUE);
+
 include '../../../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();

@@ -1,8 +1,8 @@
 <?php
-if(!defined('SecurityCheck')) {
+if (!defined('SecurityCheck')) {
     exit(header("Location: ../../index.php"));
-  }
-  
+}
+
 if (isset($_GET["msg"])) {
 
     switch ($_GET["msg"]) {

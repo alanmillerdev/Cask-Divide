@@ -1,7 +1,9 @@
 <?php
-if(!defined('SecurityCheck')) {
-  exit(header("Location: ../../index.php"));
+if (!$_SERVER['REQUEST_METHOD'] === 'POST') {
+  header("Location: ../../index.php");
 }
+
+define('SecurityCheck', TRUE);
 
 //Destroy session, redirect user to logged out index
 function LogOut()
