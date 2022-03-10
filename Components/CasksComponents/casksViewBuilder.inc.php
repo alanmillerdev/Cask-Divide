@@ -1,6 +1,6 @@
 <?php
 
-require 'Database/dbconnect.inc.php';
+require 'Database/dConnect.inc.php';
 require 'generateCask.inc.php';
 
 $dbConnection = Connect();

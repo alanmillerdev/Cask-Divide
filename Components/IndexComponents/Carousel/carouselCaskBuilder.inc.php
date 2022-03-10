@@ -1,6 +1,6 @@
 <?php
 
-require 'Database/dbconnect.inc.php';
+require 'Database/dbConnect.inc.php';
 require 'carouselCask.inc.php';
 
 $dbConnection = Connect();
