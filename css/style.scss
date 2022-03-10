@@ -75,6 +75,30 @@ ul {
   color: #FFFFFF;
 }
 
+.textarea-style {
+  border: 2px solid color(primary);
+  background-color: color(background);
+  width: 400px;
+  height: 150px;
+  margin: auto;
+  display: block;
+}
+
+
+.textarea-style::placeholder {
+  color: #FFFFFF;
+  padding-left: 10px;
+}
+
+.textarea-style:focus, input:focus {
+  color: #FFFFFF;
+
+}
+
+.textarea-style, select, textarea {
+  color: #FFFFFF;
+}
+
 /* Navbar */
 .navbar {
   border-bottom: #fff 1px solid;

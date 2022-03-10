@@ -24,7 +24,7 @@
            </div>
 
            <div class="form-outline form-group mb-4">
-             <textarea name="message" id="message" required="required" data-validation-required-message="Please enter your message." class="input-style" cols="25" rows="2" placeholder="Message"></textarea>
+             <textarea name="message" id="message" required="required" data-validation-required-message="Please enter your message." class="textarea-style" placeholder="Message"></textarea>
              <p class="help-block text-light"></p>
            </div>
 
