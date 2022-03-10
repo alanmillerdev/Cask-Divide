@@ -3,19 +3,26 @@ if(!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
   }
 
-if($_SESSION['UserType'] == 'Admin') {
-    echo'           <ul class="menu-links">
+if ($_SESSION['UserType'] == 'Admin') {
+    echo '           <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="../index.php">
                             <i class="bx bx-home-alt icon"></i>
-                            <span class="text nav-text">Dashboard</span>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+            
+                    <li class="nav-link">
+                        <a href="../casks.php">
+                            <img class="caskimg" src="css/icons/cask-icon.svg">
+                            <span class="text nav-text">Browse Casks</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <img class="caskimg" src="css/icons/cask-icon.svg">
-                            <span class="text nav-text">Casks</span>
+                            <i class="bx bx-bell icon"></i>
+                            <span class="text nav-text">Admin Notifications</span>
                         </a>
                     </li>
 
@@ -33,52 +40,57 @@ if($_SESSION['UserType'] == 'Admin') {
                         </a>
                     </li>
 
+                </ul>';
+} else {
+    echo '           <ul class="menu-links">
+                        <li class="nav-link">
+                        <a href="../index.php">
+                            <i class="bx bx-home-alt icon"></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="../casks.php">
+                            <img class="caskimg" src="css/icons/cask-icon.svg">
+                            <span class="text nav-text">Browse Casks</span>
+                        </a>
+                    </li>
+
                     <li class="nav-link">
                         <a href="#">
                             <i class="bx bx-bell icon"></i>
-                            <span class="text nav-text">Notifications</span>
-                        </a>
-                    </li>
-
-                </ul>';
-
-
-}
-
-else {
-    echo'           <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-home-alt icon"></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <img class="caskimg" src="css/icons/cask-icon.svg">
-                            <span class="text nav-text">My Casks</span>
+                            <span class="text nav-text">My Notifications</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
                             <i class="bx bx-bar-chart-alt-2 icon"></i>
-                            <span class="text nav-text">Investments</span>
+                            <span class="text nav-text">My Investments</span>
                         </a>
                     </li>
-
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class="bx bx-bell icon"></i>
-                            <span class="text nav-text">Notifications</span>
+                            <i class="bx bx-line-chart icon"></i>
+                            <span class="text nav-text">Past Investments</span>
                         </a>
                     </li>
 
-                </ul>';        
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-user icon"></i>
+                            <span class="text nav-text">My Details</span>
+                        </a>
+                    </li>
 
-     }
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-cog icon"></i>
+                            <span class="text nav-text">Account Settings</span>
+                        </a>
+                    </li>
 
-
-?>
+                </ul>';
+}
