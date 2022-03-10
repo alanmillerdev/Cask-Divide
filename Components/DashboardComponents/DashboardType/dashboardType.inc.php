@@ -70,6 +70,13 @@ if ($_SESSION['UserType'] == 'Admin') {
 
                     <li class="nav-link">
                         <a href="#">
+                            <i class="bx bx-line-chart icon"></i>
+                            <span class="text nav-text">Past Investments</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
                             <i class="bx bx-user icon"></i>
                             <span class="text nav-text">My Details</span>
                         </a>
