@@ -17,6 +17,7 @@
 #main-title {
   font-family: tequila_sunsetregular;
   font-size: 80px;
+  color: #ffffff;
 }
 
 #decor-title {
@@ -351,242 +352,18 @@ body {
   padding-bottom: 3rem !important;
 }
 
-/*Shop cards*/
-.py-5 {
-  padding-bottom: 0 !important;
-}
-
-.album {
-  margin-top: 0px;
-  margin-bottom: 90px;
-}
-
-.album a.col {
-  text-decoration: none;
-}
-
-.album .card {
-  border: none;
-  color: #000;
-  text-decoration: none;
-  text-transform: none;
-}
-
-.album .card .card-title {
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: none;
-}
-
-.album .card .card-text {
-  font-size: 20px;
-  text-decoration: none;
-  text-transform: none;
-}
-
-.album .card .btn-primary {
-  padding: 20px 30px;
-  background: linear-gradient(135deg, #9b51e0 0%, #2d9cdb 100%);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-decoration: none;
-  color: #FFFFFF;
-  text-align: center;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  border-radius: 0%;
-  border: 0;
-  margin: 20px;
-  float: right;
-  font-size: 20px;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-}
-
-.album .card .btn-primary i {
-  margin: 5px;
-}
-
-.album .card .btn-primary:hover,
-.album .card .btn-primary:focus,
-.album .card .btn-primary:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-/*footer*/
-.footer-main {
+/*FOOTER*/
+footer {
   margin-top: 50px;
-  width: 100%;
-  background: #B8BABC;
-  height: auto;
-  margin: auto;
-  padding-top: 20px;
 }
 
-.footer-icons {
-  width: 100%;
-  height: auto;
-  margin: auto;
+footer .fa-facebook-square:hover {
+  color: #3B5998;
 }
 
-.footer-icons ul {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-.footer-icons ul li {
-  display: inline-block;
-  width: 70px;
-  height: 70px;
-  margin: 0px 10px;
-  border-radius: 100%;
-  background: #B8BABC;
-  -webkit-box-shadow: 14px 14px 29px #425460, -14px -14px 29px #5e788a;
-          box-shadow: 14px 14px 29px #425460, -14px -14px 29px #5e788a;
-}
-
-.footer-icons ul li a {
-  color: #ffffff;
-  font-size: 35px;
-  display: block;
-}
-
-.footer-icons ul li a i {
-  line-height: 70px;
-}
-
-.footer-icons .fa-facebook-f:hover {
-  color: #fff;
-  background: #3B5998;
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-.footer-icons .fa-twitter:hover {
-  color: #fff;
-  background: #1DA1F2;
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-.footer-icons .fa-instagram:hover {
+footer .fa-instagram:hover {
   color: #fff;
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-.footer-icons .fa-youtube:hover {
-  color: #fff;
-  background: #DE0000;
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-.footer-menu-one {
-  width: 100%;
-  height: auto;
-  margin: auto;
-  margin-top: 25px;
-}
-
-.footer-menu-one ul {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-.footer-menu-one ul li {
-  display: inline-block;
-  margin: 0px 15px;
-}
-
-.footer-menu-one ul li a {
-  font-size: 20px;
-  font-weight: 400;
-  color: #ffffff;
-  text-transform: uppercase;
-  text-decoration: none;
-  outline: none;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-}
-
-.footer-menu-one ul li a:hover {
-  color: #BF9139;
-}
-
-.footer-menu-two {
-  width: 100%;
-  height: auto;
-  margin: auto;
-  margin-top: 15px;
-}
-
-.footer-menu-two ul {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-.footer-menu-two ul li {
-  display: inline-block;
-  margin: 0px 15px;
-}
-
-.footer-menu-two ul li a {
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 400;
-  color: #ffffff;
-  text-transform: uppercase;
-  text-decoration: none;
-  outline: none;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-}
-
-.footer-menu-two ul li a:hover {
-  color: #BF9139;
-}
-
-.footer-bottom {
-  margin-top: 20px;
-  height: auto;
-  margin: auto;
-  background: -webkit-gradient(linear, left top, right top, from(#9b51e0), to(#2d9cdb));
-  background: linear-gradient(90deg, #9b51e0 0%, #2d9cdb 100%);
-  padding: 5px;
-}
-
-.footer-bottom {
-  font-family: 'Poppins', sans-serif;
-  font-size: 17px;
-  margin-top: 20px;
-  text-align: center;
-  color: #ffffff;
-}
-
-.footer-bottom p {
-  margin: 15px;
+  border-radius: 20%;
 }
 /*# sourceMappingURL=style.css.map */
