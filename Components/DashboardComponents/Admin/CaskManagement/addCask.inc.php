@@ -1,7 +1,6 @@
 <?php
 if(!defined('SecurityCheck')) {
-  header('../../../../../index.php');
-  exit();
+  exit(header("Location: ../../../../../index.php"));
 }
 include '../../../../Database/dbConnect.inc.php';
 
