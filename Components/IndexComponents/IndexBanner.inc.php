@@ -1,3 +1,8 @@
+<?php
+if(!defined('SecurityCheck')) {
+  exit(header("Location: ../../index.php"));
+}
+?>
 <section id="home-section">
   <div class="home-inner container">
     <div class="row">

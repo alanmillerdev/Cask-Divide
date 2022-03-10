@@ -1,4 +1,7 @@
 <?php
+if(!defined('SecurityCheck')) {
+    exit(header("Location: ../../../index.php"));
+  }
 
 if ($_SESSION['UserType'] == 'Admin') {
     echo '           <ul class="menu-links">
@@ -65,6 +68,13 @@ if ($_SESSION['UserType'] == 'Admin') {
                         <a href="#">
                             <i class="bx bx-bar-chart-alt-2 icon"></i>
                             <span class="text nav-text">My Investments</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-line-chart icon"></i>
+                            <span class="text nav-text">Past Investments</span>
                         </a>
                     </li>
 

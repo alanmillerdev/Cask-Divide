@@ -1,3 +1,8 @@
+<?php
+if(!defined('SecurityCheck')) {
+  exit(header("Location: ../../index.php"));
+}
+?>
 <!-- REGISTER SECTION -->
 <section id="form-styling">
   <div class="container mt-0">

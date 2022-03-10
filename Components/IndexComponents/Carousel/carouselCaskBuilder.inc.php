@@ -1,5 +1,8 @@
 <?php
-
+if(!defined('SecurityCheck')) {
+    exit(header("Location: ../../../index.php"));
+  }
+  
 require 'Database/dbConnect.inc.php';
 require 'carouselCask.inc.php';
 

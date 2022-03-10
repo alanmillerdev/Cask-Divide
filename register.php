@@ -1,5 +1,5 @@
 <?php
-
+define('SecurityCheck', TRUE);
 $PageTitle = "Register";
 
 include 'Components/RequiredComponents/header.inc.php';

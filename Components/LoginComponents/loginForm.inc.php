@@ -1,3 +1,8 @@
+<?php
+if(!defined('SecurityCheck')) {
+            exit(header("Location: ../../index.php"));
+          }
+?>  
       <form action="Components/LoginComponents/loginUser.inc.php" method="post">
         <div class="form-outline mb-4">
           <input type="email" id="" name="EmailAddress" class="input-style" placeholder="Email" required />

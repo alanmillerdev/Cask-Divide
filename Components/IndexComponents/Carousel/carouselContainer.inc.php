@@ -1,3 +1,8 @@
+<?php
+if(!defined('SecurityCheck')) {
+  exit(header("Location: ../../../index.php"));
+}
+?>
 <section>
   <div class="container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

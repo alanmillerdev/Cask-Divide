@@ -1,3 +1,8 @@
+<?php
+if(!defined('SecurityCheck')) {
+    exit(header("Location: ../../../index.php"));
+  }
+?>
 <body>
     <nav class="sidebar close">
         <header>
@@ -28,7 +33,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="../index.php">
+                    <a href="../Components/LogoutComponents/logoutUser.inc.php">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
