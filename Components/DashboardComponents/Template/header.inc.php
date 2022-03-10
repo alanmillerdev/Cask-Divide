@@ -15,3 +15,7 @@
 
     <!--<title>Dashboard Sidebar Menu</title>-->
 </head>
+
+<?php
+
+session_start();
