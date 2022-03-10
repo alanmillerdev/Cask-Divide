@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
 
@@ -24,6 +31,15 @@
                 <li class="nav-item">
                     <a class="nav-link text-white p-4 m-0" href="contact.php">Contact</a>
                 </li>
+                <?php
+
+                if (isset($_SESSION['UserID'])) {
+                    echo '
+                        <li class="nav-item">
+                            <a class="nav-link text-white p-4 m-0" href="./dashboard/dashboard.php">Dashboard</a>
+                        </li>';
+                }
+                ?>
 
             </ul>
 
@@ -32,16 +48,12 @@
                 <img src="./images/logo-1.png" height="65" alt="CD Logo" loading="lazy" />
             </a>
 
-            <ul class="navbar-nav">
-                <?php
-
-                session_start();
-
-                if (isset($_SESSION['UserID'])) {
-                    echo '<a href="Components/LogoutComponents/logoutUser.inc.php"><button type="button" class="btn btn-outline-primary me-2">Log Out</button></a>';
-                } else {
-                    echo
-                    '<ul class="navbar-nav">
+            <?php
+            if (isset($_SESSION['UserID'])) {
+                echo '<a href="Components/LogoutComponents/logoutUser.inc.php"><button type="button" class="border-left nav-link text-white p-4 m-0">Log Out</button></a>';
+            } else {
+                echo
+                '<ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="login.php">Login</a>
                         </li>
@@ -49,11 +61,8 @@
                             <a class="border-left nav-link text-white p-4 m-0" href="register.php">Register</a>
                         </li>
                     </ul>';
-                }
-
-
-
-                ?>
+            }
+            ?>
             </ul>
         </div>
     </nav>
