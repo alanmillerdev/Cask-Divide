@@ -1,8 +1,9 @@
 
 <?php
-if (getenv('REQUEST_METHOD') != "POST") {
-  header("Location: ../../../../index.php");
+if (getenv('REQUEST_METHOD') != "POST" && !defined('SecurityCheck')) {
+  header("Location: ../../index.php");
 }
+
 
 define('SecurityCheck', TRUE);
 
