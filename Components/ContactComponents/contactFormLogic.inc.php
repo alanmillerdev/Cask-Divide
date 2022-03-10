@@ -1,6 +1,6 @@
 
 <?php
-if (!$_SERVER['REQUEST_METHOD'] === 'POST') {
+if (getenv('REQUEST_METHOD') != "POST") {
   header("Location: ../../../../index.php");
 }
 
