@@ -75,6 +75,43 @@ ul {
   color: #FFFFFF;
 }
 
+.textarea-style {
+  border: 2px solid #BF9139;
+  background-color: #272727;
+  width: 400px;
+  height: 150px;
+  margin: auto;
+  display: block;
+}
+
+.textarea-style::-webkit-input-placeholder {
+  color: #FFFFFF;
+  padding-left: 10px;
+}
+
+.textarea-style:-ms-input-placeholder {
+  color: #FFFFFF;
+  padding-left: 10px;
+}
+
+.textarea-style::-ms-input-placeholder {
+  color: #FFFFFF;
+  padding-left: 10px;
+}
+
+.textarea-style::placeholder {
+  color: #FFFFFF;
+  padding-left: 10px;
+}
+
+.textarea-style:focus, input:focus {
+  color: #FFFFFF;
+}
+
+.textarea-style, select, textarea {
+  color: #FFFFFF;
+}
+
 /* Navbar */
 .navbar {
   border-bottom: #fff 1px solid;
