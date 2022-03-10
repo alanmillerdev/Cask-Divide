@@ -1,5 +1,5 @@
 <?php
-
+define('SecurityCheck', TRUE);
 $PageTitle = "Contact";
 
 
@@ -17,6 +17,6 @@ include 'Components/RequiredComponents/footer.inc.php';
 
 include 'Components/ContactComponents/contactFormLogic.inc.php';
 
-include 'Components/RequiredComponents/bootstrapJS.inc.php';
+
 
 ?>

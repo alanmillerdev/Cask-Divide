@@ -3,6 +3,9 @@
         <div class="row">
 
             <?php
+            if(!defined('SecurityCheck')) {
+                exit(header("Location: ../../index.php"));
+              }
 
             include('casksViewBuilder.inc.php');
 

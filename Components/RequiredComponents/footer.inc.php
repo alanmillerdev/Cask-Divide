@@ -1,4 +1,10 @@
-<?php include 'bootstrapJS.inc.php' ?>
+<?php 
+if(!defined('SecurityCheck')) {
+    exit(header("Location: ../../index.php"));
+  }
+
+include 'bootstrapJS.inc.php' 
+?>
 
 <footer>
     <div class="d-flex justify-content-around align-items-center border-light border-top">

@@ -1,3 +1,8 @@
+<?php
+if(!defined('SecurityCheck')) {
+    exit(header("Location: ../../../index.php"));
+  }
+?>
 <script>
         const body = document.querySelector('body'),
             sidebar = body.querySelector('nav'),

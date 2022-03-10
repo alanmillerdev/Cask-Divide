@@ -1,4 +1,10 @@
 <?php
+if (getenv('REQUEST_METHOD') != "POST") {
+  header("Location: ../../../../index.php");
+}
+
+define('SecurityCheck', TRUE);
+
 //Destroy session, redirect user to logged out index
 function LogOut()
 {

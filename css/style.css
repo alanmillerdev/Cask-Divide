@@ -6,7 +6,6 @@
   font-style: normal;
 }
 
-/* GENERAL */
 * {
   padding: 0;
   margin: 0;
@@ -17,6 +16,7 @@
 #main-title {
   font-family: tequila_sunsetregular;
   font-size: 80px;
+  color: #ffffff;
 }
 
 #decor-title {
@@ -150,7 +150,7 @@ ul {
 
 /* Colours and Fonts */
 .primary-text {
-  color: #BF9139;
+  color: #ffffff;
 }
 
 .primary-background {
@@ -237,24 +237,22 @@ ul {
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 14px;
-  padding: 10px;
-  width: 100px;
+  font-size: 25px;
+  padding: 15px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
+  font-family: tequila_sunsetregular;
 }
 
 .sign-up-button:hover {
   display: inline-block;
   border-radius: 4px;
-  background-color: #505557;
+  background-color: #B8BABC;
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 14px;
   padding: 10px;
-  width: 100px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
@@ -388,16 +386,16 @@ body {
   padding-bottom: 3rem !important;
 }
 
-/*Shop cards*/
-.py-5 {
-  padding-bottom: 0 !important;
+/*FOOTER*/
+footer {
+  margin-top: 60px;
 }
 
-.album {
-  margin-top: 0px;
-  margin-bottom: 90px;
+footer .fa-facebook-square:hover {
+  color: #3B5998;
 }
 
+<<<<<<< HEAD
 .album a.col {
   text-decoration: none;
 }
@@ -570,108 +568,32 @@ section.origin:before {
 }
 
 .footer-icons .fa-instagram:hover {
+=======
+footer .fa-instagram:hover {
+>>>>>>> b30d572b45747d8f66ac85c68fe2803d6e48324f
   color: #fff;
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
+  border-radius: 20%;
 }
 
-.footer-icons .fa-youtube:hover {
-  color: #fff;
-  background: #DE0000;
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
+/*CHECKOUT PAGE*/
+.shoppingbag {
+  border-radius: 18px;
+  background: #272727;
+  -webkit-box-shadow: 14px 14px 23px #1c1c1c, -14px -14px 23px #323232;
+          box-shadow: 14px 14px 23px #1c1c1c, -14px -14px 23px #323232;
+  padding: 20px;
 }
 
-.footer-menu-one {
-  width: 100%;
-  height: auto;
-  margin: auto;
-  margin-top: 25px;
+.shoppingdetails {
+  border-radius: 18px;
+  background: #272727;
+  -webkit-box-shadow: 14px 14px 23px #1c1c1c, -14px -14px 23px #323232;
+          box-shadow: 14px 14px 23px #1c1c1c, -14px -14px 23px #323232;
+  padding: 20px;
 }
 
-.footer-menu-one ul {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-.footer-menu-one ul li {
-  display: inline-block;
-  margin: 0px 15px;
-}
-
-.footer-menu-one ul li a {
-  font-size: 20px;
-  font-weight: 400;
+.shoppingdetails label {
   color: #ffffff;
-  text-transform: uppercase;
-  text-decoration: none;
-  outline: none;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-}
-
-.footer-menu-one ul li a:hover {
-  color: #BF9139;
-}
-
-.footer-menu-two {
-  width: 100%;
-  height: auto;
-  margin: auto;
-  margin-top: 15px;
-}
-
-.footer-menu-two ul {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-.footer-menu-two ul li {
-  display: inline-block;
-  margin: 0px 15px;
-}
-
-.footer-menu-two ul li a {
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 400;
-  color: #ffffff;
-  text-transform: uppercase;
-  text-decoration: none;
-  outline: none;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-}
-
-.footer-menu-two ul li a:hover {
-  color: #BF9139;
-}
-
-.footer-bottom {
-  margin-top: 20px;
-  height: auto;
-  margin: auto;
-  background: -webkit-gradient(linear, left top, right top, from(#9b51e0), to(#2d9cdb));
-  background: linear-gradient(90deg, #9b51e0 0%, #2d9cdb 100%);
-  padding: 5px;
-}
-
-.footer-bottom {
-  font-family: 'Poppins', sans-serif;
-  font-size: 17px;
-  margin-top: 20px;
-  text-align: center;
-  color: #ffffff;
-}
-
-.footer-bottom p {
-  margin: 15px;
 }
 /*# sourceMappingURL=style.css.map */

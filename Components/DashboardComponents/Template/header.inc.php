@@ -17,5 +17,7 @@
 </head>
 
 <?php
-
+if(!defined('SecurityCheck')) {
+    exit(header("Location: ../../../index.php"));
+  }
 session_start();

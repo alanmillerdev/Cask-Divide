@@ -1,3 +1,8 @@
+<?php
+if(!defined('SecurityCheck')) {
+  exit(header("Location: ../../index.php"));
+}
+?>
 <section id="home-section">
   <div class="home-inner container">
     <div class="row">
@@ -9,7 +14,7 @@
             this significantly reduces the possibility of the general public having the ability to risk significant savings or simply afford to invest within scotch whisky at all.
           </div>
         </div>
-        <button type="button" onclick="location.href='casks.php'" class="sign-up-button ml-3" style="text-transform: uppercase;"><span>Browse Casks</span></button>
+        <button type="button" onclick="location.href='casks.php'" class="sign-up-button" style="text-transform: uppercase;"><span>Browse Casks</span></button>
       </div>
 
       <div class="col-lg-4">

@@ -1,4 +1,7 @@
 <?php
+if (!defined('SecurityCheck')) {
+    exit(header("Location: ../../index.php"));
+}
 
 if (isset($_GET["msg"])) {
 

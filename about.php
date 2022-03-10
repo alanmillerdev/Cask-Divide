@@ -1,0 +1,3 @@
+<?php
+define('SecurityCheck', TRUE);
+?>
