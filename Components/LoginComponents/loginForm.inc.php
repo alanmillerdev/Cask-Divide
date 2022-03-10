@@ -1,4 +1,4 @@
-      <form action="../Cask-Divide/Components/LoginComponents/loginUser.inc.php" method="post">
+      <form action="Components/LoginComponents/loginUser.inc.php" method="post">
         <div class="form-outline mb-4">
           <input type="email" id="" name="EmailAddress" class="input-style" placeholder="Email" required />
         </div>
