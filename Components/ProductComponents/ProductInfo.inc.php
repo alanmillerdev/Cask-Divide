@@ -9,7 +9,8 @@
                     <form>
                         <div class="form-group">
                         <label for="formControlRange" class="text-white">How much do you want to Invest?</label>
-                        <input type="range" class="form-control-range rounded" id="formControlRange" onInput="$('#rangevalue').html($(this).val())">
+                        <input type="range" class="form-control-range" id="formControlRange" onInput="$('#rangevalue').html($(this).val())" style="
+                        border-radius: 100px;">
                         </div>
                     </form>
 
