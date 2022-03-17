@@ -223,21 +223,23 @@ ul {
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 25px;
-  padding: 15px;
+  font-size: 15px;
+  padding: 20px 20px;
   transition: all 0.3s;
+  margin: auto;
   cursor: pointer;
-  font-family: tequila_sunsetregular;
   }
 
 .sign-up-button:hover{
     display: inline-block;
     border-radius: 4px;
-    background-color: #B8BABC;
+    font-size: 15px;
+    background-color: #505557;
     border: none;
     color: #FFFFFF;
     text-align: center;
-    padding: 10px;
+    padding: 20px 20px;
+    margin: auto;
     transition: all 0.3s;
     cursor: pointer;
 }
