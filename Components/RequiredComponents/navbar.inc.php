@@ -53,7 +53,11 @@ session_start();
 
             <?php
             if (isset($_SESSION['UserID'])) {
-                echo '<a href="Components/LogoutComponents/logoutUser.inc.php"><button type="button" class="border-left nav-link text-white p-4 m-0">Log Out</button></a>';
+                echo '<ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="border-left nav-link text-white p-4 m-0" href="Components/LogoutComponents/logoutUser.inc.php">Log Out</a>
+                        </li>
+                      </ul>';
             } else {
                 echo
                 '<ul class="navbar-nav">
