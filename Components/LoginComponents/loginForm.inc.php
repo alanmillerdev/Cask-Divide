@@ -20,7 +20,7 @@ if (!defined('SecurityCheck')) {
   <div class="d-flex align-items-center justify-content-center pb-4">
     <p class="mb-0 me-2">Not a member? Register now for free!</p>
     <a href="register.php">
-      <button type="button" class="sign-up-button ml-3"><span>SIGN UP</span></button>
+      <button type="button" class="sign-up-button"><span>SIGN UP</span></button>
     </a>
   </div>
 </form>
