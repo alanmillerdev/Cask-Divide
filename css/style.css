@@ -395,67 +395,10 @@ footer .fa-facebook-square:hover {
   color: #3B5998;
 }
 
-<<<<<<< HEAD
-.album a.col {
-  text-decoration: none;
-}
-
-.album .card {
-  border: none;
-  color: #000;
-  text-decoration: none;
-  text-transform: none;
-}
-
-.album .card .card-title {
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: none;
-}
-
-.album .card .card-text {
-  font-size: 20px;
-  text-decoration: none;
-  text-transform: none;
-}
-
-.album .card .btn-primary {
-  padding: 20px 30px;
-  background: linear-gradient(135deg, #9b51e0 0%, #2d9cdb 100%);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-decoration: none;
-  color: #FFFFFF;
-  text-align: center;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  border-radius: 0%;
-  border: 0;
-  margin: 20px;
-  float: right;
-  font-size: 20px;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-}
-
-.album .card .btn-primary i {
-  margin: 5px;
-}
-
-.album .card .btn-primary:hover,
-.album .card .btn-primary:focus,
-.album .card .btn-primary:active {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+footer .fa-instagram:hover {
+  color: #fff;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  border-radius: 20%;
 }
 
 /* Product */
@@ -504,76 +447,6 @@ section.origin:before {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-}
-
-/*footer*/
-.footer-main {
-  margin-top: 50px;
-  width: 100%;
-  background: #B8BABC;
-  height: auto;
-  margin: auto;
-  padding-top: 20px;
-}
-
-.footer-icons {
-  width: 100%;
-  height: auto;
-  margin: auto;
-}
-
-.footer-icons ul {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-.footer-icons ul li {
-  display: inline-block;
-  width: 70px;
-  height: 70px;
-  margin: 0px 10px;
-  border-radius: 100%;
-  background: #B8BABC;
-  -webkit-box-shadow: 14px 14px 29px #425460, -14px -14px 29px #5e788a;
-          box-shadow: 14px 14px 29px #425460, -14px -14px 29px #5e788a;
-}
-
-.footer-icons ul li a {
-  color: #ffffff;
-  font-size: 35px;
-  display: block;
-}
-
-.footer-icons ul li a i {
-  line-height: 70px;
-}
-
-.footer-icons .fa-facebook-f:hover {
-  color: #fff;
-  background: #3B5998;
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-.footer-icons .fa-twitter:hover {
-  color: #fff;
-  background: #1DA1F2;
-  width: 70px;
-  height: 70px;
-  margin: 0px 0px;
-  border-radius: 100%;
-}
-
-.footer-icons .fa-instagram:hover {
-=======
-footer .fa-instagram:hover {
->>>>>>> b30d572b45747d8f66ac85c68fe2803d6e48324f
-  color: #fff;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  border-radius: 20%;
 }
 
 /*CHECKOUT PAGE*/

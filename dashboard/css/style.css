@@ -391,6 +391,7 @@ body.dark .switch::before {
   background-color: var(--body-color);
   -webkit-transition: var(--tran-05);
   transition: var(--tran-05);
+  padding: 20px;
 }
 
 .home .text {
@@ -408,5 +409,22 @@ body.dark .switch::before {
 
 body.dark .home .text {
   color: var(--text-color);
+}
+
+.container-dashboard-main {
+  height: auto;
+  padding: 30px;
+  border: #fff 1px solid;
+  margin: 30px 0px;
+  color: #fff;
+}
+
+.container-dashboard-lower {
+  height: auto;
+  padding: 30px;
+  width: 50%;
+  margin: auto;
+  border: #fff 1px solid;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */
