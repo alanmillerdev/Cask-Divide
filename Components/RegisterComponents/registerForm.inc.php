@@ -14,7 +14,7 @@ if(!defined('SecurityCheck')) {
         <form action="Components/RegisterComponents/registerUser.inc.php" method="post">
 
           <div class="form-outline mb-4">
-            <input type="text" id="" name="FullName" class="input-style" placeholder="Name" required />
+            <input type="text" id="" name="FullName" class="input-style" placeholder="Full Name" required />
           </div>
 
           <div class="form-outline mb-4">
