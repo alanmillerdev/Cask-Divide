@@ -34,16 +34,6 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link text-white p-4 m-0" href="contact.php">Contact</a>
                 </li>
-                <?php
-
-                if (isset($_SESSION['UserID'])) {
-                    echo '
-                        <li class="nav-item">
-                            <a class="nav-link text-white p-4 m-0" href="./dashboard/dashboard.php">Dashboard</a>
-                        </li>';
-                }
-                ?>
-
             </ul>
 
             <!--   Show this only lg screens and up   -->
@@ -55,9 +45,12 @@ session_start();
             if (isset($_SESSION['UserID'])) {
                 echo '<ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="border-left nav-link text-white p-4 m-0" href="Components/LogoutComponents/logoutUser.inc.php">Log Out</a>
+                            <a class="border-left nav-link text-white p-4 m-0" href="./dashboard/dashboard.php">Dashboard</a>
                         </li>
-                      </ul>';
+                        <li class="nav-item">
+                            <a class="border-left nav-link text-white p-4 m-0" href="Components/LogoutComponents/logoutUser.inc.php">Log Out     </a>
+                        </li>
+                    </ul>';
             } else {
                 echo
                 '<ul class="navbar-nav">
