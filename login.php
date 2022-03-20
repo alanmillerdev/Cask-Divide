@@ -9,36 +9,13 @@ include 'Components/RequiredComponents/styles.inc.php';
 
 <!--NAVBAR INCLUDE AND ERROR MESSAGE-->
 <?php
-include('Components/RequiredComponents/navbar.inc.php');
+  include('Components/RequiredComponents/navbar.inc.php');
 
-include 'Components/LoginComponents/loginErrorHandling.inc.php';
+  include 'Components/LoginComponents/loginErrorHandling.inc.php';
 
-?>
+  include 'Components/LoginComponents/loginForm.inc.php'
 
-<!-- LOGIN SECTION -->
-<section id="form-styling">
-  <div class="container ">
-    <div class="d-flex  justify-content-center align-items-center">
-      <div class=" rounded-3 text-light p-5" style="background-color: #272727;">
-        <div class="text-center">
-          <h3 class="mt-1 mb-5" id="decor-title">LOGIN</h3>
-        </div>
+  include('Components/RequiredComponents/footer.inc.php');
 
-        <?php
-
-        include 'Components/LoginComponents/loginForm.inc.php'
-
-        ?>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<?php
-
-include('Components/RequiredComponents/footer.inc.php');
-
-include 'Components/RequiredComponents/bootstrapJS.inc.php';
-
+  include 'Components/RequiredComponents/bootstrapJS.inc.php';
 ?>

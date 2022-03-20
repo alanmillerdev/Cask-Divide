@@ -1,4 +1,4 @@
-  <?php
+<?php
   define('SecurityCheck', TRUE);
   $PageTitle = "Contact";
 
@@ -6,7 +6,7 @@
   include 'Components/RequiredComponents/header.inc.php';
   include 'Components/RequiredComponents/styles.inc.php';
   include 'Components/RequiredComponents/navbar.inc.php';
-  ?>
+?>
 
   <div class="container">
     <div class="py-5 text-center">

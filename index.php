@@ -8,7 +8,7 @@ include 'Components/RequiredComponents/styles.inc.php';
 
 <div class="content">
 
-    <?php
+<?php
 
     include('Components/RequiredComponents/navbar.inc.php');
 
@@ -22,4 +22,4 @@ include 'Components/RequiredComponents/styles.inc.php';
 
     include 'Components/RequiredComponents/bootstrapJS.inc.php';
 
-    ?>
+?>
