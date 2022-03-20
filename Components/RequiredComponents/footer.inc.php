@@ -43,7 +43,7 @@ include 'bootstrapJS.inc.php'
                     <h6 class="text-muted">&copy; 2022- CASK DIVIDE</h6>
                 </a></li>
             <li class="nav-item border-right px-3"><a href="#" class="nav-link">
-                    <h6 class="text-muted">Terms of User</h6>
+                    <h6 class="text-muted">Terms of Use</h6>
                 </a></li>
             <li class="nav-item border-right px-3"><a href="#" class="nav-link">
                     <h6 class="text-muted">Privacy Policy</h6>

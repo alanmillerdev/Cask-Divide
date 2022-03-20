@@ -1,4 +1,4 @@
-  <?php
+<?php
   define('SecurityCheck', TRUE);
   $PageTitle = "Checkout";
 
