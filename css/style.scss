@@ -443,7 +443,18 @@ section.origin {
 section.origin .origin-content {
   position: relative;
   z-index: 1;
+  background-color: #000;
+  opacity: 20%;
 }
+
+section.origin {
+  position: relative;
+  padding: 15rem 0;
+  background-image: url("../images/examplelocation.png");
+  background-position: center;
+  background-size: cover;
+}
+
 section.origin:before {
   content: "";
   position: absolute;
