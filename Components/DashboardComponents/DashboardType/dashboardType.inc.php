@@ -34,7 +34,7 @@ if ($_SESSION['UserType'] == 'Admin') {
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="edit-users.php">
                             <i class="bx bx-user icon"></i>
                             <span class="text nav-text">Users</span>
                         </a>

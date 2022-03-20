@@ -279,13 +279,6 @@ footer{
   width: 200px;
 }
 
-
-body {
-  background-color: color(background);
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-}
-
 /*NAVBAR and MAIN CONTENT*/
 
 
@@ -374,11 +367,12 @@ body {
   padding: 70px;
   text-align: center;
   color: color(text);
+  font-family: tequila_sunsetregular;
+
 
 
   h1 {
     margin: 0;
-    font-weight: bold;
     font-size: 80px;
     margin-bottom: 20px;
   }
@@ -388,6 +382,7 @@ body {
 
   .py-5 {
     padding-bottom: 3rem !important;
+    color: color(text); 
   }
 }
 

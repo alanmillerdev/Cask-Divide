@@ -297,12 +297,6 @@ footer {
   width: 200px;
 }
 
-body {
-  background-color: #272727;
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-}
-
 /*NAVBAR and MAIN CONTENT*/
 .content {
   background-color: #272727 !important;
@@ -375,17 +369,18 @@ body {
   padding: 70px;
   text-align: center;
   color: #ffffff;
+  font-family: tequila_sunsetregular;
 }
 
 .title-header h1 {
   margin: 0;
-  font-weight: bold;
   font-size: 80px;
   margin-bottom: 20px;
 }
 
 .about-hero .py-5 {
   padding-bottom: 3rem !important;
+  color: #ffffff;
 }
 
 /*FOOTER*/
