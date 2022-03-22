@@ -12,7 +12,7 @@ if(!defined('SecurityCheck')) {
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">Cask Divide</span>
+                    <span class="name"><?php echo htmlspecialchars($_SESSION["FullName"]); ?></span>
                     <span class="profession"><?php echo htmlspecialchars($_SESSION["UserType"]); ?></span>
                 </div>
             </div>

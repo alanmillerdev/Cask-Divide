@@ -13,7 +13,7 @@ include 'Components/RequiredComponents/styles.inc.php';
 
   include 'Components/LoginComponents/loginErrorHandling.inc.php';
 
-  include 'Components/LoginComponents/loginForm.inc.php'
+  include 'Components/LoginComponents/loginForm.inc.php';
 
   include('Components/RequiredComponents/footer.inc.php');
 

@@ -13,7 +13,7 @@ $email = $_POST["EmailAddress"];
 $password = $_POST["Password"];
 
 //Prepared Statement
-$stmt = $dbConnection->prepare('SELECT Email, Password, UserType, UserID FROM `user` WHERE Email = ?');
+$stmt = $dbConnection->prepare('SELECT Email, Password, UserType, UserID, FirstName, LastName FROM user WHERE Email = ?');
 
 if ($stmt) {
     $stmt->bind_param('s', $email);
@@ -21,7 +21,7 @@ if ($stmt) {
     $stmt->execute();
 
     // Get query results
-    $stmt->bind_result($email, $hash, $userType, $userID);
+    $stmt->bind_result($email, $hash, $userType, $userID, $firstName, $lastName);
     $stmt->store_result();
 
     // Fetch the query results in a row
@@ -34,12 +34,14 @@ if ($stmt) {
             session_start();
             $_SESSION["UserType"] = "Admin";
             $_SESSION["UserID"] = $userID;
+            $_SESSION["FullName"] = $firstName . ' ' . $lastName;
             $dbConnection->close();
             header('Location: ../../index.php');
         } else {
             session_start();
             $_SESSION["UserType"] = "User";
             $_SESSION["UserID"] = $userID;
+            $_SESSION["FullName"] = $firstName . ' ' . $lastName;
             $dbConnection->close();
             header('Location: ../../index.php');
         }
