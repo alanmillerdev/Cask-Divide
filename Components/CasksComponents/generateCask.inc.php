@@ -9,8 +9,8 @@ function generateCask($caskID, $caskName, $caskAvailable, $CaskImage)
   <div class="col-md-4 p-0">
         <div class="card bg-dark border-light text-white text-center">
             <div class="card-body">
-                <a href="#"><img class="card-img-top" src="data:image/jpeg;base64,$CaskImage" alt="Scotch Whiskey Cask Image"></a>
-                <h3 href='#'>$caskName</h3> <!--Cask ID will go here eventually-->
+                <a href='product.php?sku="$caskID"'><img class="card-img-top" src="data:image/jpeg;base64,$CaskImage" alt="Scotch Whiskey Cask Image"></a>
+                <a class="h3" href='product.php?sku="$caskID"'>$caskName</a><br>
                 <strong>$caskAvailable</strong>% Available
             </div>
         </div>
