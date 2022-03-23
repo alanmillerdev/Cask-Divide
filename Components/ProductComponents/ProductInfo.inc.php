@@ -26,7 +26,7 @@ while($row = mysqli_fetch_array($query)) {
                     <h1 class="display-5 fw-bolder text-white mb-2"><?php echo $CaskName ?></h1>
                     <p class="lead fw-normal text-white-50 mb-4"><?php echo $CaskDescription ?></p>
                     
-                    <form>
+                    <form method="POST">
                         <div class="form-group">
                         <label for="formControlRange" class="text-white">How much do you want to Invest?</label>
                         <input type="range" min="1" max="<?php echo $PercentageAvailable ?>" value="<?php echo $PercentageAvailable ?>" class="form-control-range" id="formControlRange" onInput="$('#rangevalue').html($(this).val())" style="
