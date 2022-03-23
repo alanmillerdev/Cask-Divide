@@ -6,7 +6,8 @@
 
 session_start();
 
-if (!isset($_SESSION['UserID'])) {
+//This needs fixed
+if (empty($_SESSION['UserID'])) {
     header("Location: ../../login.php?msg=buy");
 }
 
@@ -16,14 +17,13 @@ include '../../Database/dbConnect.inc.php';
 $dbConnection = Connect();
 $userID = $_SESSION['UserID'];
 $caskID = 3; //$_POST['CaskID'];
-$percentageRequested = 95; //$_POST['PercentageRequested'];
+$percentageRequested = 44; //$_POST['PercentageRequested'];
 
 CheckoutStart($dbConnection, $caskID, $userID, $percentageRequested, $percentageAvilable);
 
 function CheckoutStart($dbConnection, $caskID, $userID, $percentageRequested, $percentageAvilable)
 {
-    if (PercentageAvailable($dbConnection, $percentageRequested, $percentageAvilable, $caskID)) 
-    {
+    if (PercentageAvailable($dbConnection, $percentageRequested, $percentageAvilable, $caskID)) {
         header("Location: ../../checkout.php?id=$caskID&uid=$userID&percent=$percentageRequested");
     }
 };

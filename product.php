@@ -14,6 +14,8 @@ include 'Components/RequiredComponents/styles.inc.php';
 
 include('Components/RequiredComponents/navbar.inc.php');
 
+include('Components/ProductComponents/productErrorHandling.inc.php');
+
 include('Components/ProductComponents/ProductInfo.inc.php');
 
 include('Components/ProductComponents/ProductOrigin.inc.php');
