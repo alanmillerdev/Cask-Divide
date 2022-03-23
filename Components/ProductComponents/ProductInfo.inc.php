@@ -36,7 +36,7 @@ while($row = mysqli_fetch_array($query)) {
 
                     <h1 class="display-6 fw-bolder text-white mb-4"><span class="text-white" id="rangevalue"><?php echo $PercentageAvailable ?></span>% of the Cask: £<?php echo $CaskPrice ?></h1>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="Components/CheckoutComponents/checkout.inc.php">Purchase <i class="fas fa-shopping-bag"></i></a>
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="Components/CheckoutComponents/checkoutStart.inc.php">Purchase <i class="fas fa-shopping-bag"></i></a>
                         <a class="btn btn-outline-light btn-lg px-4" href="#">Learn about the Casks <i class="fas fa-arrow-alt-circle-down"></i></a>
                     </div>
                 </div>

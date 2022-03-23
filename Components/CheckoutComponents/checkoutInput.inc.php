@@ -1,4 +1,56 @@
- <div class="col-md-6 order-md-2">
+<?php
+if (!defined('SecurityCheck')) {
+  exit(header("Location: ../../index.php"));
+}
+
+include 'Database/dbConnect.inc.php';
+$dbConnection = Connect();
+
+$caskID = $_GET['id'];
+$userID = $_GET['uid'];
+$percentage = $_GET['percent'];
+
+$result = $dbConnection->query("SELECT CaskID, CaskName, WholeCaskPrice FROM Cask WHERE CaskID = $caskID");
+$row = mysqli_fetch_array($result);
+
+$caskName = $row[1];
+
+$caskPrice = $row[2];
+
+$cost = round(($caskPrice / 100 * $percentage), 2);
+
+$total = round(($cost * 1.2),2);
+
+?>
+<div class="container">
+  <div class="py-5 text-center">
+
+    <h2 id="main-title">Checkout</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 order-md-1 mb-6">
+      <div class="shoppingbag">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span id="decor-title">Your Order</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0"><?php echo $caskName ?></h6>
+              <small class="text-muted"><?php echo $percentage ?>%</small>
+            </div>
+            <span class="text-muted">£<?php echo $cost ?></span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (20% VAT Included)</span>
+            <strong>£<?php echo $total ?></strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-6 order-md-2">
        <div class="shoppingdetails">
         <span id="decor-title">Your Details</span>
         <form class="needs-validation" novalidate>
@@ -83,7 +135,7 @@
             </div>
           </div>
           <hr class="mb-4">
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Pay £2036 to Cask Divide</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Pay £<?php echo $total ?> to Cask Divide</button>
         </form>
         <hr class="mb-4">
         <div class="text-muted">*Once the cask is finished we will contact you to get your current address details.</div>
