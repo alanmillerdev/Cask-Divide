@@ -442,63 +442,12 @@ body.dark .home .text {
   color: #fff;
 }
 
-#content {
-  width: 100%;
-  padding: 20px;
-  min-height: 100vh;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+.dashboardContent {
+  margin-left: 110px;
 }
 
-#content .center-text {
-  color: color(text);
-}
-
-#content .welcomeadmin {
-  font-size: 50px;
-  color: color(text);
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  -webkit-transform: translate(-50%, -70%);
-          transform: translate(-50%, -70%);
-}
-
-#content .card {
-  border: 0px;
-}
-
-#content .card #add.btn {
-  color: color(text);
-  font-weight: bold;
-  background-color: #27AE60;
-}
-
-#content .card #submit.btn {
-  color: color(text);
-  font-weight: bold;
-  background-color: #27AE60;
-}
-
-#content .card #update.btn {
-  color: color(text);
-  font-weight: bold;
-  background-color: #27AE60;
-}
-
-#content .card img {
-  max-width: 260px;
-  max-height: 385px;
-}
-
-#content .card button.btn {
-  color: color(text);
-  font-weight: bold;
-  background-color: #27AE60;
-}
-
-#content .card-header {
-  background-color: color(foreground);
+.dashboardContent h1 {
+  font-size: 2rem;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */

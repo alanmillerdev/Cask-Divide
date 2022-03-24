@@ -48,6 +48,38 @@ $total = round(($cost * 1.2),2);
           </li>
         </ul>
       </div>
+      <div class="shoppingdetails">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span id="decor-title">Payment Details</span>
+        </h4>
+
+      <div class="mb-3">
+            <label for="cardnumber">Card Number</label>
+            <input type="cardnumber" class="form-control" id="cardnumber" placeholder="0123 4567 8910 1112">
+            <div class="invalid-feedback">
+              Please enter a valid credit card number for payment.
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="expiration">Expiry date (mm/yy)</label>
+              <input type="text" class="form-control" id="expiration" placeholder="" value="" pattern="[0-9]*" inputmode="numeric" required>
+              <div class="invalid-feedback">
+                Valid expiry is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="Security Code">Security Code</label>
+              <input type="text" class="form-control" id="Security Code" placeholder="" value="" pattern="[0-9]*" inputmode="numeric" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+          </div>
+</div>
+
+    
     </div>
 
     <div class="col-md-6 order-md-2">
@@ -67,19 +99,6 @@ $total = round(($cost * 1.2),2);
               <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
               <div class="invalid-feedback">
                 Valid last name is required.
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="username">Username</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">@</span>
-              </div>
-              <input type="text" class="form-control" id="username" placeholder="Username" required>
-              <div class="invalid-feedback" style="width: 100%;">
-                Your username is required.
               </div>
             </div>
           </div>
@@ -141,5 +160,7 @@ $total = round(($cost * 1.2),2);
         <div class="text-muted">*Once the cask is finished we will contact you to get your current address details.</div>
       </div>
     </div>
+
+  
     </div>
   </div>

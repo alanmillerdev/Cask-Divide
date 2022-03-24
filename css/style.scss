@@ -463,19 +463,17 @@ section.origin:before {
 /*CHECKOUT PAGE*/
 
 .shoppingbag{
-  border-radius: 18px;
   background: #272727;
-  box-shadow: 14px 14px 23px #1c1c1c,
-  -14px -14px 23px #323232;
+  border: solid 1px color(primary);
   padding: $padding;
+    margin-bottom: 40px;
 }
 
 .shoppingdetails{
-  border-radius: 18px;
   background: #272727;
-  box-shadow: 14px 14px 23px #1c1c1c,
-  -14px -14px 23px #323232;
+  border: solid 1px color(primary);
   padding: $padding;
+
 
   label{
     color: color(text);
