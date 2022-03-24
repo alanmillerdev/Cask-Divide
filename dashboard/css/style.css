@@ -427,4 +427,78 @@ body.dark .home .text {
   border: #fff 1px solid;
   color: #fff;
 }
+
+#main-title {
+  font-family: tequila_sunsetregular;
+  font-size: 80px;
+  color: color(text);
+}
+
+#decor-title {
+  font-family: 'Cormorant', serif;
+  text-transform: uppercase;
+  font-size: 43px;
+  text-align: center;
+  color: #fff;
+}
+
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#content .center-text {
+  color: color(text);
+}
+
+#content .welcomeadmin {
+  font-size: 50px;
+  color: color(text);
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  -webkit-transform: translate(-50%, -70%);
+          transform: translate(-50%, -70%);
+}
+
+#content .card {
+  border: 0px;
+}
+
+#content .card #add.btn {
+  color: color(text);
+  font-weight: bold;
+  background-color: #27AE60;
+}
+
+#content .card #submit.btn {
+  color: color(text);
+  font-weight: bold;
+  background-color: #27AE60;
+}
+
+#content .card #update.btn {
+  color: color(text);
+  font-weight: bold;
+  background-color: #27AE60;
+}
+
+#content .card img {
+  max-width: 260px;
+  max-height: 385px;
+}
+
+#content .card button.btn {
+  color: color(text);
+  font-weight: bold;
+  background-color: #27AE60;
+}
+
+#content .card-header {
+  background-color: color(foreground);
+}
 /*# sourceMappingURL=style.css.map */

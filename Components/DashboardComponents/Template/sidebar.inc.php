@@ -8,7 +8,7 @@ if(!defined('SecurityCheck')) {
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="../images/logo-1.png" alt="">
+                    <img src="images/logo-1.png" alt="">
                 </span>
 
                 <div class="text logo-text">
@@ -28,12 +28,12 @@ if(!defined('SecurityCheck')) {
                     <input type="text" placeholder="Search...">
                 </li>
 
-     <?php include '../Components/DashboardComponents/DashboardType/dashboardType.inc.php';?>
+     <?php include 'Components/DashboardComponents/DashboardType/dashboardType.inc.php';?>
             </div>
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="../Components/LogoutComponents/logoutUser.inc.php">
+                    <a href="Components/LogoutComponents/logoutUser.inc.php">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>

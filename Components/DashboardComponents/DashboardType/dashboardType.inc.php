@@ -13,8 +13,8 @@ if ($_SESSION['UserType'] == 'Admin') {
                     </li>
             
                     <li class="nav-link">
-                        <a href="../casks.php">
-                            <img class="caskimg" src="css/icons/cask-icon.svg">
+                        <a href="edit-casks.php">
+                            <img class="caskimg" src="./dashboard/css/icons/cask-icon.svg">
                             <span class="text nav-text">Browse Casks</span>
                         </a>
                     </li>
@@ -52,7 +52,7 @@ if ($_SESSION['UserType'] == 'Admin') {
 
                     <li class="nav-link">
                         <a href="../casks.php">
-                            <img class="caskimg" src="css/icons/cask-icon.svg">
+                            <img class="caskimg" src="./dashboard/css/icons/cask-icon.svg">
                             <span class="text nav-text">Browse Casks</span>
                         </a>
                     </li>

@@ -45,7 +45,7 @@ session_start();
             if (isset($_SESSION['UserID'])) {
                 echo '<ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="border-left nav-link text-white p-4 m-0" href="./dashboard/dashboard.php">Dashboard</a>
+                            <a class="border-left nav-link text-white p-4 m-0" href="./dashboard.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="Components/LogoutComponents/logoutUser.inc.php">Log Out     </a>
