@@ -16,7 +16,7 @@ include '../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 $userID = $_SESSION['UserID'];
-$caskID = 3; //$_POST['CaskID'];
+$caskID = $_POST['CaskID'];
 $percentageRequested = 44; //$_POST['PercentageRequested'];
 
 CheckoutStart($dbConnection, $caskID, $userID, $percentageRequested, $percentageAvilable);
