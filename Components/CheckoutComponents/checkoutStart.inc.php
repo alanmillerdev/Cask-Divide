@@ -7,8 +7,8 @@ include '../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 $userID = $_SESSION['UserID'];
-$caskID = 3;
-$percentageRequested = 44; //$_POST['PercentageRequested'];
+$caskID = $_GET['sku'];
+$percentageRequested = $_GET['percent'];
 
 CheckoutStart($dbConnection, $caskID, $userID, $percentageRequested, $percentageAvilable);
 
@@ -22,7 +22,7 @@ function CheckoutStart($dbConnection, $caskID, $userID, $percentageRequested, $p
      } else
      {
         if (PercentageAvailable($dbConnection, $percentageRequested, $percentageAvilable, $caskID)) {
-            header("Location: ../../checkout.php?id=$caskID&uid=$userID&percent=$percentageRequested");
+            header("Location: ../../checkout.php?sku=$caskID&uid=$userID&percent=$percentageRequested");
         }
      }
 };

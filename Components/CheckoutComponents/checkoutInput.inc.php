@@ -6,8 +6,8 @@ if (!defined('SecurityCheck')) {
 include 'Database/dbConnect.inc.php';
 $dbConnection = Connect();
 
-$caskID = $_GET['id'];
-$userID = $_GET['uid'];
+$caskID = $_GET['sku'];
+$userID = $_SESSION['UserID'];
 $percentage = $_GET['percent'];
 
 $result = $dbConnection->query("SELECT CaskID, CaskName, WholeCaskPrice FROM Cask WHERE CaskID = $caskID");

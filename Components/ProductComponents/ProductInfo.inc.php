@@ -1,6 +1,7 @@
 <?php
 
 $caskID = $_GET['sku'];
+$userID = $_SESSION['UserID'];
 
 require 'Database/dbConnect.inc.php';
 
@@ -14,6 +15,7 @@ while($row = mysqli_fetch_array($query)) {
     $PercentageAvailable = $row['PercentageAvailable'];
     $CaskImage = $row['CaskImage'];
     $CaskPrice = $row['WholeCaskPrice'];
+
 }
 
 
@@ -30,14 +32,25 @@ while($row = mysqli_fetch_array($query)) {
                     <form method="GET" action="CheckoutComponents/checkoutStart.inc.php">
                         <div class="form-group">
                         <label for="formControlRange" class="text-white">How much do you want to Invest?</label>
-                        <input type="range" min="1" max="<?php echo $PercentageAvailable ?>" value="<?php echo $PercentageAvailable ?>" class="form-control-range" id="formControlRange" onInput="$('#rangevalue').html($(this).val())" style="
+                        <input type="range" min="1" max="<?php echo $PercentageAvailable ?>" value="<?php echo $PercentageAvailable ?>"  class="form-control-range" id="formControlRange" onInput="$('#rangevalue').html($(this).val())" style="
                         border-radius: 100px;">
                         </div>
-                    
+                    <?php
+                        // Create a new DOM Document
+                        $dom = new DOMDocument();
+                        // Enable validate on parse
+                        $dom->validateOnParse = true;
+                        // Get the tag name
+                        $tagname = $dom->getElementById('formControlRange')->textContent;
+                        intval($tagname);
+                        $percentage = $PercentageAvailable - $tagname;
+
+  
+                    ?>
 
                         <h1 class="display-6 fw-bolder text-white mb-4"><span class="text-white" name="percentage" id="rangevalue"><?php echo $PercentageAvailable ?></span>% of the Cask: £<?php echo $CaskPrice ?></h1>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href='Components/CheckoutComponents/CheckoutStart.inc.php?sku="$caskID"' type="submit" >Purchase <i class="fas fa-shopping-bag"></i></a>
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3" <?php echo "href='Components/CheckoutComponents/CheckoutStart.inc.php?sku=$caskID&percent=$percentage&uid=$userID'"?>  type="submit" >Purchase <i class="fas fa-shopping-bag"></i></a>
                     </form>    
                     
                     <a class="btn btn-outline-light btn-lg px-4" href="#">Learn about the Casks <i class="fas fa-arrow-alt-circle-down"></i></a>
