@@ -2,30 +2,29 @@
 
 //Security
 
-//Check if the user is logged in
-
-session_start();
-
-//This needs fixed
-if (empty($_SESSION['UserID'])) {
-    header("Location: ../../login.php?msg=buy");
-}
-
 //Database
 include '../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 $userID = $_SESSION['UserID'];
-$caskID = $_POST['CaskID'];
+$caskID = 3;
 $percentageRequested = 44; //$_POST['PercentageRequested'];
 
 CheckoutStart($dbConnection, $caskID, $userID, $percentageRequested, $percentageAvilable);
 
 function CheckoutStart($dbConnection, $caskID, $userID, $percentageRequested, $percentageAvilable)
 {
-    if (PercentageAvailable($dbConnection, $percentageRequested, $percentageAvilable, $caskID)) {
-        header("Location: ../../checkout.php?id=$caskID&uid=$userID&percent=$percentageRequested");
-    }
+
+    session_start();
+
+    if(empty($_SESSION["UserID"])) {
+        header("Location: ../../login.php?msg=buy");
+     } else
+     {
+        if (PercentageAvailable($dbConnection, $percentageRequested, $percentageAvilable, $caskID)) {
+            header("Location: ../../checkout.php?id=$caskID&uid=$userID&percent=$percentageRequested");
+        }
+     }
 };
 
 function PercentageAvailable($dbConnection, $percentageRequested, $PercentageAvilable, $caskID)

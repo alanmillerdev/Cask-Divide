@@ -30,12 +30,12 @@ while($row = mysqli_fetch_array($query)) {
                     <form method="GET" action="CheckoutComponents/checkoutStart.inc.php">
                         <div class="form-group">
                         <label for="formControlRange" class="text-white">How much do you want to Invest?</label>
-                        <input type="range" min="1" max="<?php echo $PercentageRequested ?>" value="<?php echo $PercentageRequested ?>" class="form-control-range" id="formControlRange" onInput="$('#rangevalue').html($(this).val())" style="
+                        <input type="range" min="1" max="<?php echo $PercentageAvailable ?>" value="<?php echo $PercentageAvailable ?>" class="form-control-range" id="formControlRange" onInput="$('#rangevalue').html($(this).val())" style="
                         border-radius: 100px;">
                         </div>
                     
 
-                        <h1 class="display-6 fw-bolder text-white mb-4"><span class="text-white" name="percentage" id="rangevalue"><?php echo $PercentageRequested ?></span>% of the Cask: £<?php echo $CaskPrice ?></h1>
+                        <h1 class="display-6 fw-bolder text-white mb-4"><span class="text-white" name="percentage" id="rangevalue"><?php echo $PercentageAvailable ?></span>% of the Cask: £<?php echo $CaskPrice ?></h1>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                         <a class="btn btn-primary btn-lg px-4 me-sm-3" href='Components/CheckoutComponents/CheckoutStart.inc.php?sku="$caskID"' type="submit" >Purchase <i class="fas fa-shopping-bag"></i></a>
                     </form>    
