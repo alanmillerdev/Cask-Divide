@@ -53,16 +53,6 @@ $total = round(($cost * 1.2),2);
           <span id="decor-title">Payment Details</span>
         </h4>
 
-        <form id="payment-form">
-        <div id="payment-element">
-          <!-- Elements will create form elements here -->
-        </div>
-        <button id="submit">Submit</button>
-        <div id="error-message">
-          <!-- Display error message to your customers here -->
-        </div>
-      </form>
-
       <div class="mb-3">
             <label for="cardnumber">Card Number</label>
             <input type="cardnumber" class="form-control" id="cardnumber" placeholder="0123 4567 8910 1112">
