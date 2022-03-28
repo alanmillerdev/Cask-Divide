@@ -1,6 +1,7 @@
 /* Google Font Import - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+@import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
 
 :root {
     --header-height: 3rem;
@@ -70,6 +71,7 @@ a {
 #header-title{
     margin-left: 30px;
     color: var(--white-color);
+    font-family: var(--body-font)
 }
 
 .l-navbar {
@@ -220,10 +222,3 @@ a {
     color: #fff;
 }
 
-.dashboardContent {
-    margin-left: 110px;
-        h1{
-            font-size: 2rem;
-            color: #fff;
-        }
-}

@@ -19,11 +19,7 @@ if(!defined('SecurityCheck')) {
             <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
         </nav>
     </div>
-    <!--Container Main start-->
-    <div class="height-100">
-        <h4>Main Components</h4>
-    </div>
-    <!--Container Main end-->
+    
 
     
          
