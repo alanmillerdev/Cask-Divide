@@ -18,7 +18,6 @@ while($row = mysqli_fetch_array($query)) {
 
 }
 
-
 ?>
 
 <section class="py-5">
