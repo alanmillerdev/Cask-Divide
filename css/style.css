@@ -143,6 +143,11 @@ ul {
   text-decoration: none;
 }
 
+.purchase-button:hover {
+  color: #BF9139 !important;
+  background-color: #fff !important;
+}
+
 /* Icons */
 .fab {
   color: white;
@@ -326,6 +331,11 @@ footer {
   background-color: #BF9139;
 }
 
+.content .footer-links:hover {
+  color: #BF9139 !important;
+  background-color: #272727;
+}
+
 .content #right-items li {
   display: inline-block;
   text-decoration: none;
@@ -424,36 +434,22 @@ input[type='range']::-webkit-slider-thumb {
 
 /* About the Cask */
 section.origin {
-  position: relative;
-  padding: 15rem 0;
+  padding: 20rem 0;
   background-image: url("../images/examplelocation.png");
   background-position: center;
   background-size: cover;
+  position: relative;
 }
 
 section.origin .origin-content {
-  position: relative;
-  z-index: 1;
-  background-color: #000;
-  opacity: 20%;
-}
-
-section.origin {
-  position: relative;
-  padding: 15rem 0;
-  background-image: url("../images/examplelocation.png");
-  background-position: center;
-  background-size: cover;
-}
-
-section.origin:before {
-  content: "";
+  opacity: 0.9;
+  background-color: #BF9139;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+}
+
+section.origin .origin-content h2, p, .rounded-pill {
+  opacity: 1;
+  color: #fff;
 }
 
 /*CHECKOUT PAGE*/
@@ -475,7 +471,7 @@ section.origin:before {
 }
 
 .carousel-images {
-  height: 400px;
+  height: 300px;
   width: auto;
   padding-top: 20px;
 }

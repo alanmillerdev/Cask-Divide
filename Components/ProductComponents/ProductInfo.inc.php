@@ -38,7 +38,7 @@ while ($row = mysqli_fetch_array($query)) {
                         <input type="hidden" name="UserID" value="<?php echo $userID ?>">
                         <h1 class="display-6 fw-bolder text-white mb-4"><span class="text-white" name="percentage" id="rangevalue"><?php echo $PercentageAvailable ?></span>% of the Cask: £<?php echo $CaskPrice ?></h1>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <button class="btn btn-primary btn-lg px-4 me-sm-3" type="submit">Purchase <i class="fas fa-shopping-bag"></i></button>
+                            <button class="btn btn-primary btn-lg px-4 purchase-button" type="submit">Purchase <i class="fas fa-shopping-bag"></i></button>
                     </form>
 
                     <a class="btn btn-outline-light btn-lg px-4" href="#">Learn about the Casks <i class="fas fa-arrow-alt-circle-down"></i></a>

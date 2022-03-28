@@ -15,3 +15,4 @@ function generateCask($caskName, $caskDescription, $caskImage, $class)
   </div>
 HTML;
 }
+
