@@ -3,7 +3,7 @@ if(!defined('SecurityCheck')) {
     exit(header("Location: ../../../../index.php"));
   }
   
-include 'Cask-Divide\Database\dbConnect.inc.php';
+include '../../../../dbConnect.inc.php';
 
 $dbConnection = Connect();
 
