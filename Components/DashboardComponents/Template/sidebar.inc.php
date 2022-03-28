@@ -3,42 +3,27 @@ if(!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
   }
 ?>
-<body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="images/logo-1.png" alt="">
-                </span>
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <h1 id="header-title"><?php echo htmlspecialchars($_SESSION["UserType"]); ?> Dashboard</h1>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> 
+            <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name"><?php echo htmlspecialchars($_SESSION["FullName"]); ?></span> </a>
+            
+            <?php include 'Components/DashboardComponents/DashboardType/dashboardType.inc.php';?>
+            
+            </div> 
+            <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100">
+        <h4>Main Components</h4>
+    </div>
+    <!--Container Main end-->
 
-                <div class="text logo-text">
-                    <span class="name"><?php echo htmlspecialchars($_SESSION["FullName"]); ?></span>
-                    <span class="profession"><?php echo htmlspecialchars($_SESSION["UserType"]); ?></span>
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
-
-     <?php include 'Components/DashboardComponents/DashboardType/dashboardType.inc.php';?>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="Components/LogoutComponents/logoutUser.inc.php">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-            </div>
-        </div>
-
-    </nav>
+    
+         

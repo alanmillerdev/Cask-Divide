@@ -4,93 +4,52 @@ if(!defined('SecurityCheck')) {
   }
 
 if ($_SESSION['UserType'] == 'Admin') {
-    echo '           <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="../index.php">
-                            <i class="bx bx-home-alt icon"></i>
-                            <span class="text nav-text">Home</span>
-                        </a>
-                    </li>
-            
-                    <li class="nav-link">
-                        <a href="edit-casks.php">
-                            <img class="caskimg" src="./dashboard/css/icons/cask-icon.svg">
-                            <span class="text nav-text">Browse Casks</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-bell icon"></i>
-                            <span class="text nav-text">Admin Notifications</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-bar-chart-alt-2 icon"></i>
-                            <span class="text nav-text">Revenue</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="edit-users.php">
-                            <i class="bx bx-user icon"></i>
-                            <span class="text nav-text">Users</span>
-                        </a>
-                    </li>
-
-                </ul>';
+    echo '<div class="nav_list"> 
+                <a href="#" class="nav_link active">
+                    <i class="bx bx-grid-alt nav_icon"></i>
+                    <span class="nav_name">Dashboard</span> </a>
+                    
+                <a href="#" class="nav_link"> 
+                    <i class="bx bx-user nav_icon"></i> 
+                    <span class="nav_name">Users</span> </a>
+                    
+                <a href="#" class="nav_link"> 
+                    <img class="caskimg" src="./dashboard/css/icons/cask-icon.svg"> 
+                    <span class="nav_name">Casks</span> </a>
+                    
+                <a href="#" class="nav_link"> 
+                    <i class="bx bx-bell icon"></i>
+                    <span class="nav_name">Notifications</span> </a>
+                    
+                <a href="#" class="nav_link"> 
+                    <i class="bx bx-bar-chart-alt-2 icon"></i>
+                    <span class="nav_name">Revenue</span> </a>                    
+            </div>';
 } else {
-    echo '           <ul class="menu-links">
-                        <li class="nav-link">
-                        <a href="../index.php">
-                            <i class="bx bx-home-alt icon"></i>
-                            <span class="text nav-text">Home</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="../casks.php">
-                            <img class="caskimg" src="./dashboard/css/icons/cask-icon.svg">
-                            <span class="text nav-text">Browse Casks</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-bell icon"></i>
-                            <span class="text nav-text">My Notifications</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-bar-chart-alt-2 icon"></i>
-                            <span class="text nav-text">My Investments</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-line-chart icon"></i>
-                            <span class="text nav-text">Past Investments</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-user icon"></i>
-                            <span class="text nav-text">My Details</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-cog icon"></i>
-                            <span class="text nav-text">Account Settings</span>
-                        </a>
-                    </li>
-
-                </ul>';
+    echo '   <div class="nav_list"> 
+                <a href="#" class="nav_link active">
+                    <i class="bx bx-grid-alt nav_icon"></i>
+                    <span class="nav_name">Dashboard</span> </a>
+                    
+                <a href="#" class="nav_link"> 
+                    <i class="bx bx-user nav_icon"></i> 
+                    <span class="nav_name">My Details</span> </a>
+                    
+                <a href="#" class="nav_link"> 
+                    <img class="caskimg" src="./dashboard/css/icons/cask-icon.svg"> 
+                    <span class="nav_name">My Investments</span> </a>
+                    
+                <a href="#" class="nav_link"> 
+                    <i class="bx bx-bell icon"></i>
+                    <span class="nav_name">Notifications</span> </a>
+                    
+                <a href="#" class="nav_link"> 
+                    <i class="bx bx-bar-chart-alt-2 icon"></i>
+                    <span class="nav_name">Past Investments</span> </a>
+                    
+                <a href="#" class="nav_link"> 
+                    <i class="bx bx-user icon"></i>
+                    <span class="nav_name">Account Settings</span> </a>
+                    
+            </div>';
 }
