@@ -96,19 +96,14 @@ require_once "vendor/autoload.php";
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <input type="hidden" id="stripe-public-key" value="pk_test_Bp3YyDa2EeOx0C5dEXM0GuVJ" />
-              <input type="hidden" id="stripe-payment-intent" value="<?php echo $payment_intent->client_secret; ?>" />
- 
-              <!-- credit card UI will be rendered here -->
-              <div id="stripe-card-element" style="margin-top: 20px; margin-bottom: 20px;"></div>
-            </div>
-          </div>
+          <input type="hidden" id="stripe-public-key" value="pk_test_Bp3YyDa2EeOx0C5dEXM0GuVJ" />
+          <input type="hidden" id="stripe-payment-intent" value="<?php echo $payment_intent->client_secret; ?>" />
+          
+          <!-- credit card UI will be rendered here -->
+          <div id="stripe-card-element" style="margin-top: 20px; margin-bottom: 20px;"></div>
 
 </div>
 
-    
     </div>
 
     <div class="col-md-6 order-md-2">
@@ -126,7 +121,7 @@ require_once "vendor/autoload.php";
 
           <div class="mb-3">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="user-email" placeholder="you@example.com">
+            <input type="email" class="form-control" id="user-email" placeholder="you@example.com" required>
             <div class="invalid-feedback">
               Please enter a valid email address to allows us to contact you.
             </div>
@@ -134,7 +129,7 @@ require_once "vendor/autoload.php";
 
           <div class="mb-3">
             <label for="phone">Phone Number</label>
-            <input type="phone" class="form-control" id="user-mobile-number" placeholder="07987474200">
+            <input type="phone" class="form-control" id="user-mobile-number" placeholder="07987474200" required>
             <div class="invalid-feedback">
               Please enter a valid phone number to allow us to contact you.
             </div>
@@ -229,7 +224,7 @@ require_once "vendor/autoload.php";
 
 function confirmPayment(paymentId) {
     var ajax = new XMLHttpRequest();
-    ajax.open("POST", "stripe.php", true);
+    ajax.open("POST", "stripe.inc.php", true);
   
     ajax.onreadystatechange = function () {
         if (this.readyState == 4) {
@@ -238,8 +233,7 @@ function confirmPayment(paymentId) {
                 console.log(response);
             }
             if (this.status == 400) {
-                var response = JSON.parse(this.responseText);
-                console.log(response);
+                console.log(this.responseText);
             }
             if (this.status == 500) {
                 console.log(this.responseText);

@@ -17,11 +17,13 @@
                 "status" => "success",
                 "payment" => $payment,
             ]);
+            header('Location: paymentSuccess.php');
             exit();
         }
     }
     catch (\Exception $exp)
     {
+        header('Location: paymentError.php');
         echo json_encode([
             "status" => "error",
             "message" => $exp->getMessage()
