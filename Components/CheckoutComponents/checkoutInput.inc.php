@@ -21,7 +21,25 @@ $cost = round(($caskPrice / 100 * $percentage), 2);
 
 $total = round(($cost * 1.2),2);
 
+//Stripe
+require_once "vendor/autoload.php";
+ 
+    $amount = $total;
+ 
+    $stripe = new \Stripe\StripeClient("sk_test_5OX6hk9hz9BfzfTNmV8R0RlW");
+ 
+    // creating setup intent
+    $payment_intent = $stripe->paymentIntents->create([
+        'payment_method_types' => ['card'],
+ 
+        // convert double to integer for stripe payment intent, multiply by 100 is required for stripe
+        'amount' => round($total) * 100,
+        'currency' => 'gbp',
+    ]);
 ?>
+
+<script src="https://js.stripe.com/v3/"></script>
+
 <div class="container">
   <div class="py-5 text-center">
 
@@ -77,6 +95,17 @@ $total = round(($cost * 1.2),2);
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="hidden" id="stripe-public-key" value="pk_test_Bp3YyDa2EeOx0C5dEXM0GuVJ" />
+              <input type="hidden" id="stripe-payment-intent" value="<?php echo $payment_intent->client_secret; ?>" />
+ 
+              <!-- credit card UI will be rendered here -->
+              <div id="stripe-card-element" style="margin-top: 20px; margin-bottom: 20px;"></div>
+            </div>
+          </div>
+
 </div>
 
     
@@ -87,32 +116,32 @@ $total = round(($cost * 1.2),2);
         <span id="decor-title">Your Details</span>
         <form class="needs-validation" novalidate>
           <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="firstName">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="mb-3">
+              <label for="firstName">Full Name</label>
+              <input type="text" class="form-control" id="user-name" placeholder="" value="" required>
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
             </div>
-            <div class="col-md-6 mb-3">
-              <label for="lastName">Last name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
-            </div>
-          </div>
 
           <div class="mb-3">
-            <label for="email">Email <span class="text-muted">(Optional)</span></label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="user-email" placeholder="you@example.com">
             <div class="invalid-feedback">
-              Please enter a valid email address for shipping updates.
+              Please enter a valid email address to allows us to contact you.
             </div>
           </div>
 
           <div class="mb-3">
-            <label for="address">Address*</label>
+            <label for="phone">Phone Number</label>
+            <input type="phone" class="form-control" id="user-mobile-number" placeholder="07987474200">
+            <div class="invalid-feedback">
+              Please enter a valid phone number to allow us to contact you.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address">Address</label>
             <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
             <div class="invalid-feedback">
               Please enter your shipping address.
@@ -125,7 +154,7 @@ $total = round(($cost * 1.2),2);
           </div>
 
           <div class="row">
-            <div class="col-md-5 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="country">Country</label>
               <select class="custom-select d-block w-100" id="country" required>
                 <option value="">Choose...</option>
@@ -135,32 +164,92 @@ $total = round(($cost * 1.2),2);
                 Please select a valid country.
               </div>
             </div>
-            <div class="col-md-4 mb-3">
-              <label for="state">County</label>
-              <select class="custom-select d-block w-100" id="state" required>
-                <option value="">Choose...</option>
-                <option>Big Chungasville</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="zip">Postcode</label>
               <input type="text" class="form-control" id="zip" placeholder="" required>
               <div class="invalid-feedback">
-                Zip code required.
+                Postcode required.
               </div>
             </div>
           </div>
           <hr class="mb-4">
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Pay £<?php echo $total ?> to Cask Divide</button>
+          <button class="btn btn-primary btn-lg btn-block" onclick="payViaStripe()">Pay £<?php echo $total ?> to Cask Divide</button>
         </form>
         <hr class="mb-4">
-        <div class="text-muted">*Once the cask is finished we will contact you to get your current address details.</div>
+        <div class="text-muted">*We will be in touch with details of your investment periodically*</div>
       </div>
     </div>
 
   
     </div>
   </div>
+
+  <script>
+    // global variables
+    var stripe = null;
+    var cardElement = null;
+ 
+    const stripePublicKey = document.getElementById("stripe-public-key").value;
+ 
+    // initialize stripe when page loads
+    window.addEventListener("load", function () {
+        stripe = Stripe(stripePublicKey);
+        var elements = stripe.elements();
+        cardElement = elements.create('card');
+        cardElement.mount('#stripe-card-element');
+    });
+
+    function payViaStripe() {
+    // get stripe payment intent
+    const stripePaymentIntent = document.getElementById("stripe-payment-intent").value;
+ 
+    // execute the payment
+    stripe
+        .confirmCardPayment(stripePaymentIntent, {
+            payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                        "email": document.getElementById("user-email").value,
+                        "name": document.getElementById("user-name").value,
+                        "phone": document.getElementById("user-mobile-number").value
+                    },
+                },
+            })
+            .then(function(result) {
+ 
+                // Handle result.error or result.paymentIntent
+                if (result.error) {
+                    console.log(result.error);
+                } else {
+                    console.log("The card has been verified successfully...", result.paymentIntent.id);
+                    confirmPayment(result.paymentIntent.id);
+                }
+            });
+}
+
+function confirmPayment(paymentId) {
+    var ajax = new XMLHttpRequest();
+    ajax.open("POST", "stripe.php", true);
+  
+    ajax.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                var response = JSON.parse(this.responseText);
+                console.log(response);
+            }
+            if (this.status == 400) {
+                var response = JSON.parse(this.responseText);
+                console.log(response);
+            }
+            if (this.status == 500) {
+                console.log(this.responseText);
+            }
+        }
+    };
+  
+    var formData = new FormData();
+    formData.append("payment_id", paymentId);
+    ajax.send(formData);
+}
+
+</script>
