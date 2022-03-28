@@ -8,7 +8,7 @@ $dbConnection = Connect();
 
 $caskID = $_GET['sku'];
 $userID = $_SESSION['UserID'];
-$percentage = $_GET['percent'];
+$percentage = $_GET['percentage'];
 
 $result = $dbConnection->query("SELECT CaskID, CaskName, WholeCaskPrice FROM Cask WHERE CaskID = $caskID");
 $row = mysqli_fetch_array($result);
