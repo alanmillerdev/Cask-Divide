@@ -3,9 +3,22 @@ if(!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
   }
 
-include '../../../Database/dbConnect.inc.php';
+include 'Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
+
+$userID = $_SESSION['UserID'];
+
+$sql = "SELECT UserID, FirstName, LastName, Email, DOB, PhoneNumber FROM user WHERE UserID = $userID";
+$query = mysqli_query($dbConnection, $sql);
+while ($row = mysqli_fetch_array($query)) {
+    $UserID = $row['UserID'];
+    $FirstName = $row['FirstName'];
+    $LastName = $row['LastName'];
+    $Email = $row['Email'];
+    $DOB = $row['DOB'];
+    $PhoneNumber = $row['PhoneNumber'];
+}
 
 ?>
 
@@ -31,7 +44,7 @@ $dbConnection = Connect();
                                     <td>
                                         <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
                                         <a class="text-heading font-semibold" href="#">
-                                            <?php echo $row['FirstName'];?>
+                                            <?php echo $FirstName . ' ' . $LastName;?>
                                         </a>
                                     </td>
                                     <td>
@@ -39,14 +52,14 @@ $dbConnection = Connect();
                                     </td>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            07859456524
+                                            <?php echo $PhoneNumber;?>
                                         </a>
                                     </td>
                                     <td>
-                                        chungas@gmail.com
+                                        <?php echo $Email;?>
                                     </td>
                                     <td>
-                                            09/07/2001
+                                            <?php echo $DOB;?>
                                     </td>
                                     <td class="text-end">
                                         <a href="#" class="btn btn-sm btn-neutral">View</a>
