@@ -473,4 +473,10 @@ section.origin:before {
 .shoppingdetails label {
   color: #ffffff;
 }
+
+.carousel-images {
+  height: 400px;
+  width: auto;
+  padding-top: 20px;
+}
 /*# sourceMappingURL=style.css.map */

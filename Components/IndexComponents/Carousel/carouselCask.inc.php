@@ -7,8 +7,8 @@ function generateCask($caskName, $caskDescription, $caskImage, $class)
 {
   return <<<HTML
   <div class="$class">
-    <img class="d-block m-auto w-50" src="data:image/jpeg;base64,$caskImage" alt="Carousel Item">
-    <div class="carousel-caption d-none d-md-block">
+    <img class="d-block m-auto carousel-images" src="data:image/jpeg;base64,$caskImage" alt="Carousel Item">
+    <div class="carousel-caption">
         <h5>$caskName</h5>
         <p>$caskDescription</p>
     </div>
