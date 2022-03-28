@@ -10,12 +10,12 @@ $dbConnection = Connect();
 $sql = "SELECT CaskID, CaskName, CaskDescription, WholeCaskPrice, PercentageAvailable, CaskImage FROM cask WHERE CaskID = $caskID";
 $query = mysqli_query($dbConnection, $sql);
 while($row = mysqli_fetch_array($query)) {
+    $CaskID = $row['CaskID'];
     $CaskName = $row['CaskName'];
     $CaskDescription = $row['CaskDescription'];
     $PercentageAvailable = $row['PercentageAvailable'];
     $CaskImage = $row['CaskImage'];
     $CaskPrice = $row['WholeCaskPrice'];
-
 }
 
 ?>
@@ -27,29 +27,20 @@ while($row = mysqli_fetch_array($query)) {
                 <div class="my-5 text-center text-xl-start">
                     <h1 class="display-5 fw-bolder text-white mb-2"><?php echo $CaskName ?></h1>
                     <p class="lead fw-normal text-white-50 mb-4"><?php echo $CaskDescription ?></p>
-                    
-                    <form method="POST" >
+                
+                    <form method="POST" action="Components/CheckoutComponents/CheckoutStart.inc.php">
                         <div class="form-group">
                         <label for="formControlRange" class="text-white">How much do you want to Invest?</label>
-                        <input type="range" min="1" max="<?php echo $PercentageAvailable ?>" value="<?php echo $PercentageAvailable ?>"  class="form-control-range" id="formControlRange"  style="
-                        border-radius: 100px;" name="percentage">
+                        <input type="range" min="1" max="<?php echo $PercentageAvailable ?>" value="<?php echo $PercentageAvailable ?>" name="percentage" class="form-control-range" id="formControlRange" onInput="$('#rangevalue').html($(this).val())" style="
+                        border-radius: 100px;">
                         </div>
-
-                        <h1 class="display-6 fw-bolder text-white mb-4"><span class="text-white" id="rangevalue"><?php echo $PercentageAvailable ?></span>% of the Cask: £<?php echo $CaskPrice ?></h1>
+                        <input type="hidden" name="CaskID" value="<?php echo $CaskID  ?>">
+                        <input type="hidden" name="UserID" value="<?php echo $userID ?>">
+                        <h1 class="display-6 fw-bolder text-white mb-4"><span class="text-white" name="percentage" id="rangevalue"><?php echo $PercentageAvailable ?></span>% of the Cask: £<?php echo $CaskPrice ?></h1>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                        <a class="btn btn-primary btn-lg px-4 me-sm-3" <?php echo "href='checkout.php?sku=$caskID&percentage=$PercentageAvailable&uid=$userID'"?>  type="submit" >Purchase <i class="fas fa-shopping-bag"></i></a>
-                    </form>   
-                    <script>
-                        var slider = document.getElementById("formControlRange");
-                        var output = document.getElementById("rangevalue");
-                        output.innerHTML = slider.value; // Display the default slider value
-
-                        // Update the current slider value (each time you drag the slider handle)
-                        slider.oninput = function() {
-                        output.innerHTML = this.value;
-                        }
-                    </script>
-                    <div id="output"></div>
+                        <button class="btn btn-primary btn-lg px-4 me-sm-3" type="submit" >Purchase <i class="fas fa-shopping-bag"></i></button>
+                    </form>    
+                    
                     <a class="btn btn-outline-light btn-lg px-4" href="#">Learn about the Casks <i class="fas fa-arrow-alt-circle-down"></i></a>
                     </div>
                 </div>

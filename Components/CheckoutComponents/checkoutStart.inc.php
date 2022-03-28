@@ -6,23 +6,13 @@
 include '../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
-$userID = $_SESSION['UserID'];
-$caskID = $_GET['sku'];
-$PercentageRequested = $_GET['percentage'];
+$userID = $_POST['UserID'];
+$caskID = $_POST['CaskID'];
+$PercentageRequested = $_POST['percentage'];
 ?>
-                    <?php
-                        // Create a new DOM Document
-                        $dom = new DOMDocument();
-                        // Enable validate on parse
-                        $dom->validateOnParse = true;
-                        // Get the tag name
-                        $PercentageRequested = $dom->getElementById('formControlRange')->textContent;
-                        intval($PercentageRequested);
-                        
 
-  
-                    ?>
 <?php
+
 CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $percentageAvilable);
 
 function CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $percentageAvilable)
@@ -35,7 +25,7 @@ function CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $p
      } else
      {
         if (PercentageAvailable($dbConnection, $PercentageRequested, $percentageAvilable, $caskID)) {
-            header("Location: ../../checkout.php?sku=$caskID&uid=$userID&percentage=$percent");
+            header("Location: ../../checkout.php?sku=$caskID&uid=$userID&percentage=$PercentageRequested");
         }
      }
 };
