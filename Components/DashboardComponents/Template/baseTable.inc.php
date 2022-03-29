@@ -3,11 +3,17 @@ if(!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
   }
 
-include '../../../Database/dbConnect.inc.php';
+include 'Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
+$sql = "SELECT * FROM user";
+
+$query = mysqli_query($dbConnection, $sql);
+
+$result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 ?>
+
 
 
                 <div class="card shadow border-0 mb-7">
@@ -18,45 +24,66 @@ $dbConnection = Connect();
                         <table class="table table-hover table-nowrap">
                             <thead class="thead-light">
                                 <tr>
+                                    <th scope="col">User ID</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Date Created</th>
                                     <th scope="col">Phone Number</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Date of Birth</th>
-                                    <th></th>
+                                    <th scope="col">User Type</th>
                                 </tr>
                             </thead>
                             <tbody>
+
+                            <?php
+
+                                foreach ($result as $user) {
+
+                                    if ($user['2FAENABLED'] == 1) {
+                                        $twoFactorStatus = "True";
+                                    } else {
+                                        $twoFactorStatus = "False";
+                                    }
+                                    
+                                    echo '
                                 <tr>
                                     <td>
-                                        <img alt="..." src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="avatar avatar-sm rounded-circle me-2">
                                         <a class="text-heading font-semibold" href="#">
-                                            <?php echo $row['FirstName'];?>
+                                            ' . $user['UserID'] . '
                                         </a>
                                     </td>
                                     <td>
-                                        Feb 15, 2021
+                                        ' . $user['FirstName'] . ' ' . $user['LastName'] . '
                                     </td>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            07859456524
+                                            ' . $user['PhoneNumber'] . '
                                         </a>
                                     </td>
                                     <td>
-                                        chungas@gmail.com
+                                        ' . $user['Email'] . '
                                     </td>
                                     <td>
-                                            09/07/2001
+                                        ' . $user['DOB'] . '
+                                    </td>
+                                    <td>
+                                        ' . $user['UserType'] . '
                                     </td>
                                     <td class="text-end">
                                         <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                        <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                        <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover" >
+                                        <a href="Components/DashboardComponents/Admin/UserManagement/deleteUser.inc.php"
                                             <i class="bi bi-trash"></i>
+                                        </a>
                                         </button>
                                     </td>
                                 </tr>
+                                        ';
+                                };
+
+                                ?>
+                                
                             </tbody>
-                            
+                           
                         </table>
                     </div>
                     <div class="card-footer border-0 py-5">
