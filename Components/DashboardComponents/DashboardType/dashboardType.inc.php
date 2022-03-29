@@ -9,7 +9,7 @@ if ($_SESSION['UserType'] == 'Admin') {
                     <i class="bx bx-grid-alt nav_icon"></i>
                     <span class="nav_name">Dashboard</span> </a>
                     
-                <a href="#" class="nav_link"> 
+                <a href="./dashboard/pages/edit-users.php" class="nav_link"> 
                     <i class="bx bx-user nav_icon"></i> 
                     <span class="nav_name">Users</span> </a>
                     
@@ -48,7 +48,7 @@ if ($_SESSION['UserType'] == 'Admin') {
                     <span class="nav_name">Past Investments</span> </a>
                     
                 <a href="#" class="nav_link"> 
-                    <i class="bx bx-user icon"></i>
+                    <i class="bx bx-cog"></i>
                     <span class="nav_name">Account Settings</span> </a>
                     
             </div>';
