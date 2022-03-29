@@ -7,20 +7,14 @@ include 'Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-$userID = $_SESSION['UserID'];
+$sql = "SELECT * FROM user";
 
-$sql = "SELECT UserID, FirstName, LastName, Email, DOB, PhoneNumber FROM user WHERE UserID = $userID";
 $query = mysqli_query($dbConnection, $sql);
-while ($row = mysqli_fetch_array($query)) {
-    $UserID = $row['UserID'];
-    $FirstName = $row['FirstName'];
-    $LastName = $row['LastName'];
-    $Email = $row['Email'];
-    $DOB = $row['DOB'];
-    $PhoneNumber = $row['PhoneNumber'];
-}
 
+$result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 ?>
+
+
 
                 <div class="card shadow border-0 mb-7">
                     <div class="card-header">
@@ -54,7 +48,7 @@ while ($row = mysqli_fetch_array($query)) {
                                 <tr>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            <?php echo $FirstName . ' ' . $LastName;?>
+                                            ' . $user['UserID'] . '
                                         </a>
                                     </td>
                                     <td>
@@ -62,21 +56,23 @@ while ($row = mysqli_fetch_array($query)) {
                                     </td>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            <?php echo $PhoneNumber;?>
+                                            ' . $user['PhoneNumber'] . '
                                         </a>
                                     </td>
                                     <td>
-                                        <?php echo $Email;?>
+                                        ' . $user['Email'] . '
                                     </td>
                                     <td>
-                                            <?php echo $DOB;?>
+                                        ' . $user['DOB'] . '
+                                    </td>
+                                    <td>
+                                        ' . $user['UserType'] . '
                                     </td>
                                     <td class="text-end">
                                         <a href="#" class="btn btn-sm btn-neutral">View</a>
                                         <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover" >
-                                        <a href="Components/DashboardComponents/Admin/UserManagement/deleteUser.inc.php"
+                                        <a href="#"
                                             <i class="bi bi-trash"></i>
-                                        </a>
                                         </button>
                                     </td>
                                 </tr>
