@@ -8,7 +8,7 @@ function Connect()
 
   $servername = "localhost";
   $username = "root";
-  $password = "";
+  $password = "QvbtMG]g@qAPD]S4";
   $database = "caskdivide";
 
   $connection = new mysqli($servername, $username, $password, $database) or die("Connect failed: %s\n" . $connection->error);
