@@ -2,6 +2,8 @@
 if(!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
   }
+
+
 ?>
 
 <!-- Main -->
@@ -37,8 +39,12 @@ if(!defined('SecurityCheck')) {
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">New Users</span>
-                                        <span class="h3 font-bold mb-0">215</span>
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Users</span>
+                                        <span class="h3 font-bold mb-0">
+                                            <?php
+                                                echo $number_of_results = mysqli_num_rows($result);
+                                            ?>
+                                        </span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
@@ -83,8 +89,10 @@ if(!defined('SecurityCheck')) {
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Purchases</span>
-                                        <span class="h3 font-bold mb-0">95</span>
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                            <span class="h3 font-bold mb-0">
+                                            20
+                                            </span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
