@@ -26,7 +26,7 @@ require_once "vendor/autoload.php";
  
     $amount = $total;
  
-    $stripe = new \Stripe\StripeClient("sk_test_5OX6hk9hz9BfzfTNmV8R0RlW");
+    $stripe = new \Stripe\StripeClient("sk_test_51KiJStCiLMNwkdjmlxRvmpexo2tsqrExebyJfWBgxRp6UhZaN0M76FoVH45xE98v7gdaO16DzooG5hk2G2TH4P7900I8n6AE13");
  
     // creating setup intent
     $payment_intent = $stripe->paymentIntents->create([
@@ -96,7 +96,7 @@ require_once "vendor/autoload.php";
             </div>
           </div>
 
-          <input type="hidden" id="stripe-public-key" value="pk_test_Bp3YyDa2EeOx0C5dEXM0GuVJ" />
+          <input type="hidden" id="stripe-public-key" value="pk_test_51KiJStCiLMNwkdjmBxIiihgEfRd96advJeaSzIxPpImkVdFrvR8WfQfUA3eg6R8Ho0FLv6jVw1Rg0mZ66zpEebRa00cgcZUKzI" />
           <input type="hidden" id="stripe-payment-intent" value="<?php echo $payment_intent->client_secret; ?>" />
           
           <!-- credit card UI will be rendered here -->
@@ -109,7 +109,7 @@ require_once "vendor/autoload.php";
     <div class="col-md-6 order-md-2">
        <div class="shoppingdetails">
         <span id="decor-title">Your Details</span>
-        <form class="needs-validation" novalidate>
+        <form method="dialog" class="needs-validation" novalidate>
           <div class="row">
             <div class="mb-3">
               <label for="firstName">Full Name</label>
@@ -211,39 +211,16 @@ require_once "vendor/autoload.php";
                 },
             })
             .then(function(result) {
- 
+
                 // Handle result.error or result.paymentIntent
                 if (result.error) {
                     console.log(result.error);
+                    window.location.replace('paymentError.php');
                 } else {
                     console.log("The card has been verified successfully...", result.paymentIntent.id);
-                    confirmPayment(result.paymentIntent.id);
+                    window.location.replace('paymentSuccess.php');
                 }
             });
-}
-
-function confirmPayment(paymentId) {
-    var ajax = new XMLHttpRequest();
-    ajax.open("POST", "stripe.inc.php", true);
-  
-    ajax.onreadystatechange = function () {
-        if (this.readyState == 4) {
-            if (this.status == 200) {
-                var response = JSON.parse(this.responseText);
-                console.log(response);
-            }
-            if (this.status == 400) {
-                console.log(this.responseText);
-            }
-            if (this.status == 500) {
-                console.log(this.responseText);
-            }
-        }
-    };
-  
-    var formData = new FormData();
-    formData.append("payment_id", paymentId);
-    ajax.send(formData);
 }
 
 </script>
