@@ -7,14 +7,20 @@ include 'Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-$sql = "SELECT * FROM user";
+$userID = $_SESSION['UserID'];
 
+$sql = "SELECT UserID, FirstName, LastName, Email, DOB, PhoneNumber FROM user WHERE UserID = $userID";
 $query = mysqli_query($dbConnection, $sql);
+while ($row = mysqli_fetch_array($query)) {
+    $UserID = $row['UserID'];
+    $FirstName = $row['FirstName'];
+    $LastName = $row['LastName'];
+    $Email = $row['Email'];
+    $DOB = $row['DOB'];
+    $PhoneNumber = $row['PhoneNumber'];
+}
 
-$result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 ?>
-
-
 
                 <div class="card shadow border-0 mb-7">
                     <div class="card-header">
@@ -48,7 +54,7 @@ $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                 <tr>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            ' . $user['UserID'] . '
+                                            <?php echo $FirstName . ' ' . $LastName;?>
                                         </a>
                                     </td>
                                     <td>
@@ -56,17 +62,14 @@ $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                     </td>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            ' . $user['PhoneNumber'] . '
+                                            <?php echo $PhoneNumber;?>
                                         </a>
                                     </td>
                                     <td>
-                                        ' . $user['Email'] . '
+                                        <?php echo $Email;?>
                                     </td>
                                     <td>
-                                        ' . $user['DOB'] . '
-                                    </td>
-                                    <td>
-                                        ' . $user['UserType'] . '
+                                            <?php echo $DOB;?>
                                     </td>
                                     <td class="text-end">
                                         <a href="#" class="btn btn-sm btn-neutral">View</a>
