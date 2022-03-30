@@ -10,7 +10,6 @@ while ($row = mysqli_fetch_array($query)) {
     
 ?>
 
-
 <div id="account-content">
 <div class="container rounded mt-30 mb-0">
     <div class="row">

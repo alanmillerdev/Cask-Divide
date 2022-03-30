@@ -74,12 +74,7 @@ if(!defined('SecurityCheck')) {
                                         ' . $row['DistilleryName'] . '
                                     </td>
                                     <td class="text-end">
-                                        <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                        <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                        <a href="../Components/DashboardComponents/Admin/CaskManagement/deleteCask.inc.php?CaskID=' . $row['CaskID'] . '">
-                                            <i class="bi bi-trash"></i>
-                                        </a>
-                                        </button>
+                                        <a href="edit-cask.php?CaskID=' . $row['CaskID'] . '" class="btn btn-sm btn-neutral">View</a>
                                     </td>
                                 </tr>
                                         ';
@@ -96,7 +91,7 @@ if(!defined('SecurityCheck')) {
                                 <ul class="pagination">
                         <?php
                         for ($page=1;$page<=$number_of_pages;$page++) {
-                        //echo '<a href="show-users.php?page=' . $page . '">' . $page . '</a> ';
+                        //echo '<a href="show-casks.php?page=' . $page . '">' . $page . '</a> ';
                         echo '
                                     
                                     <li class="page-item"><a class="page-link" href="show-casks.php?page=' . $page . '">' . $page . '</a></li>

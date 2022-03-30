@@ -9,12 +9,7 @@ include '../../../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-
-
 $UserID = $_POST["UserID"];
-
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
 
 $UpdateQuery ="UPDATE user SET UserID='{$_POST['UserID']}', 
 Email='{$_POST['Email']}', FirstName='{$_POST['FirstName']}', LastName='{$_POST['LastName']}', PhoneNumber='{$_POST['PhoneNumber']}' WHERE UserID='{$UserID}'";
