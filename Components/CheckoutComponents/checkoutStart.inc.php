@@ -13,9 +13,11 @@ $PercentageRequested = $_POST['percentage'];
 
 <?php
 
-CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $percentageAvilable);
+CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $PercentageAvilable, $finalPercentage);
 
-function CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $percentageAvilable)
+
+
+function CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $PercentageAvilable, $finalPercentage)
 {
 
     session_start();
@@ -24,13 +26,17 @@ function CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $p
         header("Location: ../../login.php?msg=buy");
      } else
      {
-        if (PercentageAvailable($dbConnection, $PercentageRequested, $percentageAvilable, $caskID)) {
-            header("Location: ../../checkout.php?sku=$caskID&uid=$userID&percentage=$PercentageRequested");
+        if (PercentageAvailable($dbConnection, $PercentageRequested, $PercentageAvilable, $caskID, $finalPercentage)) {
+            $result = $dbConnection->query("SELECT PercentageAvailable FROM Cask WHERE CaskID = $caskID");
+            $row = mysqli_fetch_array($result);
+            $PercentageAvilable = $row[0];
+            $finalPercentage = $PercentageAvilable - $PercentageRequested;
+            header("Location: ../../checkout.php?sku=$caskID&uid=$userID&percentage=$PercentageRequested&finalPercentage=$finalPercentage");
         }
      }
 };
 
-function PercentageAvailable($dbConnection, $PercentageRequested, $PercentageAvilable, $caskID)
+function PercentageAvailable($dbConnection, $PercentageRequested, $PercentageAvilable, $caskID, $finalPercentage)
 {
     $result = $dbConnection->query("SELECT PercentageAvailable FROM Cask WHERE CaskID = $caskID");
     $row = mysqli_fetch_array($result);
@@ -46,3 +52,5 @@ function PercentageAvailable($dbConnection, $PercentageRequested, $PercentageAvi
         header("Location: ../../product.php?sku=$caskID&msg=err");
     }
 };
+
+
