@@ -13,4 +13,4 @@ $caskID = $_GET["CaskID"];
 
 $DeleteQuery = "DELETE FROM cask WHERE CaskID='$caskID'";
 $result = mysqli_query($dbConnection, $DeleteQuery) or die(mysqli_error($dbConnection));
-header('location:../../../../dashboard/edit-casks.php');
+header('location:../../../../dashboard/show-casks.php');

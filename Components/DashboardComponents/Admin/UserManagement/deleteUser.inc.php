@@ -14,4 +14,4 @@ $userID = $_GET["UserID"];
 
 $DeleteQuery = "DELETE FROM user WHERE userID='$userID'";
 $result = mysqli_query($dbConnection, $DeleteQuery) or die(mysqli_error($dbConnection));
-header('location:../../../../dashboard/edit-users.php');
+header('location:../../../../dashboard/show-users.php');

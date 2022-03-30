@@ -1,14 +1,15 @@
 /* Google Font Import - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
-@import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+@import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
 
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
     --first-color: #272727;
     --first-color-light: #BF9139;
-    --white-color: #Fff;
+    --second-color-light: #FFA800;
+    --white-color: #fff;
     --body-font: 'Poppins', sans-serif;
     --normal-font-size: 1rem;
     --z-fixed: 100
@@ -222,3 +223,53 @@ a {
     color: #fff;
 }
 
+#account-content {
+
+    margin-top: 200px;
+
+    .container {
+
+        background-color: var(--first-color);
+
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: var(--first-color);
+    }
+
+    .profile-button {
+        background: var(--first-color-light);
+        box-shadow: none;
+        border: none;
+    }
+
+    .profile-button:hover {
+        background: var(--second-color-light);
+    }
+
+    .profile-button:focus {
+        background: var(--second-color-light);
+        box-shadow: none;
+    }
+
+    .profile-button:active {
+        background: var(--second-color-light);
+        box-shadow: none;
+    }
+
+    .back:hover {
+        color: var(--second-color-light);
+        cursor: pointer;
+    }
+
+    .labels {
+        font-size: 11px;
+        color: var(--white-color) !important;
+    }
+
+    .text-right {
+        color: var(--white-color) !important;
+    }
+
+}

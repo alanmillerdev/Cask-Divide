@@ -65,12 +65,8 @@ if(!defined('SecurityCheck')) {
                                         ' . $row['UserType'] . '
                                     </td>
                                     <td class="text-end">
-                                        <a href="#" class="btn btn-sm btn-neutral">View</a>
-                                        <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                        <a href="../Components/DashboardComponents/Admin/UserManagement/deleteUser.inc.php?UserID=' . $row['UserID'] . '">
-                                            <i class="bi bi-trash"></i>
-                                        </a>
-                                        </button>
+                                        <a href="edit-user.php?UserID=' . $row['UserID'] . '" class="btn btn-sm btn-neutral">View</a>
+                                        
                                     </td>
                                 </tr>
                                         ';
@@ -86,10 +82,10 @@ if(!defined('SecurityCheck')) {
                                 <ul class="pagination">
                         <?php
                         for ($page=1;$page<=$number_of_pages;$page++) {
-                        //echo '<a href="edit-users.php?page=' . $page . '">' . $page . '</a> ';
+                        //echo '<a href="show-users.php?page=' . $page . '">' . $page . '</a> ';
                         echo '
                                     
-                                    <li class="page-item"><a class="page-link" href="edit-users.php?page=' . $page . '">' . $page . '</a></li>
+                                    <li class="page-item"><a class="page-link" href="show-users.php?page=' . $page . '">' . $page . '</a></li>
                                     
                                 ';
                         }

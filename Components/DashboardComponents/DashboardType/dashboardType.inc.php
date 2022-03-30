@@ -9,11 +9,11 @@ if ($_SESSION['UserType'] == 'Admin') {
                     <i class="bx bx-grid-alt nav_icon"></i>
                     <span class="nav_name">Dashboard</span> </a>
                     
-                <a href="edit-users.php" class="nav_link"> 
+                <a href="show-users.php" class="nav_link"> 
                     <i class="bx bx-user nav_icon"></i> 
                     <span class="nav_name">Users</span> </a>
                     
-                <a href="edit-casks.php" class="nav_link"> 
+                <a href="show-casks.php" class="nav_link"> 
                     <img class="caskimg" src="css/icons/cask-icon.svg"> 
                     <span class="nav_name">Casks</span> </a>
                     
