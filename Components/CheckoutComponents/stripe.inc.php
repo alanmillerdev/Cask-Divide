@@ -2,7 +2,7 @@
  
     require_once "vendor/autoload.php";
  
-    $stripe = new \Stripe\StripeClient('sk_test_51KiJStCiLMNwkdjmlxRvmpexo2tsqrExebyJfWBgxRp6UhZaN0M76FoVH45xE98v7gdaO16DzooG5hk2G2TH4P7900I8n6AE13');
+    $stripe = new \Stripe\StripeClient('sk_test_51KiHJEEIsZ5yvNB5WoMfOjI15pYld5EF3uDYbD2XOFLUbNtvkcTku3VIYpf908EPcb1op4Nk0kJaDcOpqkV2FdSa00LV1zLrVL');
  
     try
     {
