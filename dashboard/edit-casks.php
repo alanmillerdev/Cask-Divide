@@ -5,7 +5,7 @@ include '../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-$sql = "SELECT * FROM user";
+$sql = "SELECT * FROM cask";
 
 $query = mysqli_query($dbConnection, $sql);
 
