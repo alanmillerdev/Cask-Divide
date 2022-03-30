@@ -171,7 +171,7 @@ $payment_intent = $stripe->paymentIntents->create([
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" id="sendPayment" onclick="payViaStripe()">Pay £<?php echo $total ?> to Cask Divide</button>
+            <button class="btn btn-primary btn-lg btn-block" id="sendPayment" type="submit" onclick="payViaStripe()">Pay £<?php echo $total ?> to Cask Divide</button>
         </form>
         <hr class="mb-4">
         <div class="text-muted">*We will be in touch with details of your investment periodically*</div>
@@ -233,12 +233,14 @@ $payment_intent = $stripe->paymentIntents->create([
                     .append('</div>');
                   $('#paymentForm').trigger("reset");
                   cardElement.clear();
+
                   document.getElementById("caskName").innerHTML = " ";
                   document.getElementById("cost").innerHTML = " ";
                   document.getElementById("totalTitle").innerHTML = " ";
                   document.getElementById("total").innerHTML = " ";
                   document.getElementById("percentageCheck").innerHTML = " ";
-                  document.getElementById("listGroup").remove();
+
+
               }
               else {
                 console.log(result.error);
@@ -252,8 +254,8 @@ $payment_intent = $stripe->paymentIntents->create([
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
           .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is not available."));
-        $('#success > .alert-danger').append($("<br><strong>").text("Please go back and try another amount."));
+        $('#success > .alert-danger').append($("<strong>").text("Somethings gone wrong on our end. Your payment has not been processed."));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
         $('#success > .alert-danger').append('</div>');
     }
   }
@@ -264,12 +266,12 @@ $payment_intent = $stripe->paymentIntents->create([
 
 
     var totalAvailable = percentageCheck + finalPercentage;
-    if(!parseInt(percentageCheck)) {
+    if(parseInt(percentageCheck >= totalAvailable)) {
               // Fail message
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
           .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, something has gone wrong on our end. Your payment has not been processed."));
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is not available."));
         $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
         $('#success > .alert-danger').append('</div>');
   
@@ -278,12 +280,12 @@ $payment_intent = $stripe->paymentIntents->create([
       $this = $("#sendPayment");
       $this.prop("disabled", true); // Disable submit button until AJAX call is finished, this is to prevent multiple payment attempts in the same window
       $.ajax({
-        url: 'Components/CheckoutComponents/checkoutCheck.inc.php',
-        type: 'GET',
-        data: {
-          percentageCheck: percentageCheck,
-          finalPercentage: finalPercentage,
-          totalAvailable: totalAvailable
+          url: 'Components/CheckoutComponents/checkoutCheck.inc.php',
+          type: 'GET',
+          data: {
+            percentageCheck: percentageCheck,
+            finalPercentage: finalPercentage,
+            totalAvailable: totalAvailable
         },
 
         cache: false,
@@ -298,6 +300,7 @@ $payment_intent = $stripe->paymentIntents->create([
             $('#success > .alert-success')
               .append('</div>');
               $('#paymentForm').trigger("reset");
+
               cardElement.clear();
               document.getElementById("caskName").innerHTML = " ";
                   document.getElementById("cost").innerHTML = " ";
@@ -305,8 +308,23 @@ $payment_intent = $stripe->paymentIntents->create([
                   document.getElementById("total").innerHTML = " ";
                   document.getElementById("percentageCheck").innerHTML = " ";
                   document.getElementById("listGroup").remove();
+                  // Run the update query for the database
+                  <?php
+                  PercentageAvailable($dbConnection, $percentage, $caskID);
+                  function PercentageAvailable($dbConnection, $percentage, $caskID) {    
+                        $sql = "SELECT PercentageAvailable from Cask WHERE PercentageAvailable >= $percentage AND CaskID = $caskID";
+                        $queryResult = @mysqli_query($dbConnection, $sql);
+                      
+                        if ($queryResult) {
+                            $sqlQuery ="UPDATE Cask SET PercentageAvailable = PercentageAvailable - $percentage WHERE CaskID = $caskID";
+                            $queryResult = @mysqli_query($dbConnection, $sqlQuery);
+                            return true;
+                        } else {
+                            header("Location: ../../product.php?sku=$caskID&msg=err");
+                        }
+                  };
               
-              
+              ?>
               
         },
         error: function() {
@@ -328,8 +346,3 @@ $payment_intent = $stripe->paymentIntents->create([
     
   }
 </script>
-
-<?php
-
-
-?>
