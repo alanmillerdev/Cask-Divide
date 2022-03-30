@@ -252,8 +252,8 @@ $payment_intent = $stripe->paymentIntents->create([
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
           .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Somethings gone wrong on our end. Your payment has not been processed."));
-        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is not available."));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please go back and try another amount."));
         $('#success > .alert-danger').append('</div>');
     }
   }
@@ -264,12 +264,12 @@ $payment_intent = $stripe->paymentIntents->create([
 
 
     var totalAvailable = percentageCheck + finalPercentage;
-    if(parseInt(percentageCheck >= totalAvailable)) {
+    if(!parseInt(percentageCheck)) {
               // Fail message
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
           .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is not available."));
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, something has gone wrong on our end. Your payment has not been processed."));
         $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
         $('#success > .alert-danger').append('</div>');
   

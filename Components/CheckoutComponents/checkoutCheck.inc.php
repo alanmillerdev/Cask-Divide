@@ -11,6 +11,7 @@ if (!defined('SecurityCheck')) {
   $percentageCheck = intval($_GET['percentageCheck']);
   $finalPercentage = intval($_GET['finalPercentage']);
   
+  PercentageAvailable($dbConnection, $percentageCheck, $PercentageAvilable, $caskID, $finalPercentage);
   function PercentageAvailable($dbConnection, $percentageCheck, $PercentageAvilable, $caskID, $finalPercentage)
   {    
     $sql = $dbConnection->query("SELECT PercentageAvailable from Cask WHERE PercentageAvailable >= $percentageCheck AND CaskID = $caskID");
