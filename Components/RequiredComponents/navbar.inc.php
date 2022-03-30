@@ -42,7 +42,7 @@ session_start();
             </a>
 
             <?php
-            if (isset($_SESSION['UserID'])) {
+            if ($_SESSION['UserType'] == 'Admin') {
                 echo '<ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="./dashboard/dashboard.php">Dashboard</a>
@@ -51,7 +51,19 @@ session_start();
                             <a class="border-left nav-link text-white p-4 m-0" href="Components/LogoutComponents/logoutUser.inc.php">Log Out     </a>
                         </li>
                     </ul>';
-            } else {
+            } 
+            elseif ($_SESSION['UserType'] == 'User'){
+                echo
+                '<ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="border-left nav-link text-white p-4 m-0" href="account-details.php">My Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="border-left nav-link text-white p-4 m-0" href="Components/LogoutComponents/logoutUser.inc.php">Log Out</a>
+                        </li>
+                    </ul>';
+            }
+             else {
                 echo
                 '<ul class="navbar-nav">
                         <li class="nav-item">

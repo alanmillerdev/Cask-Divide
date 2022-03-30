@@ -21,10 +21,11 @@ $borders: 60px;
 }
 
 
-*{
+body{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background-color: color(background);
 }
 
 #main-title{
@@ -481,4 +482,53 @@ section.origin .origin-content h2, p, .rounded-pill {
   height: 300px;
   width: auto;
   padding-top: 20px;
+}
+
+#account-content {
+
+  .container{
+
+  background-color: color(background);
+
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+    border-color: color(background);
+  }
+
+  .profile-button {
+    background: color(primary);
+    box-shadow: none;
+    border: none;
+  }
+
+  .profile-button:hover {
+    background: color(secondary);
+  }
+
+  .profile-button:focus {
+    background: color(secondary);
+    box-shadow: none;
+  }
+
+  .profile-button:active {
+    background: color(secondary);
+    box-shadow: none;
+  }
+
+  .back:hover {
+    color: color(secondary);
+    cursor: pointer;
+  }
+
+  .labels {
+    font-size: 11px;
+    color: color(text)
+  }
+
+  .text-right{
+    color: color(text);
+  }
+
 }

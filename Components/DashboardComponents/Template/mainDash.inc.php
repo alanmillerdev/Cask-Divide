@@ -3,7 +3,15 @@ if(!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
   }
 
+$sql = "SELECT * FROM user";
+if ($result=mysqli_query($dbConnection,$sql)) {
+    $usercount=mysqli_num_rows($result);   
+}
 
+$sql = "SELECT * FROM cask";
+if ($result=mysqli_query($dbConnection,$sql)) {
+    $caskcount=mysqli_num_rows($result);   
+}
 ?>
 
 <!-- Main -->
@@ -25,12 +33,7 @@ if(!defined('SecurityCheck')) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-2 mb-0 text-sm">
-                                    <span class="badge badge-pill bg-soft-success text-success me-2">
-                                        <i class="bi bi-arrow-up me-1"></i>13%
-                                    </span>
-                                    <span class="text-nowrap text-xs text-muted">Since last month</span>
-                                </div>
+                            
                             </div>
                         </div>
                     </div>
@@ -42,7 +45,7 @@ if(!defined('SecurityCheck')) {
                                         <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Users</span>
                                         <span class="h3 font-bold mb-0">
                                             <?php
-                                                echo $number_of_results = mysqli_num_rows($result);
+                                                echo $usercount;
                                             ?>
                                         </span>
                                     </div>
@@ -52,12 +55,7 @@ if(!defined('SecurityCheck')) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-2 mb-0 text-sm">
-                                    <span class="badge badge-pill bg-soft-success text-success me-2">
-                                        <i class="bi bi-arrow-up me-1"></i>30%
-                                    </span>
-                                    <span class="text-nowrap text-xs text-muted">Since last month</span>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -75,12 +73,7 @@ if(!defined('SecurityCheck')) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-2 mb-0 text-sm">
-                                    <span class="badge badge-pill bg-soft-success text-success me-2">
-                                        <i class="bi bi-arrow-down me-1"></i>15%
-                                    </span>
-                                    <span class="text-nowrap text-xs text-muted">Since last month</span>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -91,8 +84,11 @@ if(!defined('SecurityCheck')) {
                                     <div class="col">
                                         <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
                                             <span class="h3 font-bold mb-0">
-                                            20
+                                            <?php 
+                                            echo $caskcount;
+                                            ?>
                                             </span>
+                                        
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
@@ -100,12 +96,7 @@ if(!defined('SecurityCheck')) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-2 mb-0 text-sm">
-                                    <span class="badge badge-pill bg-soft-success text-success me-2">
-                                        <i class="bi bi-arrow-up me-1"></i>26%
-                                    </span>
-                                    <span class="text-nowrap text-xs text-muted">Since last month</span>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
