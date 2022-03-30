@@ -9,8 +9,8 @@ include '../../../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-$caskID = $_POST["CaskID"];
+$caskID = $_GET["CaskID"];
 
-$DeleteQuery = "DELETE FROM Cask WHERE CaskID='$caskID'";
+$DeleteQuery = "DELETE FROM cask WHERE CaskID='$caskID'";
 $result = mysqli_query($dbConnection, $DeleteQuery) or die(mysqli_error($dbConnection));
-header('location:../dashboard.php');
+header('location:../../../../dashboard/edit-casks.php');

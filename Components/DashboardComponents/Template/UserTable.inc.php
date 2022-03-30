@@ -44,20 +44,16 @@ if(!defined('SecurityCheck')) {
                         $result = mysqli_query($dbConnection, $sql);
 
                         while($row = mysqli_fetch_array($result)) {
-                        echo' 
+                        echo '
                                 <tr>
                                     <td>
-                                        <a class="text-heading font-semibold" href="#">
-                                            ' . $row['UserID'] . '
-                                        </a>
+                                        ' . $row['UserID'] . '
                                     </td>
                                     <td>
                                         ' . $row['FirstName'] . ' ' . $row['LastName'] . '
                                     </td>
                                     <td>
-                                        <a class="text-heading font-semibold" href="#">
-                                            ' . $row['PhoneNumber'] . '
-                                        </a>
+                                        ' . $row['PhoneNumber'] . '
                                     </td>
                                     <td>
                                         ' . $row['Email'] . '
@@ -71,7 +67,9 @@ if(!defined('SecurityCheck')) {
                                     <td class="text-end">
                                         <a href="#" class="btn btn-sm btn-neutral">View</a>
                                         <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                        <a href="../Components/DashboardComponents/Admin/UserManagement/deleteUser.inc.php?UserID=' . $row['UserID'] . '">
                                             <i class="bi bi-trash"></i>
+                                        </a>
                                         </button>
                                     </td>
                                 </tr>

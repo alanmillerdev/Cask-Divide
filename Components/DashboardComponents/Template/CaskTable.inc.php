@@ -76,7 +76,9 @@ if(!defined('SecurityCheck')) {
                                     <td class="text-end">
                                         <a href="#" class="btn btn-sm btn-neutral">View</a>
                                         <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                        <a href="../Components/DashboardComponents/Admin/CaskManagement/deleteCask.inc.php?CaskID=' . $row['CaskID'] . '">
                                             <i class="bi bi-trash"></i>
+                                        </a>
                                         </button>
                                     </td>
                                 </tr>
