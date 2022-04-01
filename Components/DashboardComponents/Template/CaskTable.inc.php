@@ -9,7 +9,7 @@ if(!defined('SecurityCheck')) {
 
                 <div class="card shadow border-0 mt-20">
                     <div class="card-header">
-                        <h5 class="mb-0">Casks</h5>
+                        <h5 class="mb-0">Casks <a href="add-cask.php" class="btn btn-sm btn-neutral"><i class='bx bx-plus-circle'></i></a></h5>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover table-nowrap">

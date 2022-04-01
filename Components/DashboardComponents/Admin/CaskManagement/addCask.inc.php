@@ -9,7 +9,7 @@ include '../../../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-$caskName = $_POST['NameOfCask'];
+$caskName = $_POST['caskName'];
 $caskDescription = $_POST['CaskDescription'];
 $percentageAvailable = $_POST['PercentageAvailable'];
 $wholeCaskPrice = $_POST['WholeCaskPrice'];

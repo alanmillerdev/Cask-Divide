@@ -1,52 +1,40 @@
-<form action="addCask.inc.php" method="post" enctype="multipart/form-data">
 
-    <label for="NameOfCask">Name of Cask</label><br>
-    <input type="text" id="NameOfCask" name="NameOfCask" value=""><br>
 
-    <label for="CaskDescription">Cask Description</label><br>
-    <input type="text" id="CaskDescription" name="CaskDescription" value=""><br>
 
-    <label for="PercentageAvailable">Percentage Available</label><br>
-    <input type="number" id="PercentageAvailable" name="PercentageAvailable" value=95 step="1"><br>
 
-    <label for="WholeCaskPrice">Whole Cask Price</label><br>
-    <input type="number" id="WholeCaskPrice" name="WholeCaskPrice" value="" step=".01"><br>
 
-    <label for="OLA">OLA</label><br>
-    <input type="number" id="OLA" name="OLA" value="" step=".01"><br>
+<div id="account-content">
+<div class="container rounded mt-5 mb-0">
+    <div class="row">
 
-    <label for="RLA">RLA</label><br>
-    <input type="number" id="RLA" name="RLA" value="" step=".01"><br>
-
-    <label for="PercentageAlcohol">Percentage Alchohol</label><br>
-    <input type="number" id="PercentageAlcohol" name="PercentageAlcohol" value="" step=".01"><br>
-
-    <label for="CaskType">Cask Type</label><br>
-    <input type="text" id="CaskType" name="CaskType" value=""><br>
-
-    <label for="WoodType">Wood Type</label><br>
-    <input type="text" id="WoodType" name="WoodType" value=""><br>
-
-    <label for="CaskImage">Cask Image</label><br>
-    <input type="file" id="CaskImage" name="CaskImage" accept=".png, .jpg, .jpeg"><br>
-
-    <label for="DistilleryName">Distilled At</label><br>
-    <select name="DistilleryName">
-        <?php
-        if(!defined('SecurityCheck')) {
-            exit(header("Location: ../../../../index.php"));
-          }
-
-        include '../../../../Database/dbConnect.inc.php';
-
-        $dbConnection = Connect();
-
-        $result = mysqli_query($dbConnection, "SELECT DistilleryName FROM `distillery`");
-
-        while ($row = mysqli_fetch_array($result)) {
-            echo "<option>" . $row["DistilleryName"] . "</option>";
-        }
-        ?>
-    </select><br><br>
-    <input type="submit" value="Submit">
-</form>
+        <div class="col-md-12 border">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Add a Cask</h4>
+                </div>
+            <form action="../Components/DashboardComponents/Admin/CaskManagement/addCask.inc.php" method="post">
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Cask Name</label><input type="text" class="form-control" name="caskName" placeholder="" value=""></div>
+                    <div class="col-md-6"><label class="labels">Description</label><input type="text" class="form-control" name="CaskDescription"  placeholder="" value=""></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Percentage Available</label><input type="number" class="form-control" name="PercentageAvailable" placeholder="" value=""></div>
+                    <div class="col-md-12"><label class="labels">WholeCaskPrice</label><input type="number" class="form-control" name="WholeCaskPrice" placeholder="" value=""></div>
+                    <div class="col-md-12"><label class="labels">OLA</label><input type="number" class="form-control" name="OLA" placeholder="" value=""></div>
+                    <div class="col-md-12"><label class="labels">RLA</label><input type="number" class="form-control" name="RLA" placeholder="" value=""></div>
+                    <div class="col-md-12"><label class="labels">Alcohol Percentage</label><input type="number" class="form-control" name="PercentageAlcohol" placeholder="" value=""></div>
+                    <div class="col-md-6"><label class="labels">Cask Type</label><input type="text" class="form-control" name="CaskType" placeholder="" value=""></div>
+                    <div class="col-md-6"><label class="labels">Wood Type</label><input type="text" class="form-control" name="WoodType" placeholder="" value=""></div>
+                    <div class="col-md-6"><label class="labels">Image</label><input type="file" class="form-control" name="CaskImage" placeholder="" value=""></div>
+                    <div class="col-md-6"><label class="labels">Distillery Name</label><input type="text" class="form-control" name="DistilleryName" placeholder="" value=""></div>
+                </div>
+                <div class="mt-5 text-center">
+                <input class="btn btn-primary profile-button" type="Submit" name="Submit" id="Submit" value="Submit">
+                </div>
+            </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</div>
