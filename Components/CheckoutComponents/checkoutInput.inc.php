@@ -221,7 +221,7 @@ $currentPercentageAvailable = $row[0];
               $("#cPercentage").hide();
               
                 }
-              }, 10000); // refresh every 10000 milliseconds
+              }, 5000); // refresh every 10000 milliseconds
 
 
       
