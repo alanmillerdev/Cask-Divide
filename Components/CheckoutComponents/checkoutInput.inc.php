@@ -38,6 +38,12 @@ $payment_intent = $stripe->paymentIntents->create([
   'currency' => 'gbp',
   'statement_descriptor' => 'Cask Divide Investment',
 ]);
+
+
+
+$sql = $dbConnection->query("SELECT PercentageAvailable from Cask WHERE CaskID = $caskID");
+$row = mysqli_fetch_array($sql);
+$currentPercentageAvailable = $row[0];
 ?>
 
 <script src="https://js.stripe.com/v3/"></script>
@@ -171,7 +177,58 @@ $payment_intent = $stripe->paymentIntents->create([
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" id="sendPayment" type="submit" onclick="payViaStripe()">Pay £<?php echo $total ?> to Cask Divide</button>
+            <button class="btn btn-primary btn-lg btn-block" id="sendPayment" type="submit" onclick="percentageCheck()">Pay £<?php echo $total ?> to Cask Divide</button>
+            <input type="hidden" id="caskID" value="<?php echo $caskID?>"/>
+            <input type="hidden" id="percent" name="percent" value="<?php echo $percentage?>" />
+            <input type="hidden" id="finalPercent" name="finalPercentage" value="<?php echo $finalPercentage?>" />
+            <?php 
+
+          $sql = $dbConnection->query("SELECT PercentageAvailable from Cask WHERE CaskID = $caskID");
+          $row = mysqli_fetch_array($sql);
+
+          $currentPercentageAvailable = $row[0];
+
+          
+        
+        ?>
+               <input type="" id="cPercentage" readonly name="cPercentage" value="<?php echo $currentPercentageAvailable?>" style="max-width: 0px; max-height: 0px; background-color: #272727; color:#272727; display:none; border: none; min-height: 0px; min-width: 0px;" />
+        <script>
+
+            var cPercent = document.getElementById("cPercentage").value;
+            var caskID = document.getElementById("caskID").value;
+              var auto_refresh = setInterval(
+               // $("#cPercentage").hide();
+              function (data)
+              {
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+                $("#cPercentage").hide();
+                xhttp.onreadystatechange = function() {
+                  $("#cPercentage").hide();
+                  if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("cPercentage").value = this.responseText;
+                    $("#cPercentage").hide();
+                    
+                  }
+                };
+                xhttp.open("GET", "Components/CheckoutComponents/check.inc.php?q="+data +"&caskID=" +caskID+"&cPercent="+cPercent, true);
+                xhttp.send();   
+              $('#cPercentage').load('Components/CheckoutComponents/check.inc.php?caskID=' + caskID + '&cPercent=' + cPercent ).fadeIn("slow");
+              if (this.readyState == 4 && this.status == 200) {
+                $("#cPercentage").hide();
+              $("#cPercentage").val(data);
+              $("#cPercentage").css("background-color","#272727", "color","#272727", "border-color", "#272727", "display", "none", "border", "none", "max-width", "0px", "max-height", "0px", "min-height", "0px", "min-width", "0px");
+              $("#cPercentage").hide();
+              
+                }
+              }, 10000); // refresh every 10000 milliseconds
+
+
+      
+        </script>
+     
+
+
         </form>
         <hr class="mb-4">
         <div class="text-muted">*We will be in touch with details of your investment periodically*</div>
@@ -196,94 +253,37 @@ $payment_intent = $stripe->paymentIntents->create([
     cardElement.mount('#stripe-card-element');
   });
 
-  function payViaStripe() {
-
-    // get stripe payment intent
-    const stripePaymentIntent = document.getElementById("stripe-payment-intent").value;
-
-    // execute the payment
-    if(percentageCheck()) {
-    stripe
-      .confirmCardPayment(stripePaymentIntent, {
-        payment_method: {
-          card: cardElement,
-          billing_details: {
-            "email": document.getElementById("user-email").value,
-            "name": document.getElementById("user-name").value,
-            "phone": document.getElementById("user-mobile-number").value
-          },
-        },
-      })
-      .then(function(result) {
-
-        // Handle result.error or result.paymentIntent
-        if (result.error) {
-          console.log(result.error);
-          window.location.replace('paymentError.php');
-        } else {
-              if(percentageCheck() == true) {
-                console.log("The card has been verified successfully...", result.paymentIntent.id);
-                  // Success message
-                  $('#success').html("<div class='alert alert-success'>");
-                  $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                    .append("</button>");
-                  $('#success > .alert-success')
-                    .append("<strong>Thank you.\nYour payment has been processed. </strong>");
-                  $('#success > .alert-success')
-                    .append('</div>');
-                  $('#paymentForm').trigger("reset");
-                  cardElement.clear();
-
-                  document.getElementById("caskName").innerHTML = " ";
-                  document.getElementById("cost").innerHTML = " ";
-                  document.getElementById("totalTitle").innerHTML = " ";
-                  document.getElementById("total").innerHTML = " ";
-                  document.getElementById("percentageCheck").innerHTML = " ";
-
-
-              }
-              else {
-                console.log(result.error);
-                window.location.replace('paymentError.php');
-              }
-          }
-      })
-    }
-    else{
-        // Fail message
-        $('#success').html("<div class='alert alert-danger'>");
-        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-          .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Somethings gone wrong on our end. Your payment has not been processed."));
-        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
-        $('#success > .alert-danger').append('</div>');
-    }
-  }
 
   function percentageCheck() {
     var percentageCheck = $("#percentageCheck").val();
-    var finalPercentage = $("#final-percentage").val();
+    var finalPercentage = $("#cPercentage").val();
+    var caskID = $("#caskID").val();
+    var percent = $("#percent").val();
+        // get the current percentage from the database and fetch the row
+        // run checks before payment can be processed 
+        var totalAvailable = $("#cPercentage").val();
 
-
-    var totalAvailable = percentageCheck + finalPercentage;
-    if(parseInt(percentageCheck >= totalAvailable)) {
+    if(percentageCheck >= totalAvailable) {
               // Fail message
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
           .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is not available."));
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, "));
         $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
         $('#success > .alert-danger').append('</div>');
-  
+        
+         
     }
     else {
+     
       $this = $("#sendPayment");
       $this.prop("disabled", true); // Disable submit button until AJAX call is finished, this is to prevent multiple payment attempts in the same window
       $.ajax({
           url: 'Components/CheckoutComponents/checkoutCheck.inc.php',
-          type: 'GET',
+          type: 'POST',
           data: {
-            percentageCheck: percentageCheck,
+            caskID: caskID,
+            percent: percent,
             finalPercentage: finalPercentage,
             totalAvailable: totalAvailable
         },
@@ -291,41 +291,77 @@ $payment_intent = $stripe->paymentIntents->create([
         cache: false,
 
         success: function() {
-            // Success message
-            $('#success').html("<div class='alert alert-success'>");
-            $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-              .append("</button>");
-            $('#success > .alert-success')
-              .append("<strong>Thank you.\nYour payment has been processed. </strong>");
-            $('#success > .alert-success')
-              .append('</div>');
-              $('#paymentForm').trigger("reset");
+          
+        if(percentageCheck >= totalAvailable) {
+              // Fail message
+        $('#success').html("<div class='alert alert-danger'>");
+        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append("</button>");
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is not available."));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
+        $('#success > .alert-danger').append('</div>');
+       
+         
+    }
+    else if (totalAvailable == 0) {
+                    // Fail message
+        $('#success').html("<div class='alert alert-danger'>");
+        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append("</button>");
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the cask you requested is no longer available."));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try another."));
+        $('#success > .alert-danger').append('</div>');
+    }
+    else {
+         // get stripe payment intent
+    const stripePaymentIntent = document.getElementById("stripe-payment-intent").value;
 
-              cardElement.clear();
-              document.getElementById("caskName").innerHTML = " ";
-                  document.getElementById("cost").innerHTML = " ";
-                  document.getElementById("totalTitle").innerHTML = " ";
-                  document.getElementById("total").innerHTML = " ";
-                  document.getElementById("percentageCheck").innerHTML = " ";
-                  document.getElementById("listGroup").remove();
-                  // Run the update query for the database
-                  <?php
-                  PercentageAvailable($dbConnection, $percentage, $caskID);
-                  function PercentageAvailable($dbConnection, $percentage, $caskID) {    
-                        $sql = "SELECT PercentageAvailable from Cask WHERE PercentageAvailable >= $percentage AND CaskID = $caskID";
-                        $queryResult = @mysqli_query($dbConnection, $sql);
+        // execute the payment
+
+        stripe
+          .confirmCardPayment(stripePaymentIntent, {
+            payment_method: {
+              card: cardElement,
+              billing_details: {
+                "email": document.getElementById("user-email").value,
+                "name": document.getElementById("user-name").value,
+                "phone": document.getElementById("user-mobile-number").value
+              },
+            },
+          })
+          .then(function(result) {
+
+            // Handle result.error or result.paymentIntent
+            if (result.error) {
+              console.log(result.error);
+              window.location.replace('paymentError.php');
+            } else {
+                  
+                    console.log("The card has been verified successfully...", result.paymentIntent.id);
+                      // Success message
+                      $('#success').html("<div class='alert alert-success'>");
+                      $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                        .append("</button>");
+                      $('#success > .alert-success')
+                        .append("<strong>Thank you.\nYour payment has been processed. </strong>");
+                      $('#success > .alert-success')
+                        .append('</div>');
+                      $('#paymentForm').trigger("reset");
+                      cardElement.clear();
+
+              }
+          })
+                      // Success message
+                $('#success').html("<div class='alert alert-success'>");
+                $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                  .append("</button>");
+                $('#success > .alert-success')
+                  .append("<strong>Thank you.\nYour payment has been processed. </strong>");
+                $('#success > .alert-success')
+                  .append('</div>');
+            }
+
                       
-                        if ($queryResult) {
-                            $sqlQuery ="UPDATE Cask SET PercentageAvailable = PercentageAvailable - $percentage WHERE CaskID = $caskID";
-                            $queryResult = @mysqli_query($dbConnection, $sqlQuery);
-                            return true;
-                        } else {
-                            header("Location: ../../product.php?sku=$caskID&msg=err");
-                        }
-                  };
-              
-              ?>
-              
         },
         error: function() {
             // Fail message
@@ -336,6 +372,7 @@ $payment_intent = $stripe->paymentIntents->create([
             $('#success > .alert-danger').append('</div>');
         },
         complete: function () {
+
             setTimeout(function () {
               //$this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
             }, 1000);
