@@ -14,7 +14,7 @@ while ($row = mysqli_fetch_array($query)) {
 <div class="container rounded mt-30 mb-0">
     <div class="row">
         <div class="col-md-4 border">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://i.imgflip.com/3f2lx0.jpg"><span class="font-weight-bold text-white"><?php echo $row['FirstName'];?> <?php echo $row['LastName'];?></span><span class="text-white-50"><?php echo $row['Email'];?></span><span> </span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://i.imgflip.com/3f2lx0.jpg"><span class="font-weight-bold text-white"><?php echo $row['FirstName'];?> <?php echo $row['LastName'];?></span><span class="text-white-50"><?php echo $row['Email'];?></span><span class="text-white-50"><?php echo $row['PhoneNumber'];?></span></div>
         </div>
         <div class="col-md-8 border">
             <div class="p-3 py-5">
