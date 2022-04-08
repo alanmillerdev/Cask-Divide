@@ -4,6 +4,9 @@ if(!defined('SecurityCheck')) {
   }
 
 session_start();
+if(!isset($_SESSION['UserType'])) {
+    $_SESSION['UserType'] = "";
+}
 
 ?>
 
@@ -63,7 +66,7 @@ session_start();
                         </li>
                     </ul>';
             }
-             else {
+             elseif ($_SESSION['UserType'] == "") {
                 echo
                 '<ul class="navbar-nav">
                         <li class="nav-item">
