@@ -9,7 +9,7 @@ include '../../../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-$caskName = $_POST['caskName'];
+$CaskName = $_POST['CaskName'];
 $caskDescription = $_POST['CaskDescription'];
 $percentageAvailable = $_POST['PercentageAvailable'];
 $wholeCaskPrice = $_POST['WholeCaskPrice'];
@@ -19,7 +19,7 @@ $percentageAlcohol = $_POST['PercentageAlcohol'];
 $caskType = $_POST['CaskType'];
 $woodType = $_POST['WoodType'];
 $distilleryName = $_POST['DistilleryName'];
-$caskImage = base64_encode(file_get_contents($_FILES["CaskImage"]["tmp_name"]));
+$CaskImage = $_FILES['CaskImage']['tmp_name'];
 
 $allowed_types = array('jpg', 'png', 'jpeg');
 
@@ -36,7 +36,7 @@ if (in_array($extension, $allowed_types, false) != true) {
 $stmt = $dbConnection->prepare("INSERT INTO cask (CaskName, CaskDescription, PercentageAvailable, WholeCaskPrice, OLA, RLA, PercentageAlcohol, CaskType, WoodType, DistilleryName, CaskImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssddddissss", $CaskName, $CaskDescription, $PercentageAvailable, $WholeCaskPrice, $OLA, $RLA, $PercentageAlcohol, $CaskType, $WoodType, $DistilleryName, $CaskImage);
 
-$CaskName = $caskName;
+$CaskName = $CaskName;
 $CaskDescription = $caskDescription;
 $PercentageAvailable = $percentageAvailable;
 $WholeCaskPrice = $wholeCaskPrice;
@@ -46,7 +46,7 @@ $PercentageAlcohol = $percentageAlcohol;
 $CaskType = $caskType;
 $WoodType = $woodType;
 $DistilleryName = $distilleryName;
-$CaskImage = $caskImage;
+$CaskImage = $CaskImage;
 
 $stmt->execute();
 $stmt->close();

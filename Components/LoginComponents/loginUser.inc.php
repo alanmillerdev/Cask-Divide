@@ -37,7 +37,7 @@ if ($stmt) {
             $_SESSION["FullName"] = $firstName . ' ' . $lastName;
             $dbConnection->close();
             header('Location: ../../index.php');
-        } else {
+        } elseif ($usertype == "User"){
             session_start();
             $_SESSION["UserType"] = "User";
             $_SESSION["UserID"] = $userID;
