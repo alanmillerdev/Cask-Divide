@@ -211,7 +211,7 @@ $currentPercentageAvailable = $row[0];
                     
                   }
                 };
-                xhttp.open("GET", "Components/CheckoutComponents/check.inc.php?q="+data +"&caskID=" +caskID+"&cPercent="+cPercent, true);
+                xhttp.open("GET", "Components/CheckoutComponents/check.inc.php?caskID=" +caskID+"&cPercent="+cPercent, true);
                 xhttp.send();   
               $('#cPercentage').load('Components/CheckoutComponents/check.inc.php?caskID=' + caskID + '&cPercent=' + cPercent ).fadeIn("slow");
               if (this.readyState == 4 && this.status == 200) {
@@ -263,16 +263,34 @@ $currentPercentageAvailable = $row[0];
         // run checks before payment can be processed 
         var totalAvailable = $("#cPercentage").val();
 
-    if(percentageCheck >= totalAvailable) {
+        if(percentageCheck >= totalAvailable) {
               // Fail message
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
           .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, "));
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is too high."));
         $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
         $('#success > .alert-danger').append('</div>');
-        
+       
          
+    }
+    else if (totalAvailable == 0) {
+                    // Fail message
+        $('#success').html("<div class='alert alert-danger'>");
+        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append("</button>");
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the cask you requested is no longer available."));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try another."));
+        $('#success > .alert-danger').append('</div>');
+    }
+    else if (totalAvailable < percentageCheck) {
+                    // Fail message
+        $('#success').html("<div class='alert alert-danger'>");
+        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append("</button>");
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is no longer available."));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try another."));
+        $('#success > .alert-danger').append('</div>');
     }
     else {
      
@@ -292,27 +310,7 @@ $currentPercentageAvailable = $row[0];
 
         success: function() {
           
-        if(percentageCheck >= totalAvailable) {
-              // Fail message
-        $('#success').html("<div class='alert alert-danger'>");
-        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-          .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is not available."));
-        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
-        $('#success > .alert-danger').append('</div>');
-       
-         
-    }
-    else if (totalAvailable == 0) {
-                    // Fail message
-        $('#success').html("<div class='alert alert-danger'>");
-        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-          .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the cask you requested is no longer available."));
-        $('#success > .alert-danger').append($("<br><strong>").text("Please try another."));
-        $('#success > .alert-danger').append('</div>');
-    }
-    else {
+
          // get stripe payment intent
     const stripePaymentIntent = document.getElementById("stripe-payment-intent").value;
 
@@ -332,7 +330,7 @@ $currentPercentageAvailable = $row[0];
           .then(function(result) {
 
             // Handle result.error or result.paymentIntent
-            if (result.error) {
+            if (result.error ||  percentageCheck >= totalAvailable || totalAvailable == 0 || totalAvailable < percentageCheck) {
               console.log(result.error);
               window.location.replace('paymentError.php');
             } else {
@@ -351,15 +349,8 @@ $currentPercentageAvailable = $row[0];
 
               }
           })
-                      // Success message
-                $('#success').html("<div class='alert alert-success'>");
-                $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                  .append("</button>");
-                $('#success > .alert-success')
-                  .append("<strong>Thank you.\nYour payment has been processed. </strong>");
-                $('#success > .alert-success')
-                  .append('</div>');
-            }
+
+            
 
                       
         },

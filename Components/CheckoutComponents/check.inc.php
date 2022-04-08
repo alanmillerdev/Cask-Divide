@@ -1,8 +1,8 @@
 <?php
  include "../../Database/dbConnect.inc.php";
- header("Refresh:5");
+ header("Refresh:2");
  $dbConnection = Connect();
- $q = $_REQUEST['q'];
+ 
 
 
  $caskID = $_REQUEST['caskID'];
