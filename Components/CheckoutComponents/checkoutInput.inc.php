@@ -197,7 +197,6 @@ $currentPercentageAvailable = $row[0];
             var cPercent = document.getElementById("cPercentage").value;
             var caskID = document.getElementById("caskID").value;
               var auto_refresh = setInterval(
-               // $("#cPercentage").hide();
               function (data)
               {
                 var xhttp;
@@ -221,7 +220,7 @@ $currentPercentageAvailable = $row[0];
               $("#cPercentage").hide();
               
                 }
-              }, 5000); // refresh every 10000 milliseconds
+              }, 2000); // refresh every 10000 milliseconds
 
 
       
@@ -255,7 +254,7 @@ $currentPercentageAvailable = $row[0];
 
 
   function percentageCheck() {
-    var percentageCheck = $("#percentageCheck").val();
+    var percentage = $("#percentageCheck").val();
     var finalPercentage = $("#cPercentage").val();
     var caskID = $("#caskID").val();
     var percent = $("#percent").val();
@@ -263,36 +262,17 @@ $currentPercentageAvailable = $row[0];
         // run checks before payment can be processed 
         var totalAvailable = $("#cPercentage").val();
 
-        if(percentageCheck >= totalAvailable) {
-              // Fail message
-        $('#success').html("<div class='alert alert-danger'>");
-        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-          .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is too high."));
-        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
-        $('#success > .alert-danger').append('</div>');
-       
-         
-    }
-    else if (totalAvailable == 0) {
+ if (totalAvailable == 0 || totalAvailable < parseInt(percent) || parseInt(percent) > totalAvailable) {
                     // Fail message
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
           .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the cask you requested is no longer available."));
-        $('#success > .alert-danger').append($("<br><strong>").text("Please try another."));
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is too high or the cask is no longer available."));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please go back and try again."));
         $('#success > .alert-danger').append('</div>');
     }
-    else if (totalAvailable < percentageCheck) {
-                    // Fail message
-        $('#success').html("<div class='alert alert-danger'>");
-        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-          .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is no longer available."));
-        $('#success > .alert-danger').append($("<br><strong>").text("Please try another."));
-        $('#success > .alert-danger').append('</div>');
-    }
-    else {
+
+    else if(totalAvailable >= percent) {
      
       $this = $("#sendPayment");
       $this.prop("disabled", true); // Disable submit button until AJAX call is finished, this is to prevent multiple payment attempts in the same window
@@ -330,7 +310,7 @@ $currentPercentageAvailable = $row[0];
           .then(function(result) {
 
             // Handle result.error or result.paymentIntent
-            if (result.error ||  percentageCheck >= totalAvailable || totalAvailable == 0 || totalAvailable < percentageCheck) {
+            if (result.error ||  percent >= totalAvailable || totalAvailable == 0 || totalAvailable <= percent) {
               console.log(result.error);
               window.location.replace('paymentError.php');
             } else {
@@ -370,6 +350,14 @@ $currentPercentageAvailable = $row[0];
           }
       });
       return true;
+    }
+    else {
+                  // Fail message
+                  $('#success').html("<div class='alert alert-danger'>");
+            $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+              .append("</button>");
+            $('#success > .alert-danger').append($("<strong>").text("Sorry. Please try again later."));
+            $('#success > .alert-danger').append('</div>');
     }
     
   }
