@@ -31,13 +31,14 @@ while ($row = mysqli_fetch_array($query)) {
                     <form method="POST" action="Components/CheckoutComponents/checkoutStart.inc.php">
                         <div class="form-group">
                             <label for="formControlRange" class="text-white">How much do you want to Invest?</label>
-                            <input type="range" min="1" max="<?php echo $PercentageAvailable ?>" value="<?php echo $PercentageAvailable ?>" name="percentage" class="form-control-range" id="formControlRange" onInput="$('#rangevalue').html($(this).val())" style="
+                            <input type="range" min="1" max="<?php echo $PercentageAvailable ?>" value="<?php echo $PercentageAvailable ?>" name="percentage" class="form-control-range" id="formControlRange" style="
                         border-radius: 100px;">
                         </div>
                         <input type="hidden" name="CaskID" value="<?php echo $CaskID  ?>">
                         <input type="hidden" name="UserID" value="<?php echo $userID ?>">
-                        <h1 class="display-6 fw-bolder text-white mb-4"><span class="text-white" name="percentage" id="rangevalue"><?php echo $PercentageAvailable ?></span>% of the Cask: £<?php echo $CaskPrice ?></h1>
+                        <h1 class="display-6 fw-bolder text-white mb-4"><span class="text-white" name="percentage" id="rangevalue"><?php echo $PercentageAvailable ?></span>% of the Cask: £<span id="price" ><?php echo $CaskPrice ?></span></h1>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                            
                             <button class="btn btn-primary btn-lg px-4 purchase-button" type="submit">Purchase <i class="fas fa-shopping-bag"></i></button>
                     </form>
 
@@ -49,3 +50,23 @@ while ($row = mysqli_fetch_array($query)) {
     </div>
     </div>
 </section>
+
+
+<script>
+var slider = document.getElementById("formControlRange");
+var output = document.getElementById("rangevalue");
+
+var percent = document.getElementById('rangevalue').innerText;
+var price = document.getElementById('price').innerText;
+var priceOutput = document.getElementById('price');
+
+var total = parseInt(price  *  output.innerText / 100);
+output.innerHTML = slider.value;
+priceOutput.innerHTML = total;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+  total = parseInt(price  *  output.innerText / 100);
+  priceOutput.innerHTML = total;
+}
+</script>

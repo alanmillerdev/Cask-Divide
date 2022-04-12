@@ -66,7 +66,7 @@ $currentPercentageAvailable = $row[0];
               <h6 class="my-0" id="caskName"><?php echo $caskName ?></h6>
               <small class="text-muted" id="percentageCheck"><?php echo $percentage ?>%</small>
             </div>
-            <span class="text-muted" id="cost">£<?php echo $cost ?></span>
+            <span class="text-muted">£<?php echo $cost ?></span>
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span id = "totalTitle">Total (20% VAT Included)</span>
@@ -177,7 +177,7 @@ $currentPercentageAvailable = $row[0];
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" id="sendPayment" type="submit" onclick="percentageCheck()">Pay £<?php echo $total ?> to Cask Divide</button>
+            <button class="btn btn-primary btn-lg btn-block" id="sendPayment" type="submit" onclick="percentageCheck()">Pay £<span id="cost"><?php echo $total ?></span> to Cask Divide</button>
             <input type="hidden" id="caskID" value="<?php echo $caskID?>"/>
             <input type="hidden" id="percent" name="percent" value="<?php echo $percentage?>" />
             <input type="hidden" id="finalPercent" name="finalPercentage" value="<?php echo $finalPercentage?>" />
@@ -201,25 +201,17 @@ $currentPercentageAvailable = $row[0];
               {
                 var xhttp;
                 xhttp = new XMLHttpRequest();
-                $("#cPercentage").hide();
+                document.getElementById("cPercentage").style.display = 'none';
                 xhttp.onreadystatechange = function() {
-                  $("#cPercentage").hide();
                   if (this.readyState == 4 && this.status == 200) {
                     document.getElementById("cPercentage").value = this.responseText;
-                    $("#cPercentage").hide();
+                    document.getElementById("cPercentage").style.display = 'none';
                     
                   }
                 };
                 xhttp.open("GET", "Components/CheckoutComponents/check.inc.php?caskID=" +caskID+"&cPercent="+cPercent, true);
                 xhttp.send();   
-              $('#cPercentage').load('Components/CheckoutComponents/check.inc.php?caskID=' + caskID + '&cPercent=' + cPercent ).fadeIn("slow");
-              if (this.readyState == 4 && this.status == 200) {
-                $("#cPercentage").hide();
-              $("#cPercentage").val(data);
-              $("#cPercentage").css("background-color","#272727", "color","#272727", "border-color", "#272727", "display", "none", "border", "none", "max-width", "0px", "max-height", "0px", "min-height", "0px", "min-width", "0px");
-              $("#cPercentage").hide();
-              
-                }
+
               }, 2000); // refresh every 10000 milliseconds
 
 
@@ -254,7 +246,7 @@ $currentPercentageAvailable = $row[0];
 
 
   function percentageCheck() {
-    var percentage = $("#percentageCheck").val();
+    var percentageCheck = $("#percentageCheck").val();
     var finalPercentage = $("#cPercentage").val();
     var caskID = $("#caskID").val();
     var percent = $("#percent").val();
@@ -262,17 +254,18 @@ $currentPercentageAvailable = $row[0];
         // run checks before payment can be processed 
         var totalAvailable = $("#cPercentage").val();
 
- if (totalAvailable == 0 || totalAvailable < parseInt(percent) || parseInt(percent) > totalAvailable) {
-                    // Fail message
+        if(percent > totalAvailable || totalAvailable == 0 || totalAvailable < percent) {
+              // Fail message
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
           .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is too high or the cask is no longer available."));
-        $('#success > .alert-danger').append($("<br><strong>").text("Please go back and try again."));
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is too high."));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
         $('#success > .alert-danger').append('</div>');
+       
+         
     }
-
-    else if(totalAvailable >= percent) {
+    else {
      
       $this = $("#sendPayment");
       $this.prop("disabled", true); // Disable submit button until AJAX call is finished, this is to prevent multiple payment attempts in the same window
@@ -289,48 +282,54 @@ $currentPercentageAvailable = $row[0];
         cache: false,
 
         success: function() {
-          
-
          // get stripe payment intent
-    const stripePaymentIntent = document.getElementById("stripe-payment-intent").value;
+          const stripePaymentIntent = document.getElementById("stripe-payment-intent").value;
+          var cost = document.getElementById("cost").innerText;
 
-        // execute the payment
+              // execute the payment
 
-        stripe
-          .confirmCardPayment(stripePaymentIntent, {
-            payment_method: {
-              card: cardElement,
-              billing_details: {
-                "email": document.getElementById("user-email").value,
-                "name": document.getElementById("user-name").value,
-                "phone": document.getElementById("user-mobile-number").value
-              },
-            },
-          })
-          .then(function(result) {
+              stripe
+                .confirmCardPayment(stripePaymentIntent, {
+                  payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                      "email": document.getElementById("user-email").value,
+                      "name": document.getElementById("user-name").value,
+                      "phone": document.getElementById("user-mobile-number").value
+                    },
+                  },
+                })
+                .then(function(result) {
 
-            // Handle result.error or result.paymentIntent
-            if (result.error ||  percent >= totalAvailable || totalAvailable == 0 || totalAvailable <= percent) {
-              console.log(result.error);
-              window.location.replace('paymentError.php');
-            } else {
+                  // Handle result.error or result.paymentIntent
+                  if (result.error ||  percent > totalAvailable || totalAvailable == 0 || totalAvailable < percent) {
+                    console.log(result.error);
+                    window.location.replace('paymentError.php');
+                  } else {
+                        
+                          console.log("The card has been verified successfully...", result.paymentIntent.id);
+                          var today = new Date();
+                          var dd = String(today.getDate()).padStart(2, '0');
+                          var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                          var yyyy = today.getFullYear();
+                          today = dd + '/' + mm + '/' + yyyy;
+                          console.log("The card has been verified successfully...", result.paymentIntent.id);
+                          window.location.replace('paymentSuccess.php?id=' + result.paymentIntent.id + '&caskID=' + caskID + '&price=' + cost + '&percentage=' + percent + "&date=" + today);
+                            // // Success message
+                            // $('#success').html("<div class='alert alert-success'>");
+                            // $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                            //   .append("</button>");
+                            // $('#success > .alert-success')
+                            //   .append("<strong>Thank you.\nYour payment has been processed. </strong>");
+                            // $('#success > .alert-success')
+                            //   .append('</div>');
+                            // $('#paymentForm').trigger("reset");
+                            // cardElement.clear();
+
+                    }
+                })
+
                   
-                    console.log("The card has been verified successfully...", result.paymentIntent.id);
-                      // Success message
-                      $('#success').html("<div class='alert alert-success'>");
-                      $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                        .append("</button>");
-                      $('#success > .alert-success')
-                        .append("<strong>Thank you.\nYour payment has been processed. </strong>");
-                      $('#success > .alert-success')
-                        .append('</div>');
-                      $('#paymentForm').trigger("reset");
-                      cardElement.clear();
-
-              }
-          })
-
-            
 
                       
         },
@@ -350,6 +349,7 @@ $currentPercentageAvailable = $row[0];
           }
       });
       return true;
-
+    }
+    
   }
 </script>
