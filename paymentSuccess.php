@@ -33,19 +33,25 @@ $stripe->customers->update(
 
 
 $charge = $stripe->paymentIntents->retrieve(
-    $paymentID
+    $paymentID,
+    []
 );
+
+$chargeObject = $charge->charges->data;
+foreach($chargeObject as $val){
+    $chargeID =  $val->id;
+}
 
 ?>
 
 <h1>SUCCESS</H1>
 <?php 
 
-if(isset($paymentID)) {
-echo '<p>Thank you ' . $name . ', your purchase was successful. <br>Stripe Transaction ID: '.$paymentID.'<br>CaskID: '.$caskID .'<br>UserID: '.$userID .'<br>Price: '.$price.'<br>Percent: '.$percentage.'<br> Date of purchase: '.$date.'<br></p>';
-$query ="INSERT INTO payment (StripeTransactionID, StripeCustomerID) VALUES ('$paymentID', '$custID')";
+if(isset($chargeID)) {
+echo '<p>Thank you ' . $name . ', your purchase was successful. <br>Stripe Transaction ID: '.$chargeID.'<br>CaskID: '.$caskID .'<br>UserID: '.$userID .'<br>Price: '.$price.'<br>Percent: '.$percentage.'<br> Date of purchase: '.$date.'<br></p>';
+$query ="INSERT INTO payment (StripeTransactionID, StripeCustomerID) VALUES ('$chargeID', '$custID')";
 $result = @mysqli_query($dbConnection, $query);
-$sql = "SELECT TransactionID, StripeTransactionID FROM payment WHERE StripeTransactionID = '$paymentID'";
+$sql = "SELECT TransactionID, StripeTransactionID FROM payment WHERE StripeTransactionID = '$chargeID'";
 $sqlResult = @mysqli_query($dbConnection, $sql);            
 $row = mysqli_fetch_array($sqlResult);
 $TransactionID = $row[0];
@@ -62,7 +68,7 @@ $TransactionID = $row[0];
 
 
         if($queryResult) {
-           header("Location: index.php?success");
+          // header("Location: index.php?success");
         } else {
             echo "error";
         }
