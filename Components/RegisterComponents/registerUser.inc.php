@@ -7,6 +7,12 @@ define('SecurityCheck', TRUE);
 
 require '../../Database/dbConnect.inc.php';
 
+//Stripe
+require_once "../../vendor/autoload.php";
+
+
+$stripe = new \Stripe\StripeClient("sk_test_51KiHJEEIsZ5yvNB5WoMfOjI15pYld5EF3uDYbD2XOFLUbNtvkcTku3VIYpf908EPcb1op4Nk0kJaDcOpqkV2FdSa00LV1zLrVL");
+
 $dbConnection = Connect();
 
 $email = $_POST['EmailAddress'];
@@ -16,8 +22,19 @@ $fullName = split_name($_POST['FullName']);
 $dob = $_POST['DOB'];
 $phoneNo = $_POST['PhoneNumber'];
 
+
+
+
 $firstName = $fullName[0];
 $lastName = $fullName[1];
+
+$customer = $stripe->customers->create([
+    'name' => $firstName . ' '. $lastName ,
+    'email' => $email, 
+    'phone' => $phoneNo,
+  ]);
+
+
 
 //Dupe Email Check
 $select = mysqli_query($dbConnection, "SELECT * FROM user WHERE email = '" . $email . "'");
@@ -61,6 +78,11 @@ $DOB = $dob;
 $PhoneNo = $phoneNo;
 $Auth = 0;
 $stmt->execute();
+session_start();
+$_SESSION['customerID'] = $customer->id;
+$_SESSION['email'] = $Email;
+$_SESSION['phone'] = $PhoneNo;
+$custID = $_SESSION['customerID'];
 
 $stmt->close();
 $dbConnection->close();
