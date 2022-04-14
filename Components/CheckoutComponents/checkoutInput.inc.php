@@ -137,12 +137,12 @@ $currentPercentageAvailable = $row[0];
     <div class="col-md-6 order-md-2">
       <div class="shoppingdetails">
         <span id="decor-title">Your Details</span>
-        <form method="dialog" class="needs-validation" novalidate id="paymentForm">
+        <form method="dialog" class="needs-validation" id="paymentForm">
           <div class="row">
             <div class="mb-3">
               <label for="firstName">Full Name</label>
               <input type="text" class="form-control" id="user-name" placeholder="" value="<?php echo $_SESSION['FullName'] ?>" required>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback" id="feedback">
                 Valid first name is required.
               </div>
             </div>
@@ -150,7 +150,7 @@ $currentPercentageAvailable = $row[0];
             <div class="mb-3">
               <label for="email">Email</label>
               <input type="email" class="form-control" id="user-email" placeholder="you@example.com" value="<?php if(isset($_SESSION['email'])) { echo $_SESSION['email']; } else { echo $email; } ?>" required>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback" id="feedback">
                 Please enter a valid email address to allows us to contact you.
               </div>
             </div>
@@ -158,7 +158,7 @@ $currentPercentageAvailable = $row[0];
             <div class="mb-3">
               <label for="phone">Phone Number</label>
               <input type="phone" class="form-control" id="user-mobile-number" placeholder="07987474200" value="<?php if(isset($_SESSION['phone'])) { echo $_SESSION['phone']; } else { echo $phone; } ?>" required>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback" id="feedback">
                 Please enter a valid phone number to allow us to contact you.
               </div>
             </div>
@@ -166,7 +166,7 @@ $currentPercentageAvailable = $row[0];
             <div class="mb-3">
               <label for="address">Address</label>
               <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback" id="feedback">
                 Please enter your shipping address.
               </div>
             </div>
@@ -202,17 +202,15 @@ $currentPercentageAvailable = $row[0];
             <input type="hidden" id="percent" name="percent" value="<?php echo $percentage?>" />
             <input type="hidden" id="finalPercent" name="finalPercentage" value="<?php echo $finalPercentage?>" />
             <input type="hidden" id="custID" name="custID" value="<?php echo $customerID?>" />
+
             <?php 
 
-          $sql = $dbConnection->query("SELECT PercentageAvailable from Cask WHERE CaskID = $caskID");
-          $row = mysqli_fetch_array($sql);
+              $sql = $dbConnection->query("SELECT PercentageAvailable from Cask WHERE CaskID = $caskID");
+              $row = mysqli_fetch_array($sql);
 
-          $currentPercentageAvailable = $row[0];
-
-          
-        
-        ?>
-               <input type="" id="cPercentage" readonly name="cPercentage" value="<?php echo $currentPercentageAvailable?>" style="max-width: 0px; max-height: 0px; background-color: #272727; color:#272727; border: none; min-height: 0px; min-width: 0px;" />
+              $currentPercentageAvailable = $row[0];
+            ?>
+              <input type="" id="cPercentage" readonly name="cPercentage" value="<?php echo $currentPercentageAvailable?>" style="max-width: 0px; max-height: 0px; background-color: #272727; color:#272727; border: none; min-height: 0px; min-width: 0px;" />
         <script>
 
             var cPercent = document.getElementById("cPercentage").value;
@@ -267,9 +265,25 @@ $currentPercentageAvailable = $row[0];
 
 
   function percentageCheck() {
+
+
+
     var caskID = $("#caskID").val();
     var percent = $("#percent").val();
     var userID = $("#userID").val();
+    var name = $("input#user-name").val();
+    var email = $("input#user-email").val();
+    var phone = $("input#user-mobile-number").val();
+    var address = $("input#address").val();
+    var phoneRegex = "/^[0-9 ]+$/";
+    var emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\.[A-Za-z]{2,4}";
+    var firstName = name; // For Success/Failure Message
+
+
+      // Check for white space in name for Success/Fail message
+      if (firstName.indexOf(' ') >= 0) {
+        firstName = name.split(' ').slice(0, -1).join(' ');
+      }
         // get the current percentage from the database and fetch the row
         // run checks before payment can be processed 
     var totalAvailable = $("#cPercentage").val();
@@ -279,11 +293,53 @@ $currentPercentageAvailable = $row[0];
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
           .append("</button>");
-        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems that the percentage you requested is too high."));
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, " + firstName + " it seems that the percentage you requested is too high."));
         $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
         $('#success > .alert-danger').append('</div>');
        
          
+    } else if ((phone.length > 11 || phone.length < 7 || phone.match(phoneRegex) || phone=="" )) {
+        // Fail message
+        $('#success').html("<div class='alert alert-danger'>");
+        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append("</button>");
+        $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that the phone number is not in the right format. "));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
+        $('#success > .alert-danger').append($("<br><strong>").text("e.g. 02011112222 or 07712300011."));
+        $('#success > .alert-danger').append('</div>');
+
+
+    }
+    else if ((address.length > 100 || address.length < 5 || address=="") ) {
+        // Fail message
+        $('#success').html("<div class='alert alert-danger'>");
+        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append("</button>");
+        $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that the address is not in the right format. "));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
+        $('#success > .alert-danger').append('</div>');
+
+
+    }
+    else if ((name.length > 60 || name.length < 1 || name=="") ) {
+        // Fail message
+        $('#success').html("<div class='alert alert-danger'>");
+        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append("</button>");
+        $('#success > .alert-danger').append($("<strong>").text("Sorry, it seems you need to provide a name."));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
+        $('#success > .alert-danger').append('</div>');
+
+
+    } 
+    else if(email.length > 50 || email.length < 5 || email.match(emailRegex) || email=="") {
+        // Fail message
+        $('#success').html("<div class='alert alert-danger'>");
+        $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+          .append("</button>");
+        $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that the email is not in the right format. "));
+        $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
+        $('#success > .alert-danger').append('</div>');
     }
     else {
      
@@ -305,8 +361,19 @@ $currentPercentageAvailable = $row[0];
           var cost = document.getElementById("cost").innerText;
 
               // execute the payment
+            stripe
+            .retrievePaymentIntent(stripePaymentIntent)
+            .then(function(result) {
+              var charges = result.paymentIntent.payment_method;
+              
 
-              stripe
+              // Handle result.error or result.paymentIntent
+              if(result.error || (charges == "")) {
+                console.log(result.error);
+               
+              }
+              else {
+                stripe
                 .confirmCardPayment(stripePaymentIntent, {
                   payment_method: {
                     card: cardElement,
@@ -320,9 +387,16 @@ $currentPercentageAvailable = $row[0];
                 .then(function(result) {
 
                   // Handle result.error or result.paymentIntent
-                  if (result.error) {
+                  if (result.error || result.paymentIntent.payment_method == "") {
                     console.log(result.error);
-                    window.location.replace('paymentError.php');
+                    // Fail message
+                    $('#success').html("<div class='alert alert-danger'>");
+                    $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                      .append("</button>");
+                    $('#success > .alert-danger').append($("<strong>").text("Please make sure you have filled in all the fields and try again."));
+                    $('#success > .alert-danger').append('</div>');
+
+           
                   } else {
                         
                           console.log("The card has been verified successfully...", result.paymentIntent.id);
@@ -342,13 +416,16 @@ $currentPercentageAvailable = $row[0];
      
 
                     }
+              });
+            };
+
                 })
 
                   
 
                       
         },
-        error: function() {
+        error: function () {
             // Fail message
             $('#success').html("<div class='alert alert-danger'>");
             $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -359,12 +436,16 @@ $currentPercentageAvailable = $row[0];
         complete: function () {
 
             setTimeout(function () {
-              //$this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
+              $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
             }, 1000);
           }
       });
       return true;
+      
     }
     
+  }
+  function chargeID(charge){
+        var val = charge;
   }
 </script>

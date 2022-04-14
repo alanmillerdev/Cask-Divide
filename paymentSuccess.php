@@ -32,46 +32,58 @@ $stripe->customers->update(
   );
 
 
-$charge = $stripe->paymentIntents->retrieve(
-    $paymentID,
-    []
-);
-
-$chargeObject = $charge->charges->data;
-foreach($chargeObject as $val){
-    $chargeID =  $val->id;
-}
-
 ?>
 
 <h1>SUCCESS</H1>
 <?php 
 
-if(isset($chargeID)) {
-echo '<p>Thank you ' . $name . ', your purchase was successful. <br>Stripe Transaction ID: '.$chargeID.'<br>CaskID: '.$caskID .'<br>UserID: '.$userID .'<br>Price: '.$price.'<br>Percent: '.$percentage.'<br> Date of purchase: '.$date.'<br></p>';
-$query ="INSERT INTO payment (StripeTransactionID, StripeCustomerID) VALUES ('$chargeID', '$custID')";
-$result = @mysqli_query($dbConnection, $query);
-$sql = "SELECT TransactionID, StripeTransactionID FROM payment WHERE StripeTransactionID = '$chargeID'";
-$sqlResult = @mysqli_query($dbConnection, $sql);            
-$row = mysqli_fetch_array($sqlResult);
-$TransactionID = $row[0];
 
-    if($sqlResult){
-    $sqlQuery ="INSERT INTO investment (UserID, CaskID, TransactionID, PercentPurchased, PurchaseAmount, PurchaseDate) VALUES ('$userID', '$caskID', '$TransactionID', '$percentage', '$price', NOW())";
-    $queryResult = @mysqli_query($dbConnection, $sqlQuery);
-    $select = "SELECT InvestmentID FROM investment WHERE TransactionID = '$TransactionID'";
-    $selectResult = @mysqli_query($dbConnection, $select);            
-    $row = mysqli_fetch_array($selectResult);
-    $InvestmentID = $row[0];
-    $select ="INSERT INTO userinvestments (UserID, InvestmentID, PurchaseDate) VALUES('$userID','$InvestmentID',NOW())"; 
-    $selectResult = @mysqli_query($dbConnection, $select);
+  
+  $charge = $stripe->paymentIntents->retrieve(
+    $paymentID,
+    []
+  );
+
+  $chargeObject = $charge->charges->data;
+  foreach($chargeObject as $val){
+    $chargeID =  $val->id;
+    }
+    if(isset($chargeID)) {
+      updatePercentage($dbConnection, $percentage, $caskID);
+      echo '<p>Thank you ' . $name . ', your purchase was successful. <br>Stripe Transaction ID: '.$chargeID.'<br>CaskID: '.$caskID .'<br>UserID: '.$userID .'<br>Price: '.$price.'<br>Percent: '.$percentage.'<br> Date of purchase: '.$date.'<br></p>';
+      $query ="INSERT INTO payment (StripeTransactionID, StripeCustomerID) VALUES ('$chargeID', '$custID')";
+      $result = @mysqli_query($dbConnection, $query);
+      $sql = "SELECT TransactionID, StripeTransactionID FROM payment WHERE StripeTransactionID = '$chargeID'";
+      $sqlResult = @mysqli_query($dbConnection, $sql);            
+      $row = mysqli_fetch_array($sqlResult);
+      $TransactionID = $row[0];
+
+          if($sqlResult){
+          $sqlQuery ="INSERT INTO investment (UserID, CaskID, TransactionID, PercentPurchased, PurchaseAmount, PurchaseDate) VALUES ('$userID', '$caskID', '$TransactionID', '$percentage', '$price', NOW())";
+          $queryResult = @mysqli_query($dbConnection, $sqlQuery);
+          $select = "SELECT InvestmentID FROM investment WHERE TransactionID = '$TransactionID'";
+          $selectResult = @mysqli_query($dbConnection, $select);            
+          $row = mysqli_fetch_array($selectResult);
+          $InvestmentID = $row[0];
+          $select ="INSERT INTO userinvestments (UserID, InvestmentID, PurchaseDate) VALUES('$userID','$InvestmentID',NOW())"; 
+          $selectResult = @mysqli_query($dbConnection, $select);
 
 
         if($queryResult) {
-          // header("Location: index.php?success");
+           header("Location: index.php?success");
         } else {
             echo "error";
         }
     }
+    } else {
+      return false;
+    }
+
+
+
+function updatePercentage($dbConnection, $percentage, $caskID) {
+  $sqlQuery ="UPDATE Cask SET PercentageAvailable = PercentageAvailable - $percentage WHERE CaskID = $caskID";
+  $queryResult = @mysqli_query($dbConnection, $sqlQuery);
 }
+
 ?>

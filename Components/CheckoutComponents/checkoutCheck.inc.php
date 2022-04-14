@@ -11,6 +11,9 @@ $userID = $_SESSION['UserID'];
 $result = $dbConnection->query("SELECT PercentageAvailable FROM Cask WHERE CaskID = $caskID");
 $row = mysqli_fetch_array($result);
 $PercentageAvailable = $row[0];
+
+require_once "vendor/autoload.php";
+$stripe = new \Stripe\StripeClient("sk_test_51KiHJEEIsZ5yvNB5WoMfOjI15pYld5EF3uDYbD2XOFLUbNtvkcTku3VIYpf908EPcb1op4Nk0kJaDcOpqkV2FdSa00LV1zLrVL");
 ?>
 <?php
 
@@ -24,9 +27,9 @@ function CheckoutCheck($dbConnection, $caskID, $percentage, $userID, $Percentage
     header("Location: ../../login.php?msg=buy");
   } else{
     if(PercentageAvailable($dbConnection, $percentage, $caskID, $PercentageAvailable)) {
-        $sqlQuery ="UPDATE Cask SET PercentageAvailable = PercentageAvailable - $percentage WHERE CaskID = $caskID";
-        $queryResult = @mysqli_query($dbConnection, $sqlQuery);
+        return true;
     }
+  
   }
 }
 
@@ -34,7 +37,7 @@ function CheckoutCheck($dbConnection, $caskID, $percentage, $userID, $Percentage
                   $result = $dbConnection->query("SELECT PercentageAvailable FROM Cask WHERE CaskID = $caskID");
                   $row = mysqli_fetch_array($result);
                   $PercentageAvailable = $row[0];
-              
+                  
                   if ($PercentageAvailable >= $percentage) {
                       return true;
                   } 
@@ -48,5 +51,9 @@ function CheckoutCheck($dbConnection, $caskID, $percentage, $userID, $Percentage
                   } else {
                       header("Location: ../../index.php?sku=$caskID&msg=err");
                   }
-                }
+                
+              }
+
+
+  
 ?>
