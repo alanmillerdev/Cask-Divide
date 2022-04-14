@@ -445,7 +445,5 @@ $currentPercentageAvailable = $row[0];
     }
     
   }
-  function chargeID(charge){
-        var val = charge;
-  }
+
 </script>
