@@ -9,20 +9,14 @@ if (!defined('SecurityCheck')) {
 
 <div class="card shadow border-0 mt-20">
     <div class="card-header">
-        <h5 class="mb-0">Casks <a href="add-cask.php" class="btn btn-sm btn-neutral"><i class='bx bx-plus-circle'></i></a></h5>
+        <h5 class="mb-0">Distilleries <a href="add-distillery.php" class="btn btn-sm btn-neutral"><i class='bx bx-plus-circle'></i></a></h5>
     </div>
     <div class="table-responsive">
         <table class="table table-hover table-nowrap">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">Cask ID</th>
-                    <th scope="col">Cask Name</th>
-                    <th scope="col">Percentage Available</th>
-                    <th scope="col">Whole Cask Price</th>
-                    <th scope="col">Percentage Alcohol</th>
-                    <th scope="col">Cask Type</th>
-                    <th scope="col">Wood Type</th>
                     <th scope="col">Distillery Name</th>
+                    <th scope="col">Distillery Description</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +33,7 @@ if (!defined('SecurityCheck')) {
                 $this_page_first_result = ($page - 1) * $results_per_page;
 
                 // retrieve selected results from database and display them on page
-                $sql = 'SELECT * FROM cask LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
+                $sql = 'SELECT * FROM distillery LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
                 $result = mysqli_query($dbConnection, $sql);
 
                 while ($row = mysqli_fetch_array($result)) {
@@ -47,34 +41,16 @@ if (!defined('SecurityCheck')) {
                                 <tr>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            ' . $row['CaskID'] . '
+                                            ' . $row['DistilleryName'] . '
                                         </a>
-                                    </td>
-                                    <td>
-                                        ' . $row['CaskName'] . '
                                     </td>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            ' . $row['PercentageAvailable'] . '
+                                            ' . $row['Description'] . '
                                         </a>
                                     </td>
-                                    <td>
-                                        ' . $row['WholeCaskPrice'] . '
-                                    </td>
-                                    <td>
-                                        ' . $row['PercentageAlcohol'] . '
-                                    </td>
-                                    <td>
-                                        ' . $row['CaskType'] . '
-                                    </td>
-                                    <td>
-                                        ' . $row['WoodType'] . '
-                                    </td>
-                                    <td>
-                                        ' . $row['DistilleryName'] . '
-                                    </td>
                                     <td class="text-end">
-                                        <a href="edit-cask.php?CaskID=' . $row['CaskID'] . '" class="btn btn-sm btn-neutral">View</a>
+                                        <a href="edit-distillery.php?DistilleryName=' . $row['DistilleryName'] . '" class="btn btn-sm btn-neutral">View</a>
                                     </td>
                                 </tr>
                                         ';

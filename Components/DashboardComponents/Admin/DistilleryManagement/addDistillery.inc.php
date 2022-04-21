@@ -22,3 +22,4 @@ $stmt->execute();
 
 $stmt->close();
 $dbConnection->close();
+header("Location: ../../../../dashboard/show-distillery.php?msg=added");

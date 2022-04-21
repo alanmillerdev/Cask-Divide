@@ -1,7 +1,7 @@
 <?php
-if(!defined('SecurityCheck')) {
+if (!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
-  }
+}
 
 if ($_SESSION['UserType'] == 'Admin') {
     echo '<div class="nav_list"> 
@@ -17,6 +17,10 @@ if ($_SESSION['UserType'] == 'Admin') {
                     <img class="caskimg" src="css/icons/cask-icon.svg"> 
                     <span class="nav_name">Casks</span> </a>
                     
+                <a href="show-distillery.php" class="nav_link"> 
+                    <img class="caskimg" src="css/icons/cask-icon.svg"> 
+                    <span class="nav_name">Distilleries</span> </a>
+                
                 <a href="notifications.php" class="nav_link"> 
                     <i class="bx bx-bell nav_icon"></i>
                     <span class="nav_name">Notifications</span> </a>
@@ -25,4 +29,4 @@ if ($_SESSION['UserType'] == 'Admin') {
                     <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
                     <span class="nav_name">Revenue</span> </a>                    
             </div>';
-} 
+}
