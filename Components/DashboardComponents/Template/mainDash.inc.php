@@ -12,6 +12,17 @@ $sql = "SELECT * FROM cask";
 if ($result=mysqli_query($dbConnection,$sql)) {
     $caskcount=mysqli_num_rows($result);   
 }
+
+$sql = "SELECT SUM(PurchaseAmount) FROM investment";
+if ($result=mysqli_query($dbConnection,$sql)) {
+    $totalRevenue=mysqli_fetch_row($result);   
+    $totalRevenue=implode($totalRevenue);
+}
+
+$sql = "SELECT * FROM investment";
+if ($result=mysqli_query($dbConnection,$sql)) {
+    $investmentcount=mysqli_num_rows($result);   
+}
 ?>
 
 <!-- Main -->
@@ -25,7 +36,11 @@ if ($result=mysqli_query($dbConnection,$sql)) {
                                 <div class="row">
                                     <div class="col">
                                         <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Revenue</span>
-                                        <span class="h3 font-bold mb-0">£2750.90</span>
+                                        <span class="h3 font-bold mb-0">
+                                            £<?php 
+                                            echo $totalRevenue 
+                                            ?>
+                                        </span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
@@ -65,7 +80,11 @@ if ($result=mysqli_query($dbConnection,$sql)) {
                                 <div class="row">
                                     <div class="col">
                                         <span class="h6 font-semibold text-muted text-sm d-block mb-2">New Investments</span>
-                                        <span class="h3 font-bold mb-0">14</span>
+                                        <span class="h3 font-bold mb-0">
+                                        <?php 
+                                            echo $investmentcount 
+                                            ?>
+                                        </span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
