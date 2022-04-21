@@ -25,7 +25,7 @@ if ($_SESSION['UserType'] == 'Admin') {
                     <i class="bx bx-bell nav_icon"></i>
                     <span class="nav_name">Notifications</span> </a>
                     
-                <a href="revenue.php" class="nav_link"> 
+                <a href="show-investment.php" class="nav_link"> 
                     <i class="bx bx-bar-chart-alt-2 nav_icon"></i>
                     <span class="nav_name">Revenue</span> </a>                    
             </div>';
