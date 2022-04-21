@@ -19,8 +19,7 @@ $percentageAlcohol = $_POST['PercentageAlcohol'];
 $caskType = $_POST['CaskType'];
 $woodType = $_POST['WoodType'];
 $distilleryName = $_POST['DistilleryName'];
-$CaskImage = $_FILES['CaskImage']['tmp_name'];
-
+$caskImage = base64_encode(file_get_contents($_FILES["CaskImage"]["tmp_name"]));
 $allowed_types = array('jpg', 'png', 'jpeg');
 
 // Get the file extension
@@ -46,7 +45,7 @@ $PercentageAlcohol = $percentageAlcohol;
 $CaskType = $caskType;
 $WoodType = $woodType;
 $DistilleryName = $distilleryName;
-$CaskImage = $CaskImage;
+$CaskImage = $caskImage;
 
 $stmt->execute();
 $stmt->close();
