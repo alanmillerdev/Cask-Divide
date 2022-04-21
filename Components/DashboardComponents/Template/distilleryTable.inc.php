@@ -70,7 +70,7 @@ if (!defined('SecurityCheck')) {
                     //echo '<a href="show-casks.php?page=' . $page . '">' . $page . '</a> ';
                     echo '
                                     
-                                    <li class="page-item"><a class="page-link" href="show-casks.php?page=' . $page . '">' . $page . '</a></li>
+                                    <li class="page-item"><a class="page-link" href="show-distillery.php?page=' . $page . '">' . $page . '</a></li>
                                     
                                 ';
                 };
