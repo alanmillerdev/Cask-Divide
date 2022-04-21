@@ -1,7 +1,10 @@
 
 <?php
+define('SecurityCheck', TRUE);
 include '../../Database/dbConnect.inc.php';
-
+if(!isset($_POST['caskID'])){
+  header("Location: ../../index.php");
+}
 
 $dbConnection = Connect();
 session_start();

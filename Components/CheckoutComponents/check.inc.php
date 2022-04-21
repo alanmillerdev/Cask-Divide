@@ -1,4 +1,12 @@
 <?php
+  define('SecurityCheck', TRUE);
+  if (!defined('SecurityCheck')) {
+    exit(header("Location: ../../index.php"));
+  };
+
+  if(!isset($_REQUEST['caskID'])) {
+    exit(header("Location: ../../index.php"));
+  }
  include "../../Database/dbConnect.inc.php";
  header("Refresh:2");
  $dbConnection = Connect();

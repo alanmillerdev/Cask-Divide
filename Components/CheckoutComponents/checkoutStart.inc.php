@@ -1,20 +1,26 @@
 <?php
 
 //Security
-
+define('SecurityCheck', TRUE);
+if(!isset($_POST['CaskID'])){
+    header("Location: ../../index.php");
+}
 //Database
 include '../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
-$userID = $_POST['UserID'];
-$caskID = $_POST['CaskID'];
-$PercentageRequested = $_POST['percentage'];
+
 ?>
 
 <?php
-
-CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $PercentageAvilable, $finalPercentage);
-
+if(isset($_POST['CaskID'])){
+    $userID = $_POST['UserID'];
+    $caskID = $_POST['CaskID'];
+    $PercentageRequested = $_POST['percentage'];
+    CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $PercentageAvilable, $finalPercentage);
+} else {
+    header("Location: ../../index.php");
+}
 
 
 function CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $PercentageAvilable, $finalPercentage)

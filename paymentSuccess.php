@@ -1,6 +1,11 @@
 <?php
-
-  
+  define('SecurityCheck', TRUE);
+  if(!defined('SecurityCheck')) {
+    exit(header("Location: index.php"));
+  }
+  if(!isset($_GET['id'])) {
+    exit(header("Location: index.php"));
+  }
   include 'Database/dbConnect.inc.php';
   $dbConnection = Connect();
 

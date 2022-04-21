@@ -3,6 +3,10 @@ if (!defined('SecurityCheck')) {
   exit(header("Location: ../../index.php"));
 };
 
+if(!isset($_GET['sku'])){
+  header("../../index.php");
+}
+
 include 'Database/dbConnect.inc.php';
 $dbConnection = Connect();
 
@@ -332,7 +336,7 @@ $currentPercentageAvailable = $row[0];
 
 
     } 
-    else if(email.length > 50 || email.length < 5 || email.match(emailRegex) || email=="") {
+    else if(email.length > 50 || email.length < 5 || !email.match(emailRegex) || email=="") {
         // Fail message
         $('#success').html("<div class='alert alert-danger'>");
         $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
