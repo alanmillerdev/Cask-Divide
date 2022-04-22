@@ -67,7 +67,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                 <span class="h6 font-semibold text-muted text-sm d-block mb-2">Highest Percentage Available</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                    echo $caskName . ": ".$maxPercentageAvailable. "%";
+                                    echo $maxPercentageAvailable. "%";
                                     ?>
                                 </span>
 
@@ -90,7 +90,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                 <span class="h6 font-semibold text-muted text-sm d-block mb-2">Lowest Percentage Available</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                   echo $lowCaskName .": ". $minPercentageAvailable ."%";
+                                   echo $minPercentageAvailable ."%";
                                     ?>
                                 </span>
 
@@ -113,7 +113,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                 <span class="h6 font-semibold text-muted text-sm d-block mb-2">Most Expensive Cask</span>
                                 <span class="h3 font-bold mb-0">
                                 <?php
-                                   echo $caskName . ": £". $caskExpensive;
+                                   echo  "£".$caskExpensive;
                                     ?>
                                 </span>
 
