@@ -76,7 +76,6 @@ $LastName = $lastName;
 $DOB = $dob;
 $PhoneNo = $phoneNo;
 $Auth = 0;
-$Date = $currentDate;
 $stmt->execute();
 session_start();
 $_SESSION['customerID'] = $customer->id;
