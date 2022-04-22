@@ -8,7 +8,7 @@ require 'generateCask.inc.php';
 
 $dbConnection = Connect();
 
-$sql = "SELECT CaskID, CaskName, PercentageAvailable, CaskImage FROM cask ORDER BY CaskID";
+$sql = "SELECT CaskID, CaskName, PercentageAvailable, CaskImage FROM cask WHERE PercentageAvailable > 0 ORDER BY CaskID";
 $query = mysqli_query($dbConnection, $sql);
 
 $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
