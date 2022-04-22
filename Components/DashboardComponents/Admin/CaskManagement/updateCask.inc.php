@@ -9,14 +9,27 @@ include '../../../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-$CaskID = $_POST["CaskID"];
+$caskID = $_POST['CaskID'];
+$caskName = $_POST['CaskName'];
+$caskDescription = $_POST['CaskDescription'];
+$percentageAvailable = $_POST['PercentageAvailable'];
+$wholeCaskPrice = $_POST['WholeCaskPrice'];
+$ola = $_POST['OLA'];
+$rla = $_POST['RLA'];
+$percentageAlcohol = $_POST['PercentageAlcohol'];
+$caskType = $_POST['CaskType'];
+$woodType = $_POST['WoodType'];
+$distilleryName = $_POST['DistilleryName'];
+if (isset($_FILES['CaskImage']) && $_FILES['CaskImage']['size'] > 0) {
+  $caskImage = base64_encode(file_get_contents($_FILES["CaskImage"]["tmp_name"]));
+}
 
-$UpdateQuery ="UPDATE cask SET CaskID='{$_POST['CaskID']}', 
-CaskName='{$_POST['CaskName']}', CaskDescription='{$_POST['CaskDescription']}', PercentageAvailable='{$_POST['PercentageAvailable']}', 
-WholeCaskPrice='{$_POST['WholeCaskPrice']}', OLA='{$_POST['OLA']}', RLA='{$_POST['RLA']}', PercentageAlcohol='{$_POST['PercentageAlcohol']}', 
-CaskType='{$_POST['CaskType']}', WoodType='{$_POST['WoodType']}', DistilleryName='{$_POST['DistilleryName']}', CaskImage='{$_POST['CaskImage']}' WHERE CaskID='{$CaskID}'";
-$up_var=mysqli_query($dbConnection, $UpdateQuery) or die(mysqli_error($dbConnection));
-echo $UpdateQuery;
-header('location:../../../../dashboard/show-casks.php');
-
-?>
+if (isset($_FILES['CaskImage']) && $_FILES['CaskImage']['size'] > 0) {
+  $sql = "UPDATE cask SET CaskName = '$caskName', CaskDescription = '$caskDescription', PercentageAvailable = '$percentageAvailable', WholeCaskPrice = '$wholeCaskPrice', OLA = '$ola', RLA = '$rla', PercentageAlcohol = '$percentageAlcohol', CaskType = '$caskType', WoodType = '$woodType', DistilleryName = '$distilleryName', CaskImage = '$caskImage' WHERE CaskID = $caskID";
+  mysqli_query($dbConnection, $sql);
+  header('location:../../../../dashboard/show-casks.php');
+} else {
+  $sql = "UPDATE cask SET CaskName = '$caskName', CaskDescription = '$caskDescription', PercentageAvailable = '$percentageAvailable', WholeCaskPrice = '$wholeCaskPrice', OLA = '$ola', RLA = '$rla', PercentageAlcohol = '$percentageAlcohol', CaskType = '$caskType', WoodType = '$woodType', DistilleryName = '$distilleryName' WHERE CaskID = $caskID";
+  mysqli_query($dbConnection, $sql);
+  header('location:../../../../dashboard/show-casks.php');
+};
