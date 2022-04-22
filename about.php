@@ -2,7 +2,6 @@
 define('SecurityCheck', TRUE);
 $PageTitle = "About";
 
-
 include 'Components/RequiredComponents/header.inc.php';
 
 include 'Components/RequiredComponents/styles.inc.php';
