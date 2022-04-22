@@ -3,32 +3,49 @@ if (!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
 }
 
+// Distilleries
 $sql = "SELECT * FROM distillery";
 if ($result = mysqli_query($dbConnection, $sql)) {
-    $caskcount = mysqli_num_rows($result);
+    $distillerycount = mysqli_num_rows($result);
+}
+
+$sql = "SELECT description FROM distillery WHERE description LIKE '%Speyside%'";
+if ($result = mysqli_query($dbConnection, $sql)) {
+    $speysideCount = mysqli_num_rows($result);
+}
+
+$sql = "SELECT description FROM distillery WHERE description LIKE '%Highland%'";
+if ($result = mysqli_query($dbConnection, $sql)) {
+    $highlandCount = mysqli_num_rows($result);
+}
+
+$sql = "SELECT description FROM distillery WHERE description LIKE '%Lowland%'";
+if ($result = mysqli_query($dbConnection, $sql)) {
+    $lowlandCount = mysqli_num_rows($result);
 }
 
 ?>
 
 <main class="py-6 bg-surface">
-    <div class="container-fluid">
+<!-- Distilleries -->
+<div class="container-fluid">
         <div class="row g-6 mb-6">
             <div class="col-xl-3 col-sm-6 col-12">
                 <div class="card shadow border-0">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Distilleries</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                    echo $caskcount;
+                                    echo $distillerycount;
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                  <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
                                 </div>
                             </div>
                         </div>
@@ -41,17 +58,17 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Number of Distilleries in Speyside</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                    echo $caskcount;
+                                    echo $speysideCount;
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                    <i class="bi bi-arrow-up-right"></i>
                                 </div>
                             </div>
                         </div>
@@ -64,17 +81,17 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Number of Distilleries in Lowlands</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                    echo $caskcount;
+                                   echo $lowlandCount;
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                    <i class="bi bi-arrow-down-left"></i>
                                 </div>
                             </div>
                         </div>
@@ -87,21 +104,20 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Number of Distilleries in Highlands</span>
                                 <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $caskcount;
+                                <?php
+                                   echo $highlandCount;
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                    <i class="bi bi-cash-stack"></i>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

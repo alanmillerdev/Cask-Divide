@@ -49,6 +49,5 @@ if(!defined('SecurityCheck')) {
           </div>
         </form>
       </div>
-
-  </div>
+   </div>
 </section>

@@ -3,6 +3,22 @@ if (!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
 }
 
+// Investments
+$sql = "SELECT * FROM investment";
+if ($result = mysqli_query($dbConnection, $sql)) {
+    $investmentcount = mysqli_num_rows($result);
+}
+
+$sql = "SELECT PurchaseDate FROM investment WHERE DATE(PurchaseDate) >= CurDate() - INTERVAL 7 DAY";
+if ($result = mysqli_query($dbConnection, $sql)) {
+    $investmentsInLastWeek = mysqli_num_rows($result);
+}
+$sql = "SELECT SUM(PurchaseAmount), PurchaseDate FROM investment WHERE DATE(PurchaseDate) >= CurDate() - INTERVAL 7 DAY";
+if ($result = mysqli_query($dbConnection, $sql)) {
+    $row = mysqli_fetch_row($result);
+    $maxPurchaseAmount = $row[0];
+}
+
 $sql = "SELECT SUM(PurchaseAmount) FROM investment";
 if ($result = mysqli_query($dbConnection, $sql)) {
     $totalRevenue = mysqli_fetch_row($result);
@@ -11,14 +27,15 @@ if ($result = mysqli_query($dbConnection, $sql)) {
 ?>
 
 <main class="py-6 bg-surface">
-    <div class="container-fluid">
+     <!-- Investments -->
+     <div class="container-fluid">
         <div class="row g-6 mb-6">
             <div class="col-xl-3 col-sm-6 col-12">
                 <div class="card shadow border-0">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Investments</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
                                     echo $investmentcount;
@@ -28,7 +45,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                <i class="bi bi-wallet-fill"></i>
                                 </div>
                             </div>
                         </div>
@@ -41,17 +58,17 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Investments in the Last Week</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                    echo $investmentcount;
+                                    echo $investmentsInLastWeek;
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                    <i class="bi bi-calendar-week-fill"></i>
                                 </div>
                             </div>
                         </div>
@@ -64,17 +81,17 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Revenue in the Last Week</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                    echo $investmentcount;
+                                   echo "£".$maxPurchaseAmount;
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                    <i class="bi bi-cash"></i>
                                 </div>
                             </div>
                         </div>
@@ -87,21 +104,20 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Revenue to Date</span>
                                 <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $investmentcount;
+                                <?php
+                                   echo "£".$totalRevenue;
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                    <i class="bi bi-cash-stack"></i>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -217,7 +233,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                         //echo '<a href="show-casks.php?page=' . $page . '">' . $page . '</a> ';
                         echo '
                                     
-                                    <li class="page-item"><a class="page-link" href="show-investments.php?page=' . $page . '">' . $page . '</a></li>
+                                    <li class="page-item"><a class="page-link" href="show-investment.php?page=' . $page . '">' . $page . '</a></li>
                                     
                                 ';
                     };

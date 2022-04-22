@@ -3,14 +3,37 @@ if (!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
 }
 
+// Casks
 $sql = "SELECT * FROM cask";
 if ($result = mysqli_query($dbConnection, $sql)) {
     $caskcount = mysqli_num_rows($result);
 }
 
+$sql = "SELECT MAX(PercentageAvailable), CaskName FROM cask";
+if ($result = mysqli_query($dbConnection, $sql)) {
+    $row = mysqli_fetch_row($result);
+    $maxPercentageAvailable = $row[0];
+    $caskName = $row[1];
+}
+
+$sql = "SELECT MIN(CaskName), MIN(PercentageAvailable) FROM cask WHERE PercentageAvailable > 0";
+if ($result = mysqli_query($dbConnection, $sql)) {
+    $row = mysqli_fetch_row($result);
+    $minPercentageAvailable = $row[1];
+    $lowCaskName = $row[0];
+}
+
+$sql = "SELECT MAX(WholeCaskPrice), CaskName FROM cask";
+if ($result = mysqli_query($dbConnection, $sql)) {
+    $row = mysqli_fetch_row($result);
+    $caskExpensive = $row[0];
+    $caskName = $row[1];
+}
+
 ?>
 
 <main class="py-6 bg-surface">
+    <!-- Cask Cards -->
     <div class="container-fluid">
         <div class="row g-6 mb-6">
             <div class="col-xl-3 col-sm-6 col-12">
@@ -27,8 +50,8 @@ if ($result = mysqli_query($dbConnection, $sql)) {
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                  <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
                                 </div>
                             </div>
                         </div>
@@ -41,17 +64,17 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Highest Percentage Available</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                    echo $caskcount;
+                                    echo $caskName . ": ".$maxPercentageAvailable. "%";
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                    <i class="bi bi-arrow-up-right"></i>
                                 </div>
                             </div>
                         </div>
@@ -64,17 +87,17 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Lowest Percentage Available</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                    echo $caskcount;
+                                   echo $lowCaskName .": ". $minPercentageAvailable ."%";
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                    <i class="bi bi-arrow-down-left"></i>
                                 </div>
                             </div>
                         </div>
@@ -87,21 +110,20 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Most Expensive Cask</span>
                                 <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $caskcount;
+                                <?php
+                                   echo $caskName . ": £". $caskExpensive;
                                     ?>
                                 </span>
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
+                                <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                    <i class="bi bi-cash-stack"></i>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

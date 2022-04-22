@@ -10,6 +10,7 @@ CREATE TABLE CaskDivide.User(
     DOB DATE NOT NULL,
     PhoneNumber VARCHAR(15) NOT NULL,
     2FAENABLED BOOLEAN NOT NULL,
+    RegistrationDate DATE, 
     PRIMARY KEY (UserID)
 );
 

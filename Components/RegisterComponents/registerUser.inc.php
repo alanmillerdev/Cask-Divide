@@ -24,7 +24,6 @@ $phoneNo = $_POST['PhoneNumber'];
 
 
 
-
 $firstName = $fullName[0];
 $lastName = $fullName[1];
 
@@ -66,17 +65,18 @@ if ($password != $passwordConfirm) {
 }
 
 //Prepared Statement
-$stmt = $dbConnection->prepare("INSERT INTO user (Email, Password, UserType, FirstName, LastName, DOB, PhoneNumber, 2FAENABLED) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $dbConnection->prepare("INSERT INTO user (Email, Password, UserType, FirstName, LastName, DOB, PhoneNumber, 2FAENABLED, RegistrationDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())");
 $stmt->bind_param("sssssssi", $Email, $HashedPassword, $UserType, $FirstName, $LastName, $DOB, $PhoneNo, $Auth);
 
 $Email = $email;
 $HashedPassword = password_hash($password, PASSWORD_DEFAULT); //password_verify to decrypt
-$UserType = "User";
+$UserType = "Admin";
 $FirstName = $firstName;
 $LastName = $lastName;
 $DOB = $dob;
 $PhoneNo = $phoneNo;
 $Auth = 0;
+$Date = $currentDate;
 $stmt->execute();
 session_start();
 $_SESSION['customerID'] = $customer->id;
