@@ -197,33 +197,6 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                 </tbody>
 
             </table>
-            <p class="text-end border-0 py-5">
-                <?php
-                $sql = "SELECT SUM(PurchaseAmount) FROM investment";
-                if ($result = mysqli_query($dbConnection, $sql)) {
-                    $totalRevenue = mysqli_fetch_row($result);
-                    $totalRevenue = implode($totalRevenue);
-                }
-                echo '
-                                <div class="col-xl-3 col-sm-6 col-12 float-end">
-                                <div class="border-0">
-                                    <div class="card-body float-end">
-                                        <div class="row">
-                                            <div class="col">
-                                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Revenue</span>
-                                                <span class="h3 font-bold mb-0">
-                                                    £' . $totalRevenue . '
-                                                </span>
-                                            </div>
-                                        </div>
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                                ';
-
-                ?>
-            </p>
         </div>
         <div class="card-footer border-0 py-5">
             <nav>
