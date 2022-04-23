@@ -16,7 +16,7 @@ $percentage = $_GET['percentage'];
 $finalPercentage = $_GET['finalPercentage'];
 
 
-$result = $dbConnection->query("SELECT CaskID, CaskName, WholeCaskPrice FROM Cask WHERE CaskID = $caskID");
+$result = $dbConnection->query("SELECT CaskID, CaskName, WholeCaskPrice FROM cask WHERE CaskID = $caskID");
 $row = mysqli_fetch_array($result);
 
 $caskName = $row[1];
@@ -46,7 +46,7 @@ if(isset($_SESSION['customerID'])){
     $_SESSION['customerID'] = $customerID;
   }
 
-$sql = $dbConnection->query("SELECT UserID, Email, PhoneNumber FROM User WHERE UserID = $userID");
+$sql = $dbConnection->query("SELECT UserID, Email, PhoneNumber FROM user WHERE UserID = $userID");
 $row = mysqli_fetch_array($sql);
 $email = $row[1];
 $phone = $row[2];
@@ -64,7 +64,7 @@ $payment_intent = $stripe->paymentIntents->create([
 
 
 
-$sql = $dbConnection->query("SELECT PercentageAvailable from Cask WHERE CaskID = $caskID");
+$sql = $dbConnection->query("SELECT PercentageAvailable from cask WHERE CaskID = $caskID");
 $row = mysqli_fetch_array($sql);
 $currentPercentageAvailable = $row[0];
 ?>
@@ -209,7 +209,7 @@ $currentPercentageAvailable = $row[0];
 
             <?php 
 
-              $sql = $dbConnection->query("SELECT PercentageAvailable from Cask WHERE CaskID = $caskID");
+              $sql = $dbConnection->query("SELECT PercentageAvailable from cask WHERE CaskID = $caskID");
               $row = mysqli_fetch_array($sql);
 
               $currentPercentageAvailable = $row[0];

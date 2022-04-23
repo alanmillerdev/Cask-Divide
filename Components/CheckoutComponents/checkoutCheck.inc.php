@@ -11,7 +11,7 @@ session_start();
 $caskID = $_POST['caskID'];
 $percentage = $_POST['percent'];
 $userID = $_SESSION['UserID'];
-$result = $dbConnection->query("SELECT PercentageAvailable FROM Cask WHERE CaskID = $caskID");
+$result = $dbConnection->query("SELECT PercentageAvailable FROM cask WHERE CaskID = $caskID");
 $row = mysqli_fetch_array($result);
 $PercentageAvailable = $row[0];
 
@@ -37,7 +37,7 @@ function CheckoutCheck($dbConnection, $caskID, $percentage, $userID, $Percentage
 }
 
                 function PercentageAvailable($dbConnection, $percentage, $caskID, $PercentageAvailable) {
-                  $result = $dbConnection->query("SELECT PercentageAvailable FROM Cask WHERE CaskID = $caskID");
+                  $result = $dbConnection->query("SELECT PercentageAvailable FROM cask WHERE CaskID = $caskID");
                   $row = mysqli_fetch_array($result);
                   $PercentageAvailable = $row[0];
                   
