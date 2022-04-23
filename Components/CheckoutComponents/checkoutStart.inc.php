@@ -17,6 +17,10 @@ if(isset($_POST['CaskID'])){
     $userID = $_POST['UserID'];
     $caskID = $_POST['CaskID'];
     $PercentageRequested = $_POST['percentage'];
+    $result = $dbConnection->query("SELECT PercentageAvailable FROM cask WHERE CaskID = $caskID");
+    $row = mysqli_fetch_array($result);
+    $PercentageAvilable = $row[0];
+    $finalPercentage = $PercentageAvilable - $PercentageRequested;
     CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $PercentageAvilable, $finalPercentage);
 } else {
     header("Location: ../../index.php");
@@ -33,7 +37,7 @@ function CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $P
      } else
      {
         if (PercentageAvailable($dbConnection, $PercentageRequested, $PercentageAvilable, $caskID, $finalPercentage)) {
-            $result = $dbConnection->query("SELECT PercentageAvailable FROM Cask WHERE CaskID = $caskID");
+            $result = $dbConnection->query("SELECT PercentageAvailable FROM cask WHERE CaskID = $caskID");
             $row = mysqli_fetch_array($result);
             $PercentageAvilable = $row[0];
             $finalPercentage = $PercentageAvilable - $PercentageRequested;
@@ -44,7 +48,7 @@ function CheckoutStart($dbConnection, $caskID, $userID, $PercentageRequested, $P
 
 function PercentageAvailable($dbConnection, $PercentageRequested, $PercentageAvilable, $caskID, $finalPercentage)
 {
-    $result = $dbConnection->query("SELECT PercentageAvailable FROM Cask WHERE CaskID = $caskID");
+    $result = $dbConnection->query("SELECT PercentageAvailable FROM cask WHERE CaskID = $caskID");
     $row = mysqli_fetch_array($result);
     $PercentageAvilable = $row[0];
 
