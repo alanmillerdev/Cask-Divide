@@ -87,7 +87,7 @@ $stripe->customers->update(
 
 
 function updatePercentage($dbConnection, $percentage, $caskID) {
-  $sqlQuery ="UPDATE Cask SET PercentageAvailable = PercentageAvailable - $percentage WHERE CaskID = $caskID";
+  $sqlQuery ="UPDATE cask SET PercentageAvailable = PercentageAvailable - $percentage WHERE CaskID = $caskID";
   $queryResult = @mysqli_query($dbConnection, $sqlQuery);
 }
 
