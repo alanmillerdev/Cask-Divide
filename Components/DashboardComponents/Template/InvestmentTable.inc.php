@@ -134,10 +134,12 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     <tr>
                         <th scope="col">Investment ID</th>
                         <th scope="col">User ID</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Cask ID</th>
-                        <th scope="col">Transaction ID</th>
+                        <th scope="col">Cask Name</th>
                         <th scope="col">Percent Purchased</th>
                         <th scope="col">Purchase Amount</th>
+                        <th scope="col">Transaction ID</th>
                         <th scope="col">Purchase Date</th>
 
                     </tr>
@@ -156,7 +158,12 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     $this_page_first_result = ($page - 1) * $results_per_page;
 
                     // retrieve selected results from database and display them on page
-                    $sql = 'SELECT * FROM investment LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
+                    $sql = 'SELECT i.InvestmentID, i.UserID, u.FirstName, U.LastName, i.CaskID, c.CaskName, i.PercentPurchased, i.PurchaseAmount, i.TransactionID, i.PurchaseDate 
+                            FROM investment AS i 
+                            INNER JOIN user AS u 
+                                ON u.UserID = i.UserID 
+                            INNER JOIN cask as c 
+                                ON i.CaskID = c.CaskID LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
                     $result = mysqli_query($dbConnection, $sql);
 
                     while ($row = mysqli_fetch_array($result)) {
@@ -172,17 +179,23 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                     </td>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
-                                            ' . $row['CaskID'] . '
+                                            ' . $row['FirstName'] . ' ' . $row['LastName'] .'
                                         </a>
                                     </td>
                                     <td>
-                                        ' . $row['TransactionID'] . '
+                                        ' . $row['CaskID'] . '
+                                    </td>
+                                    <td>
+                                        ' . $row['CaskName'] . '
                                     </td>
                                     <td>
                                         ' . $row['PercentPurchased'] . '
                                     </td>
                                     <td>
                                         ' . $row['PurchaseAmount'] . '
+                                    </td>
+                                    <td>
+                                    ' . $row['TransactionID'] . '
                                     </td>
                                     <td>
                                         ' . $row['PurchaseDate'] . '
