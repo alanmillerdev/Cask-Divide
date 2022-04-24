@@ -70,7 +70,7 @@ $stmt->bind_param("sssssssi", $Email, $HashedPassword, $UserType, $FirstName, $L
 
 $Email = $email;
 $HashedPassword = password_hash($password, PASSWORD_DEFAULT); //password_verify to decrypt
-$UserType = "Admin";
+$UserType = "User";
 $FirstName = $firstName;
 $LastName = $lastName;
 $DOB = $dob;
