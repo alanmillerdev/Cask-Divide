@@ -326,7 +326,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                          <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
+                                          <i><img class="caskimg" src="css/icons/dist-icon.svg"></i>
                                         </div>
                                     </div>
                                 </div>
