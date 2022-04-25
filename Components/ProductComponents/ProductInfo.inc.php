@@ -7,15 +7,23 @@ require 'Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-$sql = "SELECT CaskID, CaskName, CaskDescription, WholeCaskPrice, PercentageAvailable, CaskImage FROM cask WHERE CaskID = $caskID";
+$sql = "SELECT CaskID, CaskName, CaskDescription, WholeCaskPrice, PercentageAvailable, DistilleryName, CaskImage FROM cask WHERE CaskID = $caskID";
 $query = mysqli_query($dbConnection, $sql);
 while ($row = mysqli_fetch_array($query)) {
     $CaskID = $row['CaskID'];
     $CaskName = $row['CaskName'];
     $CaskDescription = $row['CaskDescription'];
     $PercentageAvailable = $row['PercentageAvailable'];
+    $DistilleryName = $row['DistilleryName'];
     $CaskImage = $row['CaskImage'];
     $CaskPrice = $row['WholeCaskPrice'];
+}
+
+$sql = "SELECT * FROM distillery WHERE DistilleryName = '$DistilleryName'";
+$query = mysqli_query($dbConnection, $sql);
+while ($row = mysqli_fetch_array($query)) {
+    $DistilleryName = $row['DistilleryName'];
+    $DistilleryDescription = $row['Description'];
 }
 
 ?>
@@ -51,6 +59,16 @@ while ($row = mysqli_fetch_array($query)) {
     </div>
 </section>
 
+<section class="origin border-top">
+        <div class="origin-content">
+            <div class="px-5 py-4">
+                <h2 class="display-1 mb-4">
+                    This Cask was Distilled at <?php echo $DistilleryName; ?>
+                </h2>
+                <p class=""><?php echo $DistilleryDescription; ?></p>
+            </div>
+        </div>
+</section>
 
 <script>
 var slider = document.getElementById("formControlRange");
