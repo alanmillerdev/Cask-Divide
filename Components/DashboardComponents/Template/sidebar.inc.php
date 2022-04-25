@@ -16,7 +16,10 @@ if(!defined('SecurityCheck')) {
             <?php include '../Components/DashboardComponents/DashboardType/dashboardType.inc.php';?>
             
             </div> 
+            <div>
+            <a href="../index.php" class="nav_link"> <i class='bx bx-home nav_icon'></i> <span class="nav_name">Go Home</span> </a>
             <a href="../Components/LogoutComponents/logoutUser.inc.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
+            </div>
         </nav>
     </div>
     
