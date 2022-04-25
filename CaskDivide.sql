@@ -1,6 +1,6 @@
 CREATE DATABASE CaskDivide;
 
-CREATE TABLE CaskDivide.User(
+CREATE TABLE CaskDivide.user(
     UserID INTEGER NOT NULL AUTO_INCREMENT,
     Email VARCHAR(255) NOT NULL,
     Password VARCHAR(255) NOT NULL,
@@ -14,20 +14,20 @@ CREATE TABLE CaskDivide.User(
     PRIMARY KEY (UserID)
 );
 
-CREATE TABLE CaskDivide.Admin(
+CREATE TABLE CaskDivide.admin(
     UserID INTEGER NOT NULL,
     LastLogin DATETIME NOT NULL,
     PRIMARY KEY (UserID),
     FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
 
-CREATE TABLE CaskDivide.Distillery(
+CREATE TABLE CaskDivide.distillery(
     DistilleryName VARCHAR(80) NOT NULL,
     Description VARCHAR(2000) NOT NULL,
     PRIMARY KEY (DistilleryName)
 );
 
-CREATE TABLE CaskDivide.Cask(
+CREATE TABLE CaskDivide.cask(
     CaskID INTEGER NOT NULL AUTO_INCREMENT,
     CaskName VARCHAR(80) NOT NULL,
     CaskDescription VARCHAR(255) NOT NULL,
@@ -44,14 +44,14 @@ CREATE TABLE CaskDivide.Cask(
     FOREIGN KEY (DistilleryName) REFERENCES Distillery(DistilleryName)
 );
 
-CREATE TABLE CaskDivide.Payment(
+CREATE TABLE CaskDivide.payment(
     TransactionID INTEGER NOT NULL AUTO_INCREMENT,
     StripeTransactionID VARCHAR(255) NOT NULL,
     StripeCustomerID VARCHAR(255) NOT NULL,
     PRIMARY KEY (TransactionID)
 );
 
-CREATE TABLE CaskDivide.Investment(
+CREATE TABLE CaskDivide.investment(
     InvestmentID INTEGER NOT NULL AUTO_INCREMENT,
     UserID INTEGER NOT NULL,
     CaskID INTEGER NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE CaskDivide.Investment(
     FOREIGN KEY (TransactionID) REFERENCES Payment(TransactionID)
 );
 
-CREATE TABLE CaskDivide.UserInvestments(
+CREATE TABLE CaskDivide.userinvestments(
     UserInvestmentID INTEGER NOT NULL AUTO_INCREMENT,
     UserID INTEGER NOT NULL,
     InvestmentID INTEGER NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE CaskDivide.UserInvestments(
     FOREIGN KEY (InvestmentID) REFERENCES Investment(InvestmentID)
 );
 
-CREATE TABLE CaskDivide.AdminLogItem(
+CREATE TABLE CaskDivide.adminlogitem(
     ID INTEGER NOT NULL AUTO_INCREMENT,
     UserID INTEGER NOT NULL,
     CaskID INTEGER NOT NULL,
@@ -85,4 +85,13 @@ CREATE TABLE CaskDivide.AdminLogItem(
     PRIMARY KEY (ID),
     FOREIGN KEY (UserID) REFERENCES User(UserID),
     FOREIGN KEY (CaskID) REFERENCES Cask(CaskID)
+);
+
+CREATE TABLE CaskDivide.notification(
+    NotificationID INTEGER NOT NULL AUTO_INCREMENT,
+    UserID INTEGER NOT NULL,
+    NotificationType VARCHAR(20) NOT NULL,
+    NotificationText VARCHAR(255) NOT NULL,
+    PRIMARY KEY (NotificationID),
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
 );
