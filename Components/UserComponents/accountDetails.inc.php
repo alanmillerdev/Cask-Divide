@@ -27,6 +27,7 @@
                 </div>
                 <div class="mt-5 text-center">
                     <input type="submit" name="submit" class="btn btn-primary profile-button" value="Update information">
+                    <p>To Delete your account please submit a request on our <a href="contact.php">Contact Page</a></p>
                 </div>
             </form>
             </div>
