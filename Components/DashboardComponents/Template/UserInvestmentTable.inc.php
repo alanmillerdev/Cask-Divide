@@ -18,7 +18,7 @@ $userID = $_SESSION['UserID'];
             <table class="table table-hover table-nowrap">
                 <thead class="thead-light">
                     <tr>
-                    <th scope="col">Cask Name</th>
+                    <th scope="col">User ID</th>
                         <th scope="col">Cask Name</th>
                         <th scope="col">Percent Purchased</th>
                         <th scope="col">Purchase Amount</th>
