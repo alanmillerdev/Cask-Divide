@@ -46,7 +46,7 @@ if(!isset($_SESSION['UserType'])) {
 
             <?php
             if ($_SESSION['UserType'] == 'Admin') {
-                echo '<ul class="navbar-nav">
+                echo '<ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="./DashboardAdmin/dashboard.php">Dashboard</a>
                         </li>
@@ -57,7 +57,7 @@ if(!isset($_SESSION['UserType'])) {
             } 
             elseif ($_SESSION['UserType'] == 'User'){
                 echo
-                '<ul class="navbar-nav">
+                '<ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="account-details.php">My Account</a>
                         </li>
