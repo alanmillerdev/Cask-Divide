@@ -5,7 +5,11 @@ if (getenv('REQUEST_METHOD') != "POST") {
 
 define('SecurityCheck', TRUE);
 
+session_start();
+
 include '../../../../Database/dbConnect.inc.php';
+
+require '../../../NotificationComponents/notification.inc.php';
 
 $dbConnection = Connect();
 
@@ -21,5 +25,8 @@ $Description = $description;
 $stmt->execute();
 
 $stmt->close();
+
+createNoti($dbConnection, $_SESSION['UserID'], "Add Distillery", "$_SESSION[FullName] has added a new distillery named $distilleryName");
+
 $dbConnection->close();
 header("Location: ../../../../dashboard/show-distillery.php?msg=added");
