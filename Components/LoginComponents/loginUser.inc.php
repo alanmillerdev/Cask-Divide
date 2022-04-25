@@ -37,6 +37,7 @@ if ($stmt) {
             $_SESSION["UserType"] = "Admin";
             $_SESSION["UserID"] = $userID;
             $_SESSION["FullName"] = $firstName . ' ' . $lastName;
+            date_default_timezone_set("Europe/London");
             $date = date('Y/m/d H:i:s');
             createNoti($dbConnection, $userID, "Login", "$firstName $lastName has logged in as an Admin on $date");
             $dbConnection->close();
