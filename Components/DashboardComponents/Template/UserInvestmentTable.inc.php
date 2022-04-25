@@ -2,7 +2,10 @@
 if (!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
 }
+$userID = $_SESSION['UserID'];
 ?>
+
+
 
 <main class="container rounded mt-5 mb-0">
      
@@ -15,6 +18,7 @@ if (!defined('SecurityCheck')) {
             <table class="table table-hover table-nowrap">
                 <thead class="thead-light">
                     <tr>
+                    <th scope="col">Cask Name</th>
                         <th scope="col">Cask Name</th>
                         <th scope="col">Percent Purchased</th>
                         <th scope="col">Purchase Amount</th>
@@ -37,17 +41,21 @@ if (!defined('SecurityCheck')) {
                     $this_page_first_result = ($page - 1) * $results_per_page;
 
                     // retrieve selected results from database and display them on page
-                    $sql = 'SELECT c.CaskName, i.PercentPurchased, i.PurchaseAmount, i.TransactionID, i.PurchaseDate 
+                    $sql = "SELECT u.UserID, c.CaskName, i.PercentPurchased, i.PurchaseAmount, i.TransactionID, i.PurchaseDate 
                             FROM investment AS i 
                             INNER JOIN user AS u 
                                 ON u.UserID = i.UserID 
                             INNER JOIN cask as c 
-                                ON i.CaskID = c.CaskID LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
+                                ON i.CaskID = c.CaskID WHERE u.UserID = '$userID' LIMIT " . $this_page_first_result . "," .  $results_per_page;
                     $result = mysqli_query($dbConnection, $sql);
 
                     while ($row = mysqli_fetch_array($result)) {
                         echo ' 
                                 <tr>
+
+                                    <td>
+                                        ' . $row['UserID'] . '
+                                    </td>
                                     <td>
                                         ' . $row['CaskName'] . '
                                     </td>
