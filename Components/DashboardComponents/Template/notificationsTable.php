@@ -46,6 +46,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">User ID</th>
+                        <th scope="col">User Type</th>
                         <th scope="col">Notification Type</th>
                         <th scope="col">Notfication Text</th>
                     </tr>
@@ -77,17 +78,17 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                     </td>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
+                                            ' . $row['UserType'] . '
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="text-heading font-semibold" href="#">
                                             ' . $row['NotificationType'] . '
                                         </a>
                                     </td>
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
                                             ' . $row['NotificationText'] . '
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="text-heading font-semibold" href="#">
-                                            ' . $row['UserType'] . '
                                         </a>
                                     </td>
                                 </tr>
