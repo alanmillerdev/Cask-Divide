@@ -50,6 +50,7 @@ ul {
   width: 400px;
   height: 50px;
   margin: auto;
+  margin: 0;
   display: block;
 }
 

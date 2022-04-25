@@ -13,22 +13,22 @@
          </div>
 
          <form class="d-flex flex-column" id="contactForm" name="sentMessage" novalidate="novalidate">
-           <div class="form-outline form-group mb-4">
+           <div class="form-outline form-group mb-2">
              <input type="text" name="name" id="name" required="required" data-validation-required-message="Please enter your name." class="input-style" placeholder="Name" />
              <p class="help-block text-light"></p>
            </div>
 
-           <div class="form-outline form-group mb-4">
+           <div class="form-outline form-group mb-2">
              <input type="email" name="email" id="email" required="required" class="input-style" data-validation-required-message="Please enter your email address." placeholder="Email" />
              <p class="help-block text-light"></p>
            </div>
 
-           <div class="form-outline form-group mb-4">
+           <div class="form-outline form-group mb-2">
              <input type="text" name="phoneNumber" id="phoneNumber" required="required" class="input-style" data-validation-required-message="Please enter your phone number." placeholder="Phone Number" />
              <p class="help-block text-light"></p>
            </div>
 
-           <div class="form-outline form-group mb-4">
+           <div class="form-outline form-group mb-2">
              <textarea name="message" id="message" required="required" data-validation-required-message="Please enter your message." class="textarea-style" placeholder="Message"></textarea>
              <p class="help-block text-light"></p>
            </div>
