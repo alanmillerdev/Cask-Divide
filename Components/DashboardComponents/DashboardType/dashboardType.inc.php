@@ -9,7 +9,7 @@ if ($_SESSION['UserType'] == 'Admin') {
                     <i class="bx bx-grid-alt nav_icon"></i>
                     <span class="nav_name">Dashboard</span> </a>
 
-                <a href="notifications.php" class="nav_link"> 
+                <a href="show-notifications.php" class="nav_link"> 
                     <i class="bx bx-bell nav_icon"></i>
                     <span class="nav_name">Notifications</span> </a>
                     
