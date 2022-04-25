@@ -64,7 +64,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     $this_page_first_result = ($page - 1) * $results_per_page;
 
                     // retrieve selected results from database and display them on page
-                    $sql = 'SELECT * FROM notification ORDER BY NotificationID desc LIMIT ' . $this_page_first_result . ',' .  $results_per_page . ';';
+                    $sql = 'SELECT n.UserID, n.NotificationType, n.NotificationText, u.UserType FROM notification as n INNER JOIN user as u ON n.UserID = u.UserID ORDER BY n.NotificationID desc LIMIT ' . $this_page_first_result . ',' .  $results_per_page . ';';
                     $result = mysqli_query($dbConnection, $sql);
 
                     while ($row = mysqli_fetch_array($result)) {
@@ -83,6 +83,11 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
                                             ' . $row['NotificationText'] . '
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="text-heading font-semibold" href="#">
+                                            ' . $row['UserType'] . '
                                         </a>
                                     </td>
                                 </tr>
