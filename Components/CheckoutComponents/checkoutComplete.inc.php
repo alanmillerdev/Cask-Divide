@@ -12,26 +12,18 @@
         <div class="col-md-8 border">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Thank you for Purchasing with us</h4>
+                    <h2 class="text-right">Thank you for Purchasing with us (Users full name)</h4>
                 </div>
             <form action="#" method="post">
-                <div class="row mt-2">
-                    <div class="col-md-6 bold"><label class="labels h1">Name</label><p type="text" class="" value="<?php //echo $row[''];?>">test</p></div>
-                    <div class="col-md-6"><label class="labels">Surname</label><p type="text" class="" value="<?php //echo $row[''];?>">test</p></div>
-                </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><p type="text" class="" value="<?php //echo $row[''];?>">test</p></div>
-                    <div class="col-md-12"><label class="labels">Email</label><p type="text" class="" value="<?php //echo $row[''];?>">test</p></div>
-                    <div class="col-md-12"><label class="labels">Date of Birth</label><p type="text" class="" value="<?php //echo $row[''];?>">test</p></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><p type="text" class="" value="<?php //echo $row[''];?>">test</p></div>
-                    <div class="col-md-12"><label class="labels">Address Line 2</label><p type="text" class="" value="<?php //echo $row[''];?>">test</p></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Postcode</label><p type="text" class="" value="<?php //echo $row['FirstName'];?>">test</p></div>
-                    <div class="col-md-6"><label class="labels">Country</label><p type="text" class="" value="<?php //echo $row['FirstName'];?>">test</p></div>
+                    <div class="col-md-12"><label class=" checkout-header">Amount Purchased</label><p class="h4 text-white" value="<?php //echo $row[''];?>">example</p></div>
+                    <div class="col-md-6 pt-4"><label class=" checkout-header">Percentage Purchased</label><p class="h4 text-white" value="<?php //echo $row[''];?>">example</p></div>
+                    <div class="col-md-6 pt-4"><label class=" checkout-header">Purchase Date</label><p class="h4 text-white" value="<?php //echo $row[''];?>">example</p></div>
+                    <div class="col-md-6 pt-4"><label class="checkout-header">Transaction ID</label><p class="h4 text-white" value="<?php //echo $row[''];?>">example</p></div>
+                    <div class="col-md-6 pt-4"><label class=" checkout-header">Stripe Transaction ID</label><p class="h4 text-white" value="<?php //echo $row[''];?>">example</p></div>
                 </div>
                 <div class="mt-5 text-center">
-                    <input type="submit" name="submit" class="btn btn-primary profile-button" value="Return to Home" href="index.php">
+                    <input type="submit" name="submit" class="btn btn-primary profile-button mt-5" value="Return to Home" href="index.php">
                 </div>
             </form>
             </div>

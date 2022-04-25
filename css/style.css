@@ -529,4 +529,8 @@ section.origin .origin-content h2, p, .rounded-pill {
 #account-content .text-right {
   color: #ffffff;
 }
+
+.checkout-header {
+  color: #BF9139 !important;
+}
 /*# sourceMappingURL=style.css.map */
