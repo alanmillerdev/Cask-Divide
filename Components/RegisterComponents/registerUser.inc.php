@@ -7,6 +7,8 @@ define('SecurityCheck', TRUE);
 
 require '../../Database/dbConnect.inc.php';
 
+require '../NotificationComponents/notification.inc.php';
+
 //Stripe
 require_once "../../vendor/autoload.php";
 
@@ -22,8 +24,6 @@ $fullName = split_name($_POST['FullName']);
 $dob = $_POST['DOB'];
 $phoneNo = $_POST['PhoneNumber'];
 
-
-
 $firstName = $fullName[0];
 $lastName = $fullName[1];
 
@@ -32,8 +32,6 @@ $customer = $stripe->customers->create([
     'email' => $email, 
     'phone' => $phoneNo,
   ]);
-
-
 
 //Dupe Email Check
 $select = mysqli_query($dbConnection, "SELECT * FROM user WHERE email = '" . $email . "'");
@@ -84,6 +82,14 @@ $_SESSION['phone'] = $PhoneNo;
 $custID = $_SESSION['customerID'];
 
 $stmt->close();
+
+$select = mysqli_query($dbConnection, "SELECT * FROM user WHERE email = '" . $email . "'");
+if (mysqli_num_rows($select)) {
+    $row = mysqli_fetch_array($select);
+    $date = date('Y/m/d H:i:s');
+    createNoti($dbConnection, $row['UserID'], "Registration", "$FirstName $LastName has registered on $date");
+};
+
 $dbConnection->close();
 
 header('location: ../../login.php?msg=success');
