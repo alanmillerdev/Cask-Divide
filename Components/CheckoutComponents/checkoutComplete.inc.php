@@ -1,5 +1,7 @@
 <?php
 include 'Database/dbConnect.inc.php';
+require 'Components/NotificationComponents/notification.inc.php';
+
 $name = $_SESSION['FullName'];
 $userID = $_SESSION['UserID'];
 $caskID = $_GET['caskID'];
@@ -25,6 +27,7 @@ $purchaseAmount = $row[1];
 $percent = $row[2];
 $purchaseDate = $row[3];
 
+createNoti($dbConnection, $userID, "Checkout", "$name has completed checkout successfully.");
 
 ?>
 
