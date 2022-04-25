@@ -59,7 +59,10 @@ if(!isset($_SESSION['UserType'])) {
                 echo
                 '<ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="border-left nav-link text-white p-4 m-0" href="account-details.php">My Account</a>
+                            <a class="border-left nav-link text-white p-4 m-0" href="userDashboard.inc.php.php">My Account</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="border-left nav-link text-white p-4 m-0" href="account-details.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="Components/LogoutComponents/logoutUser.inc.php">Log Out</a>

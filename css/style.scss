@@ -34,6 +34,10 @@ body{
   color: color(text);
 }
 
+@media (max-width: 544px) {  
+  #main-title {font-size:70px;} 
+}
+
 #decor-title{
   font-family: 'Cormorant', serif;
   text-transform: uppercase;
@@ -318,10 +322,12 @@ footer{
     background-color: color(primary);
   }
   
+  
   .footer-links:hover {
     color: color(primary) !important;
     background-color: color(background);
   }
+
 
   #right-items {
     li {

@@ -12,18 +12,18 @@ include 'bootstrapJS.inc.php'
             <a href="index.php"><img class="footer_logo" src="./images/logo-1.png" alt="Scotch Whiskey Casks Logo"></a>
         </div>
         <div>
-            <ul class="d-flex pl-0 pt-3">
-                <li class="border-right px-3 ml-0"><a href="#" class="nav-link footer-links px-2 text-light">
+            <ul class="d-flex pl-0 pt-3 ">
+                <li class="border-right px-3 ml-0"><a href="Contact.php" class="nav-link footer-links px-2 text-light">
                         <h5>Contact</h5>
                     </a></li>
-                <li class="border-right px-3"><a href="#" class="nav-link footer-links px-2 text-light">
+                <li class="border-right px-3"><a href="about.php" class="nav-link footer-links px-2 text-light">
                         <h5>FAQ</h5>
                     </a></li>
-                <li class="border-right px-3"><a href="#" class="nav-link footer-links px-2 text-light">
+                <li class="border-right px-3"><a href="about.php" class="nav-link footer-links px-2 text-light">
                         <h5>About</h5>
                     </a></li>
-                <li class="px-3"><a href="#" class="nav-link footer-links px-2 text-light">
-                        <h5>Services</h5>
+                <li class="px-3"><a href="casks.php" class="nav-link footer-links px-2 text-light">
+                        <h5>Our Casks</h5>
                     </a></li>
             </ul>
             <img class="px-3 pb-2" src="images/payment.png" alt="">

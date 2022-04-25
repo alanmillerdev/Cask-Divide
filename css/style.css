@@ -20,6 +20,12 @@ body {
   color: #ffffff;
 }
 
+@media (max-width: 544px) {
+  #main-title {
+    font-size: 70px;
+  }
+}
+
 #decor-title {
   font-family: 'Cormorant', serif;
   text-transform: uppercase;
