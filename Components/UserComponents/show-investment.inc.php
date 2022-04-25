@@ -1,11 +1,6 @@
 <?php
-define('SecurityCheck', TRUE);
 
-include '../Database/dbConnect.inc.php';
-
-$dbConnection = Connect();
-
-$sql = "SELECT * FROM cask";
+$sql = "SELECT * FROM investment WHERE UserID ='$_SESSION[UserID]'";
 
 $query = mysqli_query($dbConnection, $sql);
 
@@ -21,12 +16,9 @@ $number_of_results = mysqli_num_rows($result);
 // determine number of total pages available
 $number_of_pages = ceil($number_of_results/$results_per_page);
 
-include('../Components/DashboardComponents/Template/header.inc.php');
 
-include('../Components/DashboardComponents/Template/sidebar.inc.php');
+include('Components/DashboardComponents/Template/UserInvestmentTable.inc.php'); 
 
-include('../Components/DashboardComponents/Template/CaskTable.inc.php'); 
-
-include('../Components/DashboardComponents/Template/scripts.inc.php'); 
+include('Components/DashboardComponents/Template/scripts.inc.php'); 
 
 ?>

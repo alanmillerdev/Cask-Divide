@@ -62,9 +62,6 @@ if(!isset($_SESSION['UserType'])) {
                             <a class="border-left nav-link text-white p-4 m-0" href="account-details.php">My Account</a>
                         </li>
                         <li class="nav-item">
-                        <a class="border-left nav-link text-white p-4 m-0" href="./DashboardUser/dashboard.php">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="Components/LogoutComponents/logoutUser.inc.php">Log Out</a>
                         </li>
                     </ul>';

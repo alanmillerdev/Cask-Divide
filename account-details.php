@@ -8,22 +8,13 @@ include 'Database/dbConnect.inc.php';
 
 ?>
 
-<!--QUERY TO FIND USER ID-->
     <?php
-    $dbConnection = Connect();
-
-    $query="SELECT * FROM user WHERE UserID='$_SESSION[UserID]'";
-    $result = mysqli_query($dbConnection, $query)
-    or die ("couldn't run query");
-
-    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ ?>
-
-
-    <?php
-    include('Components/UserComponents/accountDetails.inc.php');
+    include('Components/UserComponents/accountDetailsForm.inc.php');
     ?>
 
-<?php } ?>
+    <?php
+    include('Components/UserComponents/show-investment.inc.php');
+    ?>
 
     <?php
     include('Components/RequiredComponents/footer.inc.php');

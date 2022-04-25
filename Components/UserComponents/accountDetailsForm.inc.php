@@ -1,3 +1,14 @@
+<!--QUERY TO FIND USER ID-->
+    <?php
+    $dbConnection = Connect();
+
+    $query="SELECT * FROM user WHERE UserID='$_SESSION[UserID]'";
+    $result = mysqli_query($dbConnection, $query)
+    or die ("couldn't run query");
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){ ?>
+
+
+
 <div id="account-content">
 <div class="container rounded mt-5 mb-0">
     <div class="row">
@@ -36,5 +47,4 @@
     </div>
 </div>
 </div>
-</div>
-</div>
+<?php } ?>
