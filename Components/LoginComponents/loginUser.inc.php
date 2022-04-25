@@ -7,6 +7,8 @@ define('SecurityCheck', TRUE);
 
 require '../../Database/dbConnect.inc.php';
 
+require '../NotificationComponents/notification.inc.php';
+
 $dbConnection = Connect();
 
 $email = $_POST["EmailAddress"];
@@ -35,6 +37,8 @@ if ($stmt) {
             $_SESSION["UserType"] = "Admin";
             $_SESSION["UserID"] = $userID;
             $_SESSION["FullName"] = $firstName . ' ' . $lastName;
+            $date = date('Y/m/d H:i:s');
+            createNoti($dbConnection, $userID, "Login", "$firstName $lastName has logged in as an Admin on $date");
             $dbConnection->close();
             header('Location: ../../index.php');
         } elseif ($userType == "User"){
