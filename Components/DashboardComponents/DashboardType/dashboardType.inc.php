@@ -22,7 +22,7 @@ if ($_SESSION['UserType'] == 'Admin') {
                     <span class="nav_name">Casks</span> </a>
                     
                 <a href="show-distillery.php" class="nav_link"> 
-                    <img class="caskimg" src="css/icons/cask-icon.svg"> 
+                    <img class="caskimg" src="css/icons/dist-icon.svg"> 
                     <span class="nav_name">Distilleries</span> </a>
                  
                 <a href="show-investment.php" class="nav_link"> 
