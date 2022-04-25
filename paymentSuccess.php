@@ -75,11 +75,12 @@ $stripe->customers->update(
 
 // cask id and cask name and include the amount of money it went for
         if($queryResult) {
-          $select = "SELECT InvestmentID, CaskID, PurchaseAmount FROM investment WHERE CaskID = '$caskID'";
+          $select = "SELECT InvestmentID, CaskID, PurchaseAmount, PurchaseDate FROM investment WHERE CaskID = '$caskID' and TransactionID = '$TransactionID'";
           $selectResult = @mysqli_query($dbConnection, $select);            
           $row = mysqli_fetch_array($selectResult);
           $CaskID = $row[1];
           $purchaseAmount = $row[2];
+          $purchaseDate = $row[3];
           $select = "SELECT CaskID, CaskName FROM cask WHERE CaskID = '$CaskID'";
           $selectResult = @mysqli_query($dbConnection, $select);            
           $row = mysqli_fetch_array($selectResult);
@@ -91,7 +92,7 @@ $stripe->customers->update(
           $select ="INSERT INTO notification (UserID, NotificationType, NotificationText) VALUES('$userID','Investment', '$name has made an investment on the $caskname at £$purchaseAmount. \nInvestment ID: $InvestmentID')"; 
           $selectResult = @mysqli_query($dbConnection, $select);
          // echo "success";
-           header("Location: index.php?success");
+           header("Location: checkoutSuccess.php?caskID=$caskID&transactionID=$TransactionID&stripeID=$chargeID");
         } else {
             echo "error";
         }
