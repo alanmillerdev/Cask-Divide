@@ -8,7 +8,8 @@ define('SecurityCheck', TRUE);
 include '../../../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
-
+session_start();
+$userID = $_SESSION['UserID'];
 $CaskName = $_POST['CaskName'];
 $caskDescription = $_POST['CaskDescription'];
 $percentageAvailable = $_POST['PercentageAvailable'];
@@ -46,7 +47,10 @@ $CaskType = $caskType;
 $WoodType = $woodType;
 $DistilleryName = $distilleryName;
 $CaskImage = $caskImage;
-
 $stmt->execute();
+$name = $_SESSION['FullName'];
+include("../../../NotificationComponents/notification.inc.php");
+createNoti($dbConnection, $userID, "Add", "$name has added a new cask: $CaskName");
 $stmt->close();
 $dbConnection->close();
+header("Location: ../../../../dashboard/show-casks.php");
