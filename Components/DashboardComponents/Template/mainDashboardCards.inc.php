@@ -3,6 +3,8 @@ if (!defined('SecurityCheck')) {
     exit(header("Location: ../../../index.php"));
 }
 
+$userID = $_SESSION['UserID'];
+
 $sql = "SELECT SUM(PurchaseAmount) FROM investment";
 if ($result = mysqli_query($dbConnection, $sql)) {
     $totalRevenue = mysqli_fetch_row($result);
@@ -102,390 +104,408 @@ if ($result = mysqli_query($dbConnection, $sql)) {
 }
 
 ?>
-<!-- Cards -->
-<main class="py-6 bg-surface">
-    <!-- User Cards -->
-    <div class="container-fluid">
-        <div class="row g-6 mb-6">
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Users</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $usercount;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                                    <i class="bi bi-people"></i>
+<?php $sql = "SELECT UserType from user where UserID = '$userID'";
+      $result = mysqli_query($dbConnection, $sql);
+      $row = mysqli_fetch_row($result);
+      $userType = $row[0];
+    if($userType == "Admin") {
+        echo
+        '<!-- Cards -->
+        <main class="py-6 bg-surface">
+            <!-- User Cards -->
+            <div class="container-fluid">
+                <div class="row g-6 mb-6">
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Users</span>
+                                        <span class="h3 font-bold mb-0">
+                                            ';
+                                             echo $usercount;
+                                            echo'
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+                                            <i class="bi bi-people"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">New Users in the Last Week</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $usersInLastWeekCount;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                                    <i class="bi bi-person-plus"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">New Users in the Last Month</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $usersInLastMonth;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                                    <i class="bi bi-person-lines-fill"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Highest User Investment</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo "£".$userHighestInvestment;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                                    <i class="bi bi-minecart-loaded"></i>
-                                </div>
+        
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Cask Cards -->
-    <div class="container-fluid">
-        <div class="row g-6 mb-6">
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $caskcount;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                  <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">New Users in the Last Week</span>
+                                        <span class="h3 font-bold mb-0">
+                                            ';
+                                            echo $usersInLastWeekCount;
+                                            echo '
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+                                            <i class="bi bi-person-plus"></i>
+                                        </div>
+                                    </div>
                                 </div>
+        
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Highest Percentage Available</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $maxPercentageAvailable. "%";
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                    <i class="bi bi-arrow-up-right"></i>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">New Users in the Last Month</span>
+                                        <span class="h3 font-bold mb-0">
+                                            ';
+                                             echo $usersInLastMonth;
+                                            echo'
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+                                            <i class="bi bi-person-lines-fill"></i>
+                                        </div>
+                                    </div>
                                 </div>
+        
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Lowest Percentage Available</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                   echo  $minPercentageAvailable ."%";
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                    <i class="bi bi-arrow-down-left"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Most Expensive Cask</span>
-                                <span class="h3 font-bold mb-0">
-                                <?php
-                                   echo "£". $caskExpensive;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                    <i class="bi bi-cash-stack"></i>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Highest User Investment</span>
+                                        <span class="h3 font-bold mb-0">
+                                           ';
+                                           echo "£".$userHighestInvestment;
+                                           echo '
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+                                            <i class="bi bi-minecart-loaded"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-<!-- Distilleries -->
-    <div class="container-fluid">
-        <div class="row g-6 mb-6">
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Distilleries</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $distillerycount;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                  <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
+            <!-- Cask Cards -->
+            <div class="container-fluid">
+                <div class="row g-6 mb-6">
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Casks</span>
+                                        <span class="h3 font-bold mb-0">
+                                            '; 
+                                             echo $caskcount;
+                                             echo '
+                                            
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                          <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Number of Distilleries in Speyside</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $speysideCount;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                    <i class="bi bi-arrow-up-right"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Number of Distilleries in the Lowlands</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                   echo $lowlandCount;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                    <i class="bi bi-arrow-down-left"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Number of Distilleries in the Highlands</span>
-                                <span class="h3 font-bold mb-0">
-                                <?php
-                                   echo $highlandCount;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                    <i class="bi bi-cash-stack"></i>
-                                </div>
+        
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Investments -->
-        <div class="container-fluid">
-        <div class="row g-6 mb-6">
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Investments</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $investmentcount;
-                                    ?>
-                                </span>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Highest Percentage Available</span>
+                                        <span class="h3 font-bold mb-0">
+                                            ';
 
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                <i class="bi bi-wallet-fill"></i>
+                                            echo $maxPercentageAvailable. "%";
+                                            echo '
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                            <i class="bi bi-arrow-up-right"></i>
+                                        </div>
+                                    </div>
                                 </div>
+        
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Investments in the Last Week</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                    echo $investmentsInLastWeek;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-calendar-week-fill"></i>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Lowest Percentage Available</span>
+                                        <span class="h3 font-bold mb-0">
+                                        ';
+                                        
+                                        echo $minPercentageAvailable ."%";
+                                        echo '
+                                         
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                            <i class="bi bi-arrow-down-left"></i>
+                                        </div>
+                                    </div>
                                 </div>
+        
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Revenue in the Last Week</span>
-                                <span class="h3 font-bold mb-0">
-                                    <?php
-                                   echo "£".$maxPurchaseAmount;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-cash"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Revenue to Date</span>
-                                <span class="h3 font-bold mb-0">
-                                <?php
-                                   echo "£".$totalRevenue;
-                                    ?>
-                                </span>
-
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                    <i class="bi bi-cash-stack"></i>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Most Expensive Cask</span>
+                                        <span class="h3 font-bold mb-0">
+                                        ';
+                                          echo  "£". $caskExpensive;
+                                          echo ' 
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                            <i class="bi bi-cash-stack"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</main>
+        <!-- Distilleries -->
+            <div class="container-fluid">
+                <div class="row g-6 mb-6">
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Distilleries</span>
+                                        <span class="h3 font-bold mb-0">
+                                            ';
+                                             echo $distillerycount;
+                                             echo '
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                          <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Number of Distilleries in Speyside</span>
+                                        <span class="h3 font-bold mb-0">
+                                           ';
+                                             echo $speysideCount;
+                                             echo '
+                                             
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                            <i class="bi bi-arrow-up-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Number of Distilleries in the Lowlands</span>
+                                        <span class="h3 font-bold mb-0">
+                                            ';
+                                            echo $lowlandCount;
+                                            echo '
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                            <i class="bi bi-arrow-down-left"></i>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Number of Distilleries in the Highlands</span>
+                                        <span class="h3 font-bold mb-0">
+                                        ';
+                                          echo  $highlandCount;
+                                        echo '
+
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                            <i class="bi bi-cash-stack"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Investments -->
+                <div class="container-fluid">
+                <div class="row g-6 mb-6">
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Investments</span>
+                                        <span class="h3 font-bold mb-0">
+                                            ';
+                                             echo $investmentcount;
+                                            echo '
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                                        <i class="bi bi-wallet-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Investments in the Last Week</span>
+                                        <span class="h3 font-bold mb-0">
+                                            ';
+                                            echo $investmentsInLastWeek;
+                                            echo '
+                                            
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                                            <i class="bi bi-calendar-week-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Revenue in the Last Week</span>
+                                        <span class="h3 font-bold mb-0">
+                                            '; 
+                                        echo "£".$maxPurchaseAmount;
+                                        echo '   
+                                            
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                                            <i class="bi bi-cash"></i>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card shadow border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Revenue to Date</span>
+                                        <span class="h3 font-bold mb-0">
+                                        ';
+                                          echo  "£".$totalRevenue;
+                                          echo '
+                                        </span>
+        
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                                            <i class="bi bi-cash-stack"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>';
+
+    }
+
+?>
