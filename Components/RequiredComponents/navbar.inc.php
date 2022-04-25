@@ -22,9 +22,9 @@ if(!isset($_SESSION['UserType'])) {
         </button>
 
         <!--  Use flexbox utility classes to change how the child elements are justified  -->
-        <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarToggle">
 
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link border-right active p-4 m-0" href="index.php">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -40,13 +40,13 @@ if(!isset($_SESSION['UserType'])) {
             </ul>
 
             <!--   Show this only lg screens and up   -->
-            <a class="navbar-brand d-none d-lg-block mr-5" href="index.php">
+            <a class="navbar-brand d-none d-lg-block mr-auto ml-5 pl-5" href="index.php">
                 <img src="./images/logo-1.png" height="65" alt="CD Logo" loading="lazy" />
             </a>
 
             <?php
             if ($_SESSION['UserType'] == 'Admin') {
-                echo '<ul class="navbar-nav">
+                echo '<ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="./DashboardAdmin/dashboard.php">Dashboard</a>
                         </li>
@@ -57,7 +57,7 @@ if(!isset($_SESSION['UserType'])) {
             } 
             elseif ($_SESSION['UserType'] == 'User'){
                 echo
-                '<ul class="navbar-nav">
+                '<ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="account-details.php">My Account</a>
                         </li>
@@ -68,7 +68,7 @@ if(!isset($_SESSION['UserType'])) {
             }
              elseif ($_SESSION['UserType'] == "") {
                 echo
-                '<ul class="navbar-nav">
+                '<ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="border-left nav-link text-white p-4 m-0" href="login.php">Login</a>
                         </li>
