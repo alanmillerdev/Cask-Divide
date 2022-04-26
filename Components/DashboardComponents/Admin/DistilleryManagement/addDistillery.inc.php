@@ -29,4 +29,4 @@ $stmt->close();
 createNoti($dbConnection, $_SESSION['UserID'], "Add Distillery", "$_SESSION[FullName] has added a new distillery named $distilleryName");
 
 $dbConnection->close();
-header("Location: ../../../../dashboard/show-distillery.php?msg=added");
+header("Location: ../../../../Dashboard/show-distillery.php?msg=added");

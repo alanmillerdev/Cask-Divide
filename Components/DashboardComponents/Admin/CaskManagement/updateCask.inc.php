@@ -33,11 +33,11 @@ if (isset($_FILES['CaskImage']) && $_FILES['CaskImage']['size'] > 0) {
   createNoti($dbConnection, $userID, "Update", "$name has updated a cask: $caskName");
 
  
-  header('location:../../../../dashboard/show-casks.php');
+  header('location:../../../../Dashboard/show-casks.php');
 } else {
   $sql = "UPDATE cask SET CaskName = '$caskName', CaskDescription = '$caskDescription', PercentageAvailable = '$percentageAvailable', WholeCaskPrice = '$wholeCaskPrice', OLA = '$ola', RLA = '$rla', PercentageAlcohol = '$percentageAlcohol', CaskType = '$caskType', WoodType = '$woodType', DistilleryName = '$distilleryName' WHERE CaskID = $caskID";
   mysqli_query($dbConnection, $sql);
   $name = $_SESSION['FullName'];
   createNoti($dbConnection, $userID, "Update", "$name has updated a cask: $caskName");
-  header('location:../../../../dashboard/show-casks.php');
+  header('location:../../../../Dashboard/show-casks.php');
 };

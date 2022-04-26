@@ -18,4 +18,4 @@ $up_var=mysqli_query($dbConnection, $UpdateQuery) or die(mysqli_error($dbConnect
 
 createNoti($dbConnection, $_SESSION['UserID'], "Edit Distillery", "$_SESSION[FullName] has updated the distillery named $_POST[NameOfDistillery]");
 
-header('location:../../../../dashboard/show-distillery.php?msg=updated');
+header('location:../../../../Dashboard/show-distillery.php?msg=updated');

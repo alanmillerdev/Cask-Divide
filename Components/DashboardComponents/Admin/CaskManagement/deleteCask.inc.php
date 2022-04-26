@@ -22,7 +22,7 @@ $caskName = $row[0];
 $name = $_SESSION['FullName'];
 
 createNoti($dbConnection, $userID, "Delete", "$name has deleted a cask: $caskName");
-header('location:../../../../dashboard/show-casks.php');
+header('location:../../../../Dashboard/show-casks.php');
 
 $DeleteQuery = "DELETE FROM cask WHERE CaskID='$caskID'";
 $result = mysqli_query($dbConnection, $DeleteQuery) or die(mysqli_error($dbConnection));
