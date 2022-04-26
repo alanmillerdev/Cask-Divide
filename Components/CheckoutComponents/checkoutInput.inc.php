@@ -268,17 +268,7 @@
       $('#success > .alert-danger').append('</div>');
 
 
-  } else if ((address.length > 100 || address.length < 5 || address == "")) {
-      // Fail message
-      $('#success').html("<div class='alert alert-danger'>");
-      $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-          .append("</button>");
-      $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that the address is not in the right format. "));
-      $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
-      $('#success > .alert-danger').append('</div>');
-
-
-  } else if ((name.length > 60 || name.length < 1 || name == "")) {
+  }  else if ((name.length > 60 || name.length < 1 || name == "")) {
       // Fail message
       $('#success').html("<div class='alert alert-danger'>");
       $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -296,16 +286,7 @@
       $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that the email is not in the right format. "));
       $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
       $('#success > .alert-danger').append('</div>');
-  } else if(postcode.length > 8 || postcode.length < 6 || !postcode.match(postcodeRegex) || postcode == "")  {
-            // Fail message
-      $('#success').html("<div class='alert alert-danger'>");
-      $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-          .append("</button>");
-      $('#success > .alert-danger').append($("<strong>").text("Sorry " + firstName + ", it seems that the postcode is not in the right format. "));
-      $('#success > .alert-danger').append($("<br><strong>").text("Please try again."));
-      $('#success > .alert-danger').append('</div>');
-  } 
-  
+  }   
   else {
 
       $this = $("#sendPayment");
