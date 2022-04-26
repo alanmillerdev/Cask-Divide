@@ -97,34 +97,20 @@
          <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span id="decor-title">Payment Details</span>
          </h4>
-         <div class="mb-3">
-            <label for="cardnumber">Card Number</label>
-            <input type="cardnumber" class="form-control" id="cardnumber" placeholder="0123 4567 8910 1112">
-            <div class="invalid-feedback">
-               Please enter a valid credit card number for payment.
+
+         <form id="payment-form">
+            <div id="payment-element">
+               <!-- Elements will create form elements here -->
             </div>
-         </div>
-         <div class="row">
-            <div class="col-md-6 mb-3">
-               <label for="expiration">Expiry date (mm/yy)</label>
-               <input type="text" class="form-control" id="expiration" placeholder="" value="" pattern="[0-9]*" inputmode="numeric" required>
-               <div class="invalid-feedback">
-                  Valid expiry is required.
-               </div>
-            </div>
-            <div class="col-md-6 mb-3">
-               <label for="Security Code">Security Code</label>
-               <input type="text" class="form-control" id="Security Code" placeholder="" value="" pattern="[0-9]*" inputmode="numeric" required>
-               <div class="invalid-feedback">
-                  Valid last name is required.
-               </div>
-            </div>
-         </div>
+
+
+         
+         
          <input type="hidden" id="final-percentage" value="<?php echo $finalPercentage;?>" />
          <input type="hidden" id="stripe-public-key" value="pk_test_51KiHJEEIsZ5yvNB5fxjtAXezi1bmu7hTSoPW1o4oZ4nihYpqNqXFdi2B6yh3acDGS7P59lNQRQOUFQ2Xxb9uGPoE00VG1Bkcg9" />
          <input type="hidden" id="stripe-payment-intent" value="<?php echo $payment_intent->client_secret; ?>" />
          <!-- credit card UI will be rendered here -->
-         <div id="stripe-card-element" name="card" style="margin-top: 20px; margin-bottom: 20px; padding: 20px color:white; "></div>
+         </form>
       </div>
    </div>
    <div class="col-md-6 order-md-2">
@@ -153,36 +139,8 @@
                      Please enter a valid phone number to allow us to contact you.
                   </div>
                </div>
-               <div class="mb-3">
-                  <label for="address">Address</label>
-                  <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                  <div class="invalid-feedback" id="feedback">
-                     Please enter your shipping address.
-                  </div>
-               </div>
-               <div class="mb-3">
-                  <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                  <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-               </div>
-               <div class="row">
-                  <div class="col-md-6 mb-3">
-                     <label for="country">Country</label>
-                     <select class="custom-select d-block w-100" id="country" required>
-                        <option value="">Choose...</option>
-                        <option>United Kingdom</option>
-                     </select>
-                     <div class="invalid-feedback">
-                        Please select a valid country.
-                     </div>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                     <label for="zip">Postcode</label>
-                     <input type="text" class="form-control" id="zip" placeholder="" required>
-                     <div class="invalid-feedback">
-                        Postcode required.
-                     </div>
-                  </div>
-               </div>
+               
+   
                <hr class="mb-4">
                <button class="btn btn-primary btn-lg btn-block" id="sendPayment" type="submit" onclick="percentageCheck()">Pay £<span id="cost"><?php echo $total ?></span> to Cask Divide</button>
                <input type="hidden" id="caskID" value="<?php echo $caskID?>"/>
@@ -236,12 +194,34 @@
    
    const stripePublicKey = document.getElementById("stripe-public-key").value;
    
+   
    // initialize stripe when page loads
    window.addEventListener("load", function() {
      stripe = Stripe(stripePublicKey);
      var elements = stripe.elements();
-     cardElement = elements.create('card');
-     cardElement.mount('#stripe-card-element');
+     cardElement = elements.create('card', {
+  style: {
+    base: {
+      iconColor: '#ffffff',
+      color: '#fff',
+      fontWeight: '500',
+      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+      fontSize: '16px',
+      fontSmoothing: 'antialiased',
+      ':-webkit-autofill': {
+        color: '#fff',
+      },
+      '::placeholder': {
+        color: '#fff',
+      },
+    },
+    invalid: {
+      iconColor: '#FFFFF',
+      color: '#FFC7EE',
+    },
+  },
+});
+     cardElement.mount('#payment-element');
    });
    
    function percentageCheck() {

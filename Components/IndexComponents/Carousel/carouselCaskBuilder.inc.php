@@ -8,7 +8,7 @@ require 'carouselCask.inc.php';
 
 $dbConnection = Connect();
 
-$sql = "SELECT CaskName, CaskDescription, CaskImage FROM cask ORDER BY CaskID LIMIT 3";
+$sql = "SELECT CaskName, CaskImage FROM cask ORDER BY CaskID LIMIT 3";
 $query = mysqli_query($dbConnection, $sql);
 
 $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -23,7 +23,7 @@ foreach ($result as $cask) {
         $class = "carousel-item";
     }
 
-    echo generateCask($cask['CaskName'], $cask['CaskDescription'], $cask['CaskImage'], $class);
+    echo generateCask($cask['CaskName'], $cask['CaskImage'], $class);
 
     $count++;
 };

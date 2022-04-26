@@ -17,7 +17,7 @@ $number_of_results = mysqli_num_rows($result);
 $number_of_pages = ceil($number_of_results/$results_per_page);
 
 
-include('Components/DashboardComponents/Template/UserInvestmentTable.inc.php'); 
+include('UserInvestmentTable.inc.php'); 
 
 include('Components/DashboardComponents/Template/scripts.inc.php'); 
 

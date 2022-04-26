@@ -29,12 +29,6 @@
                     <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value="<?php echo $row['PhoneNumber'];?>"></div>
                     <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="enter email" value="<?php echo $row['Email'];?>"></div>
                     <div class="col-md-12"><label class="labels">Date of Birth</label><input placeholder="Date of Birth" class="form-control" value="<?php echo $row['DOB'];?>" type="text" name="DOB" onfocus="(this.type='date')" onblur="(this.type='text')" onsubmit="(this.type='date')"></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="postcode" value=""></div>
-                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" value="" placeholder="country"></div>
                 </div>
                 <div class="mt-5 text-center">
                     <input type="submit" name="submit" class="btn btn-primary profile-button" value="Update information">

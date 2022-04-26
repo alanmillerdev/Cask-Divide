@@ -18,7 +18,6 @@ $userID = $_SESSION['UserID'];
             <table class="table table-hover table-nowrap">
                 <thead class="thead-light">
                     <tr>
-                    <th scope="col">User ID</th>
                         <th scope="col">Cask Name</th>
                         <th scope="col">Percent Purchased</th>
                         <th scope="col">Purchase Amount</th>
@@ -54,16 +53,13 @@ $userID = $_SESSION['UserID'];
                                 <tr>
 
                                     <td>
-                                        ' . $row['UserID'] . '
-                                    </td>
-                                    <td>
                                         ' . $row['CaskName'] . '
                                     </td>
                                     <td>
-                                        ' . $row['PercentPurchased'] . '
+                                        ' . $row['PercentPurchased'] . '%
                                     </td>
                                     <td>
-                                        ' . $row['PurchaseAmount'] . '
+                                        £' . $row['PurchaseAmount'] . '
                                     </td>
                                     <td>
                                     ' . $row['TransactionID'] . '

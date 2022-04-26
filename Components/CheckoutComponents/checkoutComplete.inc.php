@@ -45,7 +45,7 @@ createNoti($dbConnection, $userID, "Checkout", "$name has completed checkout suc
         <div class="col-md-8 border">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2 class="text-right">Thank you for purchasing with us <?php echo $name; ?></h4>
+                    <h2 class="text-right">Thank you for purchasing with us, <?php echo $name; ?>.</h4>
                 </div>
             <form action="#" method="post">
                 <div class="row mt-3">
