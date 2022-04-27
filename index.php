@@ -16,7 +16,7 @@ include 'Components/RequiredComponents/styles.inc.php';
 
     include('Components/IndexComponents/IndexAboutUs.inc.php');
 
-    include('Components/IndexComponents/Carousel/carouselContainer.inc.php');
+    include('Components/IndexComponents/IndexNewCasks.inc.php');
 
     include('Components/RequiredComponents/footer.inc.php');
 

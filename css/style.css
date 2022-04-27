@@ -379,6 +379,44 @@ footer {
   border-radius: 0px;
 }
 
+/* Selects the second element of div siblings */
+section.threecasks:nth-of-type(1).bgimage1 {
+  background-image: url("../images/high1.jpg");
+}
+
+/* Selects the second li element in a list */
+section.threecasks:nth-of-type(2).bgimage1 {
+  background-image: url("../images/high2.jpg");
+}
+
+/* Selects every third element among any group of siblings */
+section.threecasks:nth-of-type(3).bgimage1 {
+  background-image: url("../images/high3.jpg");
+}
+
+/*INDEX CASKS*/
+.threecasks .bgimage1 {
+  border-radius: 100%;
+  width: 250px;
+  background-size: cover;
+  margin: auto;
+}
+
+.threecasks .card {
+  background-color: transparent;
+  border: none;
+  margin-top: 40px;
+}
+
+.threecasks a {
+  text-decoration: none;
+}
+
+.threecasks .card-img-top {
+  height: 250px;
+  width: auto;
+}
+
 /*ABOUT*/
 .title-header {
   display: block;
@@ -482,6 +520,10 @@ section.origin .origin-content h2, p, .rounded-pill {
   height: 300px;
   width: auto;
   padding-top: 20px;
+}
+
+.newcasks {
+  height: 80px;
 }
 
 #account-content .container {
