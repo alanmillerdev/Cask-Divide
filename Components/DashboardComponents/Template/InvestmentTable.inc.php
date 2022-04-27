@@ -158,7 +158,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                     $this_page_first_result = ($page - 1) * $results_per_page;
 
                     // retrieve selected results from database and display them on page
-                    $sql = 'SELECT i.InvestmentID, i.UserID, u.FirstName, U.LastName, i.CaskID, c.CaskName, i.PercentPurchased, i.PurchaseAmount, i.TransactionID, i.PurchaseDate 
+                    $sql = 'SELECT i.InvestmentID, i.UserID, u.FirstName, u.LastName, i.CaskID, c.CaskName, i.PercentPurchased, i.PurchaseAmount, i.TransactionID, i.PurchaseDate 
                             FROM investment AS i 
                             INNER JOIN user AS u 
                                 ON u.UserID = i.UserID 
