@@ -156,13 +156,13 @@ if ($result = mysqli_query($dbConnection, $sql)) {
 
                     while ($row = mysqli_fetch_array($result)) {
                         echo ' 
-                                <tr>
+                                <tr >
                                     <td>
                                         <a class="text-heading font-semibold" href="#">
                                             ' . $row['DistilleryName'] . '
                                         </a>
                                     </td>
-                                    <td>
+                                    <td style="max-width:800px; overflow: hidden;">
                                         <a class="text-heading font-semibold" href="#">
                                             ' . $row['Description'] . '
                                         </a>

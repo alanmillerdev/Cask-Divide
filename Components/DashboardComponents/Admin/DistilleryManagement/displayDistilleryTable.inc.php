@@ -32,7 +32,7 @@ $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
                 
                 <tr>
                     <th scope="row">' . $distillery['DistilleryName'] . '</th>
-                    <td>' . $distillery['Description'] . '</td>
+                    <td >' . $distillery['Description'] . '</td>
                 </tr>
                 ';
         };

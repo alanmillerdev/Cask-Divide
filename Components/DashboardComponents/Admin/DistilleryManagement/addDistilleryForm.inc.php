@@ -15,7 +15,7 @@ if (!defined('SecurityCheck')) {
           <form action="../Components/DashboardComponents/Admin/DistilleryManagement/addDistillery.inc.php" id="addDist" method="post">
             <div class="row mt-3">
               <div class="col-md-12"><label class="labels">Distillery Name</label><input type="text" class="form-control" name="NameOfDistillery" placeholder="" value=""></div>
-              <div class="col-md-12"><label class="labels">Distillery Description</label><textarea type="text" class="form-control" form="addDist" id="Description" name="Description" value=""></textarea></div>
+              <div class="col-md-12"><label class="labels">Distillery Description</label><textarea type="text" rows="7" class="form-control" form="addDist" id="Description" name="Description" value=""></textarea></div>
               <div class="mt-5 text-center">
                 <input class="btn btn-primary profile-button" type="Submit" name="Submit" id="Submit" value="Submit">
               </div>

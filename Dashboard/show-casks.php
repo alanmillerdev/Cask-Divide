@@ -27,6 +27,6 @@ include('../Components/DashboardComponents/Template/sidebar.inc.php');
 
 include('../Components/DashboardComponents/Template/CaskTable.inc.php'); 
 
-include('../Components/DashboardComponents/Template/scripts.inc.php'); 
+include('../Components/DashboardComponents/Template/scripts.inc.php');
 
 ?>
