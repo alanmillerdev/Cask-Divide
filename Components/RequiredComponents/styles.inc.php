@@ -9,7 +9,25 @@ if(!defined('SecurityCheck')) {
 <link rel="stylesheet" href="css/style.css">
 <style>
 
-    .bgimage2{
+    .bgimage2 {
+      border-radius: 100%;
+      width: 250px;
+      background-size: cover;
+      margin: auto;
+    }
+    .bgimage3{
+      border-radius: 100%;
+      width: 250px;
+      background-size: cover;
+      margin: auto;
+    }
+    .bgimage4{
+      border-radius: 100%;
+      width: 250px;
+      background-size: cover;
+      margin: auto;
+    }
+    .bgimage6{
       border-radius: 100%;
       width: 250px;
       background-size: cover;
@@ -21,6 +39,15 @@ if(!defined('SecurityCheck')) {
   }
 
   div.bgimage2:nth-child(1) {
+    background-image: url("images/high2.jpg");
+  }
+  div.bgimage3:nth-child(1) {
+    background-image: url("images/high3.jpg");
+  }
+  div.bgimage4:nth-child(1) {
+    background-image: url("images/high1.jpg");
+  }
+  div.bgimage6:nth-child(1) {
     background-image: url("images/high2.jpg");
   }
 </style>
