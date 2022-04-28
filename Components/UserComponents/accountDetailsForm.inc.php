@@ -1,7 +1,7 @@
 <!--QUERY TO FIND USER ID-->
     <?php
     $dbConnection = Connect();
-
+    $UserID = $_SESSION['UserID'];
     $query="SELECT * FROM user WHERE UserID='$_SESSION[UserID]'";
     $result = mysqli_query($dbConnection, $query)
     or die ("couldn't run query");
@@ -18,21 +18,19 @@
         <div class="col-md-8 border">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
+                    <h4 class="text-right">User Details</h4>
                 </div>
-            <form action="#" method="post">
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value="<?php echo $row['FirstName'];?>"></div>
-                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="<?php echo $row['LastName'];?>" placeholder="surname"></div>
-                </div>
+            <form action="../Components/UserComponents/updateUser.inc.php" method="post">
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value="<?php echo $row['PhoneNumber'];?>"></div>
-                    <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="enter email" value="<?php echo $row['Email'];?>"></div>
-                    <div class="col-md-12"><label class="labels">Date of Birth</label><input placeholder="Date of Birth" class="form-control" value="<?php echo $row['DOB'];?>" type="text" name="DOB" onfocus="(this.type='date')" onblur="(this.type='text')" onsubmit="(this.type='date')"></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input type="text" name="Email" class="form-control" placeholder="enter email" value="<?php echo $row['Email'];?>"></div>
+                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" name="PhoneNumber" class="form-control" placeholder="enter phone number" value="<?php echo $row['PhoneNumber'];?>"></div>
+                    <div class="col-md-6"><label class="labels">Password</label><input type="text" name="Password" class="form-control" placeholder="enter Password" value="<?php echo $row[''];?>"></div>
+                    <div class="col-md-6"><label class="labels">Repeat Password</label><input type="text" name="Password" class="form-control" placeholder="Repeat Password" value="<?php echo $row[''];?>"></div>
                 </div>
                 <div class="mt-5 text-center">
+                    <input type="hidden" name="UserID" value='<?php echo $row['UserID'];?>'>
                     <input type="submit" name="submit" class="btn btn-primary profile-button" value="Update information">
-                    <p>To Delete your account please submit a request on our <a href="contact.php">Contact Page</a></p>
+                    <p>To Delete your account please submit a request on our <a href="contact.php" class="btn btn-primary">Contact Page</a></p>
                 </div>
             </form>
             </div>

@@ -7,7 +7,7 @@ $UserID = $_GET['UserID'];
 $sql = "SELECT UserID, FirstName, LastName, Email, PhoneNumber FROM user WHERE UserID = $UserID";
 $query = mysqli_query($dbConnection, $sql);
 while ($row = mysqli_fetch_array($query)) {
-    
+
 ?>
 
 <div id="account-content">

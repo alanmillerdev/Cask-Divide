@@ -1,6 +1,8 @@
 <?php
+include '../Database/dbConnect.inc.php';
 
-$mysqli = NEW MySQLi('localhost','root','QvbtMG]g@qAPD]S4','caskdivide');
+$dbConnection = Connect();
+$mysqli = $dbConnection;
 $resultSet = $mysqli->query("SELECT DistilleryName FROM distillery");
 ?>
 <div class="col-md-6">
