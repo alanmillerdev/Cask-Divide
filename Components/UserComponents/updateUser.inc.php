@@ -7,14 +7,48 @@ define('SecurityCheck', TRUE);
 
 include '../../Database/dbConnect.inc.php';
 
+$dbConnection = Connect();
 
-$UserID = $_POST['UserID'];
-$result = mysqli_query($dbConnection, $query);
+$userID = $_POST['UserID'];
+$email = $_POST['Email'];
+$phoneNumber = $_POST['PhoneNumber'];
+$currentPassword = $_POST['CurrentPassword'];
+$newPassword = $_POST['NewPassword'];
+$newPasswordConfirm = $_POST['RepeatNewPassword'];
 
-$UpdateQuery ="UPDATE user SET UserID='{$_POST['UserID']}', 
-Email='{$_POST['Email']}', PhoneNumber='{$_POST['PhoneNumber']}', Password='{$_POST['Password']}', Password='{$_POST['Password']}' WHERE UserID='{$UserID}'";
-$up_var=mysqli_query($dbConnection, $UpdateQuery) or die(mysqli_error($dbConnection));
-echo $UpdateQuery;
-header('location:../../account-details.php');
-
-?>
+if (empty($email)) {
+  //Password shit
+  //Check if the current password verifies with the one stored in the database
+  $stmt = $dbConnection->prepare('SELECT Password FROM user WHERE UserID = ?');
+  $stmt->bind_param('i', $userID);
+  $stmt->execute();
+  $stmt->bind_result($hash);
+  $stmt->store_result();
+  $stmt->fetch();
+  if (password_verify($currentPassword, $hash)) {
+    //Check if the new password is the same as the confirm password
+    if ($newPassword == $newPasswordConfirm) {
+      //Check if the new password is the same as the current password
+      if ($newPassword != $currentPassword) {
+        //Check if the new password is the same as the current password
+        $stmt = $dbConnection->prepare('UPDATE user SET Password = ? WHERE UserID = ?');
+        $stmt->bind_param('si', password_hash($newPassword, PASSWORD_DEFAULT), $userID);
+        $stmt->execute();
+        $stmt->close();
+        $dbConnection->close();
+        header('Location: ../../account-details.php?msg=success');
+      } else {
+        header('Location: ../../account-details.php?msg=same');
+      }
+    } else {
+      header('Location: ../../account-details.php?msg=nomatch');
+    }
+  } else {
+    header('Location: ../../account-details.php?msg=wrong');
+  }
+} else {
+  $stmt = $dbConnection->prepare('UPDATE user SET Email = ?, PhoneNumber = ? WHERE UserID = ?');
+  $stmt->bind_param('ssi', $email, $phoneNumber, $userID);
+  $stmt->execute();
+  header('Location: ../../account-details.php?msg=updated');
+}
