@@ -17,13 +17,16 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
                         </div>
                         <form action="Components/UserComponents/updateUser.inc.php" method="post">
                             <div class="row mt-3">
+                                <div class="col-md-12"><label class="labels">First Name</label><input type="text" name="FirstName" class="form-control" placeholder="enter First Name" value="<?php echo $row['FirstName']; ?>"></div>
+                                <div class="col-md-12"><label class="labels">Last Name</label><input type="text" name="LastName" class="form-control" placeholder="enter Last name" value="<?php echo $row['LastName']; ?>"></div>
                                 <div class="col-md-12"><label class="labels">Email</label><input type="text" name="Email" class="form-control" placeholder="enter email" value="<?php echo $row['Email']; ?>"></div>
                                 <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" name="PhoneNumber" class="form-control" placeholder="enter phone number" value="<?php echo $row['PhoneNumber']; ?>"></div>
                             </div>
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="UserID" value='<?php echo $row['UserID']; ?>'>
                                 <input type="submit" name="submit" class="btn btn-primary profile-button" value="Update information">
-                            </div></form>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
