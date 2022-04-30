@@ -50,7 +50,7 @@ if (empty($email)) {
   }
 } else {
   $stmt = $dbConnection->prepare('UPDATE user SET FirstName = ?, LastName = ?, Email = ?, PhoneNumber = ? WHERE UserID = ?');
-  $stmt->bind_param('ssi', $firstName, $lastName, $email, $phoneNumber, $userID);
+  $stmt->bind_param('ssssi', $firstName, $lastName, $email, $phoneNumber, $userID);
   $stmt->execute();
   header('Location: ../../account-details.php?msg=updated');
 }
