@@ -24,7 +24,7 @@
                     <div class="col-md-6"><label class="labels">Wood Type</label><input type="text" class="form-control" name="WoodType" placeholder="" value="WoodType"></div>
                     <div class="col-md-6"><label class="labels">Image</label><input type="file" class="form-control" name="CaskImage" placeholder="" value="CaskImage"/></div>
                     
-                    <?php include('distilleryDropdown.inc.php'); ?>
+                    <?php include('distilleryDropdownAddForm.inc.php'); ?>
                     
                 </div>
                 <div class="mt-5 text-center">

@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_array($query)) {
                                 <div class="col-md-6"><label class="labels">Cask Type</label><input type="text" class="form-control" name="CaskType" placeholder="" value="<?php echo $row['CaskType']; ?>"></div>
                                 <div class="col-md-6"><label class="labels">Wood Type</label><input type="text" class="form-control" name="WoodType" placeholder="" value="<?php echo $row['WoodType']; ?>"></div>
                                 <div class="col-md-6"><label class="labels">Image</label><input type="file" class="form-control" name="CaskImage" placeholder="" value="<?php echo $row['CaskImage']; ?>"></div>
-                                <?php include('distilleryDropdown.inc.php'); ?>
+                                <?php include('distilleryDropdownEditForm.inc.php'); ?>
                             </div>
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="CaskID" value='<?php echo $row['CaskID']; ?>'>
