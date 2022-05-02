@@ -15,13 +15,11 @@ $userID = $_GET["UserID"];
 try {
   $DeleteQuery = "DELETE FROM user WHERE UserID=$userID";
   $result = mysqli_query($dbConnection, $DeleteQuery);
-  if($result === TRUE){
-     header('location:../../../../Dashboard/show-users.php');
-  } 
-  elseif($result === FALSE) {
-    header('location:../../../../Dashboard/edit-user.php?UserID='.$userID.'&error');
+  if ($result === TRUE) {
+    // header('location:../../../../Dashboard/show-users.php');
+  } elseif ($result === FALSE) {
+    //header('location:../../../../Dashboard/edit-user.php?UserID='.$userID.'&error');
   }
-}
-catch(Exception $e) {
-  header('location:../../../../Dashboard/edit-user.php');
+} catch (Exception $e) {
+  //header('location:../../../../Dashboard/edit-user.php');
 }
