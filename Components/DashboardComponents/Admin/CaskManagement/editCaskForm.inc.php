@@ -25,10 +25,10 @@ while ($row = mysqli_fetch_array($query)) {
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Percentage Available</label><input type="number" class="form-control" name="PercentageAvailable" placeholder="" value="<?php echo $row['PercentageAvailable']; ?>"></div>
-                                <div class="col-md-12"><label class="labels">WholeCaskPrice</label><input type="number" class="form-control" name="WholeCaskPrice" placeholder="" value="<?php echo $row['WholeCaskPrice']; ?>"></div>
-                                <div class="col-md-12"><label class="labels">OLA</label><input type="number" class="form-control" name="OLA" placeholder="" value="<?php echo $row['OLA']; ?>"></div>
-                                <div class="col-md-12"><label class="labels">RLA</label><input type="number" class="form-control" name="RLA" placeholder="" value="<?php echo $row['RLA']; ?>"></div>
-                                <div class="col-md-12"><label class="labels">Alcohol Percentage</label><input type="number" class="form-control" name="PercentageAlcohol" placeholder="" value="<?php echo $row['PercentageAlcohol']; ?>"></div>
+                                <div class="col-md-12"><label class="labels">WholeCaskPrice</label><input type="number" step="1" class="form-control" name="WholeCaskPrice" placeholder="" value="<?php echo $row['WholeCaskPrice']; ?>"></div>
+                                <div class="col-md-12"><label class="labels">OLA</label><input type="number" step="0.01" class="form-control" name="OLA" placeholder="" value="<?php echo $row['OLA']; ?>"></div>
+                                <div class="col-md-12"><label class="labels">RLA</label><input type="number" step="0.01" class="form-control" name="RLA" placeholder="" value="<?php echo $row['RLA']; ?>"></div>
+                                <div class="col-md-12"><label class="labels">Alcohol Percentage</label><input step="0.01" type="number" class="form-control" name="PercentageAlcohol" placeholder="" value="<?php echo $row['PercentageAlcohol']; ?>"></div>
                                 <div class="col-md-6"><label class="labels">Cask Type</label><input type="text" class="form-control" name="CaskType" placeholder="" value="<?php echo $row['CaskType']; ?>"></div>
                                 <div class="col-md-6"><label class="labels">Wood Type</label><input type="text" class="form-control" name="WoodType" placeholder="" value="<?php echo $row['WoodType']; ?>"></div>
                                 <div class="col-md-6"><label class="labels">Image</label><input type="file" class="form-control" name="CaskImage" placeholder="" value="<?php echo $row['CaskImage']; ?>"></div>
