@@ -13,7 +13,7 @@ include 'bootstrapJS.inc.php'
         </div>
         <div>
             <ul class="d-flex pl-0 pt-3 ">
-                <li class="border-right px-3 ml-0"><a href="Contact.php" class="nav-link footer-links px-2 text-light">
+                <li class="border-right px-3 ml-0"><a href="contact.php" class="nav-link footer-links px-2 text-light">
                         <h5>Contact</h5>
                     </a></li>
                 <li class="border-right px-3"><a href="about.php" class="nav-link footer-links px-2 text-light">
