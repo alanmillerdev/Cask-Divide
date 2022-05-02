@@ -10,7 +10,7 @@ include '../../../../Database/dbConnect.inc.php';
 $dbConnection = Connect();
 
 
-$userID = $_POST["UserID"];
+$userID = $_GET["UserID"];
 //try catch 
 try {
   $DeleteQuery = "DELETE FROM user WHERE UserID=$userID";
@@ -19,7 +19,7 @@ try {
      header('location:../../../../Dashboard/show-users.php');
   } 
   elseif($result === FALSE) {
-    header('location:../../../../Dashboard/edit-user.php');
+    header('location:../../../../Dashboard/edit-user.php?UserID='.$userID.'&error');
   }
 }
 catch(Exception $e) {
