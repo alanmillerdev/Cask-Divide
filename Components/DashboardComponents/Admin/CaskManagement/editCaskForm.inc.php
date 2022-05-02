@@ -25,7 +25,7 @@ while ($row = mysqli_fetch_array($query)) {
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Percentage Available</label><input type="number" class="form-control" name="PercentageAvailable" placeholder="" value="<?php echo $row['PercentageAvailable']; ?>"></div>
-                                <div class="col-md-12"><label class="labels">WholeCaskPrice</label><input type="number" step="1" class="form-control" name="WholeCaskPrice" placeholder="" value="<?php echo $row['WholeCaskPrice']; ?>"></div>
+                                <div class="col-md-12"><label class="labels">WholeCaskPrice</label><input type="number" step="0.01" class="form-control" name="WholeCaskPrice" placeholder="" value="<?php echo $row['WholeCaskPrice']; ?>"></div>
                                 <div class="col-md-12"><label class="labels">OLA</label><input type="number" step="0.01" class="form-control" name="OLA" placeholder="" value="<?php echo $row['OLA']; ?>"></div>
                                 <div class="col-md-12"><label class="labels">RLA</label><input type="number" step="0.01" class="form-control" name="RLA" placeholder="" value="<?php echo $row['RLA']; ?>"></div>
                                 <div class="col-md-12"><label class="labels">Alcohol Percentage</label><input step="0.01" type="number" class="form-control" name="PercentageAlcohol" placeholder="" value="<?php echo $row['PercentageAlcohol']; ?>"></div>
