@@ -1,6 +1,6 @@
 <?php
 if (getenv('REQUEST_METHOD') != "POST") {
-  header("Location: ../../../../index.php");
+  //header("Location: ../../../../index.php");
 }
 
 define('SecurityCheck', TRUE);
@@ -8,7 +8,6 @@ define('SecurityCheck', TRUE);
 include '../../../../Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
-
 
 $userID = $_GET["UserID"];
 //try catch 
