@@ -14,10 +14,10 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">Percentage Available</label><input type="number" step="1" class="form-control" name="PercentageAvailable" placeholder="" value="PercentageAvailable"></div>
-                            <div class="col-md-12"><label class="labels">WholeCaskPrice</label><input type="number" step="0.01" class="form-control" name="WholeCaskPrice" placeholder="" value="WholeCaskPrice"></div>
-                            <div class="col-md-12"><label class="labels">OLA</label><input type="number" step="0.01" class="form-control" name="OLA" placeholder="" value="OLA"></div>
-                            <div class="col-md-12"><label class="labels">RLA</label><input type="number" step="0.01" class="form-control" name="RLA" placeholder="" value="RLA"></div>
-                            <div class="col-md-12"><label class="labels">Alcohol Percentage</label><input step="0.01" type="number" class="form-control" name="PercentageAlcohol" placeholder="" value="PercentageAlcohol"></div>
+                            <div class="col-md-12"><label class="labels">WholeCaskPrice</label><input type="number" step="0.01" class="form-control" name="WholeCaskPrice" placeholder="0.00" value="WholeCaskPrice"></div>
+                            <div class="col-md-12"><label class="labels">OLA</label><input type="number" step="0.01" class="form-control" name="OLA" placeholder="0.00" value="OLA"></div>
+                            <div class="col-md-12"><label class="labels">RLA</label><input type="number" step="0.01" class="form-control" name="RLA" placeholder="0.00" value="RLA"></div>
+                            <div class="col-md-12"><label class="labels">Alcohol Percentage</label><input step="0.01" type="number" class="form-control" name="PercentageAlcohol" placeholder="0.00" value="PercentageAlcohol"></div>
                             <div class="col-md-6"><label class="labels">Cask Type</label><input type="text" class="form-control" name="CaskType" placeholder="" value="CaskType"></div>
                             <div class="col-md-6"><label class="labels">Wood Type</label><input type="text" class="form-control" name="WoodType" placeholder="" value="WoodType"></div>
                             <div class="col-md-6"><label class="labels">Image</label><input type="file" class="form-control" name="CaskImage" placeholder="" value="CaskImage" /></div>
