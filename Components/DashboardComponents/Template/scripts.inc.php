@@ -43,6 +43,7 @@ linkColor.forEach(l=> l.addEventListener('click', colorLink))
 // Your code to run since DOM is loaded and ready
 });
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha256-T+aPohYXbm0fRYDpJLr+zJ9RmYTswGsahAoIsNiMld4=" crossorigin="anonymous"></script>
 
 </body>
 
