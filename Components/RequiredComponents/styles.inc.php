@@ -33,6 +33,19 @@ if(!defined('SecurityCheck')) {
       background-size: cover;
       margin: auto;
     }
+    .bgimage7{
+      border-radius: 100%;
+      width: 250px;
+      background-size: cover;
+      margin: auto;
+    }
+    .bgimage8{
+      border-radius: 100%;
+      width: 250px;
+      background-size: cover;
+      margin: auto;
+    }
+
 
     div.bgimage1:nth-child(1) {
     background-image: url("images/high1.jpg");
@@ -49,5 +62,11 @@ if(!defined('SecurityCheck')) {
   }
   div.bgimage6:nth-child(1) {
     background-image: url("images/high2.jpg");
+  }
+  div.bgimage7:nth-child(1) {
+    background-image: url("images/high2.jpg");
+  }
+  div.bgimage8:nth-child(1) {
+    background-image: url("images/high1.jpg");
   }
 </style>
