@@ -10,8 +10,18 @@ include '../../../../Database/dbConnect.inc.php';
 $dbConnection = Connect();
 
 
-$userID = $_GET["UserID"];
-
-$DeleteQuery = "DELETE FROM user WHERE userID='$userID'";
-$result = mysqli_query($dbConnection, $DeleteQuery) or die(mysqli_error($dbConnection));
-header('location:../../../../Dashboard/show-users.php');
+$userID = $_POST["UserID"];
+//try catch 
+try {
+  $DeleteQuery = "DELETE FROM user WHERE UserID=$userID";
+  $result = mysqli_query($dbConnection, $DeleteQuery);
+  if($result === TRUE){
+     header('location:../../../../Dashboard/show-users.php');
+  } 
+  elseif($result === FALSE) {
+    header('location:../../../../Dashboard/edit-user.php');
+  }
+}
+catch(Exception $e) {
+  header('location:../../../../Dashboard/edit-user.php');
+}
