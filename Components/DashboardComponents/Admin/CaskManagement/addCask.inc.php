@@ -53,4 +53,4 @@ include("../../../NotificationComponents/notification.inc.php");
 createNoti($dbConnection, $userID, "Add", "$name has added a new cask: $CaskName");
 $stmt->close();
 $dbConnection->close();
-header("Location: ../../../../dashboard/show-casks.php");
+header("Location: ../../../../Dashboard/show-casks.php");
