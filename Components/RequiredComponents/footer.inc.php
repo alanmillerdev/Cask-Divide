@@ -28,12 +28,19 @@ include 'bootstrapJS.inc.php'
             </ul>
             <img class="px-3 pb-2" src="images/payment.png" alt="">
         </div>
-        <div class="d-none d-md-block">
-        <ul class="d-flex p-0 ">
-            <li class="px-3"><a href="#"><i class="fab fa-instagram fa-3x"></i></a></li>
-            <li class="px-3"><a href="#"><i class="fab fa-facebook-square fa-3x"></i></a></li>
-            <li class="px-3"><a href="#"><i class="fab fa-google fa-3x"></i></a></li>
-        </ul>
+        <div class="d-none d-md-block" id="social-icons">
+            <ul>
+                <li>
+                    <a href="#">
+                    <i class="fab fa-facebook-f icon"></i>    </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fab fa-instagram icon"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fab fa-google icon"></i></a>
+                </li>
+            </ul>
         </div>
     </div>
 

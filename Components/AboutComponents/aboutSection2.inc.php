@@ -8,7 +8,7 @@
       <p class="lead">Our parent site Bottle Exchange is offering a way to buy, sell and swap valuable bottles. We created Cask Divide to further open up the market and give people the freedom to purchase whiskey cask shares. Our years of experience in the industry have allowed us to develop deep connections so that your investment is in the right hands. </p>
     </div>
     <div class="col-10 col-sm-8 col-lg-6">
-      <img src="images/glencoe.png" class="d-block mx-lg-auto img-fluid"  width="700" height="500" loading="lazy" alt="Dog in bath">
+      <img src="images/BElogo.svg" class="d-block mx-lg-auto img-fluid"  width="auto" height="400" loading="lazy" alt="Dog in bath">
     </div>
   </div>
 </div>
