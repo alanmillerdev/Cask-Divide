@@ -1,7 +1,9 @@
 <?php
 
 $caskID = $_GET['sku'];
-$userID = $_SESSION['UserID'];
+if(isset($_SESSION['UserID'])) {
+    $userID = $_SESSION['UserID'];
+}
 
 require 'Database/dbConnect.inc.php';
 
