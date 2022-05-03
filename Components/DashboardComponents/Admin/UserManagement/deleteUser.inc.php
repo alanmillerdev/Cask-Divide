@@ -8,10 +8,14 @@ $dbConnection = Connect();
 $userID = $_GET["UserID"];
 //try catch 
 try {
-  $DeleteQuery = "DELETE FROM user WHERE UserID=$userID";
-  $result = mysqli_query($dbConnection, $DeleteQuery);
+  $SelectQuery = "SELECT FROM user WHERE UserID=$userID";
+  $result = mysqli_query($dbConnection, $SelectQuery);
   if ($result === TRUE) {
-    header('location:../../../../Dashboard/show-users.php');
+    $Delete = "DELETE `notification` from `user` INNER JOIN `notification` WHERE `notification`.UserID=$userID";
+    $deleteResult = mysqli_query($dbConnection, $SelectQuery);
+    if($deleteResult) {
+       header('location:../../../../Dashboard/show-users.php?success');
+    }
   } elseif ($result === FALSE) {
     header('location:../../../../Dashboard/edit-user.php?UserID='.$userID.'&error');
   }
