@@ -45,7 +45,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                  <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
+                                  <i><img class="caskimg" src="css/icons/dist-icon.svg"></i>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                    <i class="bi bi-arrow-up-right"></i>
+                                <i><img class="iconimg" src="css/icons/mountains.png"></i>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                    <i class="bi bi-arrow-down-left"></i>
+                                <i><img class="iconimg" src="css/icons/forest.png"></i>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                    <i class="bi bi-cash-stack"></i>
+                                <i><img class="iconimg" src="css/icons/mountain.png"></i>
                                 </div>
                             </div>
                         </div>
