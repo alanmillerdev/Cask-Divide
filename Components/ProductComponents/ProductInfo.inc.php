@@ -17,11 +17,6 @@ while ($row = mysqli_fetch_array($query)) {
     $DistilleryName = $row['DistilleryName'];
     $CaskImage = $row['CaskImage'];
     $CaskPrice = $row['WholeCaskPrice'];
-    $RLA = $row['RLA'];
-    $OLA = $row['OLA'];
-    $PercentageAlcohol = $row['PercentageAlcohol'];
-    $CaskType = $row['CaskType'];
-    $WoodType = $row['WoodType'];
 }
 
 $sql = "SELECT * FROM distillery WHERE DistilleryName = '$DistilleryName'";
@@ -69,15 +64,10 @@ while ($row = mysqli_fetch_array($query)) {
                     <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
                         <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-toggle="tab"
                                 href="#top-home" role="tab" aria-selected="true">Description</a>
-                            <div class="material-border"></div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-toggle="tab"
-                                href="#top-profile" role="tab" aria-selected="false">Cask Details</a>
-                            <div class="material-border"></div>
-                        </li>
+
                         <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-toggle="tab"
                                 href="#top-contact" role="tab" aria-selected="false">Distillery Info</a>
-                            <div class="material-border"></div>
                         </li>
                     </ul>
                     <div class="tab-content nav-material" id="top-tabContent">
@@ -85,44 +75,6 @@ while ($row = mysqli_fetch_array($query)) {
                             aria-labelledby="top-home-tab">
                             <p><?php echo $CaskDescription ?></p>
                         </div>
-                        <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
-                            <div class="single-product-tables">
-                                        <div class="table-responsive">
-            <table class="table table-hover table-nowrap">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">OLA</th>
-                        <th scope="col">RLA</th>
-                        <th scope="col">Percentage Alcohol</th>
-                        <th scope="col">Cask Type</th>
-                        <th scope="col">Wood Type</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                                <tr>
-                                    <td>
-                                        <?php echo $OLA ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $RLA ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $PercentageAlcohol ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $CaskType ?>                          
-                                    </td>
-                                    <td>
-                                        <?php echo $WoodType ?>
-                                    </td>
-                                </tr>
-                </tbody>
-
-            </table>
-        </div>
-    </div>
-    </div>
                         <div class="tab-distillery fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
                             <div class="mt-4 text-center">
                                 <h5>Distillery Name</h5>

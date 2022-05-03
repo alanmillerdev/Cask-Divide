@@ -526,6 +526,29 @@ ul li:nth-child(3) a:before {
 }
 
 /* About the Cask */
+.form-control-range {
+  border-radius: 5%; 
+  width: 100%;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  background: color(primary);
+  color: #000;
+  border-radius: 20%; 
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 30px;
+  -webkit-appearance: none;
+  height: 30px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #434343;
+}
+
 #product-details{
 
   p{
