@@ -7,7 +7,7 @@ require 'Database/dbConnect.inc.php';
 
 $dbConnection = Connect();
 
-$sql = "SELECT CaskID, CaskName, CaskDescription, WholeCaskPrice, PercentageAvailable, DistilleryName, CaskImage FROM cask WHERE CaskID = $caskID";
+$sql = "SELECT * FROM cask WHERE CaskID = $caskID";
 $query = mysqli_query($dbConnection, $sql);
 while ($row = mysqli_fetch_array($query)) {
     $CaskID = $row['CaskID'];
@@ -17,6 +17,11 @@ while ($row = mysqli_fetch_array($query)) {
     $DistilleryName = $row['DistilleryName'];
     $CaskImage = $row['CaskImage'];
     $CaskPrice = $row['WholeCaskPrice'];
+    $RLA = $row['RLA'];
+    $OLA = $row['OLA'];
+    $PercentageAlcohol = $row['PercentageAlcohol'];
+    $CaskType = $row['CaskType'];
+    $WoodType = $row['WoodType'];
 }
 
 $sql = "SELECT * FROM distillery WHERE DistilleryName = '$DistilleryName'";
@@ -29,13 +34,11 @@ while ($row = mysqli_fetch_array($query)) {
 ?>
 
 <section class="py-5">
-    <div class="container px-5">
+    <div class="container py-5">
         <div class="row gx-5 align-items-center justify-content-center">
             <div class="col-lg-8 col-xl-7 col-xxl-6">
                 <div class="my-5 text-center text-xl-start">
                     <h1 class="display-5 fw-bolder text-white mb-2"><?php echo $CaskName ?></h1>
-                    <p class="lead fw-normal text-white-50 mb-4"><?php echo $CaskDescription ?></p>
-
                     <form method="POST" action="Components/CheckoutComponents/checkoutStart.inc.php">
                         <div class="form-group">
                             <label for="formControlRange" class="text-white">How much do you want to Invest?</label>
@@ -50,7 +53,7 @@ while ($row = mysqli_fetch_array($query)) {
                             <button class="btn btn-primary btn-lg px-4 purchase-button" type="submit">Purchase <i class="fas fa-shopping-bag"></i></button>
                     </form>
 
-                    <a class="btn btn-outline-light btn-lg px-4" href="#">Learn about the Casks <i class="fas fa-arrow-alt-circle-down"></i></a>
+                    <a class="btn btn-outline-light btn-lg px-4" href="#top-home">Learn about the Casks <i class="fas fa-arrow-alt-circle-down"></i></a>
                 </div>
             </div>
         </div>
@@ -59,16 +62,83 @@ while ($row = mysqli_fetch_array($query)) {
     </div>
 </section>
 
-<section class="origin border-top">
-        <div class="origin-content">
-            <div class="px-5 py-4">
-                <h2 class="display-1 mb-4">
-                    This Cask was Distilled at <?php echo $DistilleryName; ?>
-                </h2>
-                <p class=""><?php echo $DistilleryDescription; ?></p>
+<section class="tab-product m-0" id="product-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-toggle="tab"
+                                href="#top-home" role="tab" aria-selected="true">Description</a>
+                            <div class="material-border"></div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-toggle="tab"
+                                href="#top-profile" role="tab" aria-selected="false">Cask Details</a>
+                            <div class="material-border"></div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-toggle="tab"
+                                href="#top-contact" role="tab" aria-selected="false">Distillery Info</a>
+                            <div class="material-border"></div>
+                        </li>
+                    </ul>
+                    <div class="tab-content nav-material" id="top-tabContent">
+                        <div class="tab-pane fade show active" id="top-home" role="tabpanel"
+                            aria-labelledby="top-home-tab">
+                            <p><?php echo $CaskDescription ?></p>
+                        </div>
+                        <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
+                            <div class="single-product-tables">
+                                        <div class="table-responsive">
+            <table class="table table-hover table-nowrap">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">OLA</th>
+                        <th scope="col">RLA</th>
+                        <th scope="col">Percentage Alcohol</th>
+                        <th scope="col">Cask Type</th>
+                        <th scope="col">Wood Type</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                                <tr>
+                                    <td>
+                                        <?php echo $OLA ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $RLA ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $PercentageAlcohol ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $CaskType ?>                          
+                                    </td>
+                                    <td>
+                                        <?php echo $WoodType ?>
+                                    </td>
+                                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    </div>
+                        <div class="tab-distillery fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
+                            <div class="mt-4 text-center">
+                                <h5>Distillery Name</h5>
+                                <div id="decor-title"><?php echo $DistilleryName; ?></div>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <h5>Description</h5>
+                                <p><?php echo $DistilleryDescription; ?></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-</section>
+    </section>
 
 <script>
 var slider = document.getElementById("formControlRange");

@@ -287,7 +287,7 @@ footer{
 
 .footer_logo {
   height: auto;
-  width: 200px;
+  width: 300px;
 }
 
 /*NAVBAR and MAIN CONTENT*/
@@ -426,7 +426,8 @@ footer{
 .title-header {
   display: block;
   margin: auto;
-  background-color: color(primary);
+  background-image: url(../images/glencoe.png);
+  background-position: 60%;
   padding: 70px;
   text-align: center;
   color: color(text);
@@ -458,7 +459,6 @@ footer{
   #social-icons{
     ul {
   display: flex;
-
 }
 
 ul li {
@@ -526,23 +526,37 @@ ul li:nth-child(3) a:before {
 }
 
 /* About the Cask */
-section.origin {
-  padding: 20rem 0;
-  background-image: url("../images/examplelocation.png");
-  background-position: center;
-  background-size: cover;
-  position: relative;
-}
+#product-details{
 
-section.origin .origin-content {
-  opacity: 0.9;
-  background-color: color(primary);
-  position: absolute;
-}
+  p{
+    color: color(text);
+  }
 
-section.origin .origin-content h2, p, .rounded-pill {
-  opacity: 1;
-  color: #fff;
+  .nav-link{
+    color: color(text);
+    border: none;
+  }
+
+  .nav-link.active{
+    color: color(background);
+  }
+
+  .single-product-tables{
+    color: color(text);
+  }
+
+  .tab-distillery{
+    color: color(text);
+  }
+
+  td{
+    color: color(text);
+  }
+
+  thead{
+    background-color: color(primary);
+  }
+
 }
 
 /*CHECKOUT PAGE*/
