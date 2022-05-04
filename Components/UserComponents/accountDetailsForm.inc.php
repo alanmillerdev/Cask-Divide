@@ -51,7 +51,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="UserID" value='<?php echo $row['UserID']; ?>'>
                                 <input type="submit" name="submit" class="btn btn-primary profile-button" value="Update Password">
-                                <p class="lead mt-2">To delete your account, please submit a request on our <a href="contact.php" class="btn btn-outline-light">Contact Page</a></p>
+                                <p class="lead mt-2 text-white">To delete your account, please submit a request on our <a href="contact.php" class="btn btn-outline-light">Contact Page</a></p>
                             </div>
                         </form>
                     </div>
