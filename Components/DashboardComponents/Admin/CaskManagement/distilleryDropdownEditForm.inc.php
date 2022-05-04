@@ -2,7 +2,7 @@
 
 $dbConnection = Connect();
 $mysqli = $dbConnection;
-$resultSet = $mysqli->query("SELECT DistilleryName FROM distillery WHERE DistilleryName = '$DistilleryName'");
+$resultSet = $mysqli->query("SELECT DistilleryName FROM distillery ");
 ?>
 <div class="col-md-6">
     <label for="DistilleryName" class="labels">Choose A Distillery</label>
