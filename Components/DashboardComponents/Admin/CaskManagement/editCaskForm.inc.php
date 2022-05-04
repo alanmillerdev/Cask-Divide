@@ -7,7 +7,7 @@ $CaskID = $_GET['CaskID'];
 $sql = "SELECT CaskID, CaskName, CaskDescription, PercentageAvailable, WholeCaskPrice, OLA, RLA, PercentageAlcohol, CaskType, WoodType, DistilleryName, CaskImage FROM cask WHERE CaskID = $CaskID";
 $query = mysqli_query($dbConnection, $sql);
 while ($row = mysqli_fetch_array($query)) {
-    
+    $DistilleryName = $row['DistilleryName'];
 ?>
 
     <div id="account-content">
