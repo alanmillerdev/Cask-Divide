@@ -10,6 +10,8 @@ include '../../Database/dbConnect.inc.php';
 $dbConnection = Connect();
 
 $userID = $_POST['UserID'];
+$firstName = $_POST['FirstName'];
+$lastName = $_POST['LastName'];
 $email = $_POST['Email'];
 $phoneNumber = $_POST['PhoneNumber'];
 $currentPassword = $_POST['CurrentPassword'];
@@ -47,8 +49,8 @@ if (empty($email)) {
     header('Location: ../../account-details.php?msg=wrong');
   }
 } else {
-  $stmt = $dbConnection->prepare('UPDATE user SET Email = ?, PhoneNumber = ? WHERE UserID = ?');
-  $stmt->bind_param('ssi', $email, $phoneNumber, $userID);
+  $stmt = $dbConnection->prepare('UPDATE user SET FirstName = ?, LastName = ?, Email = ?, PhoneNumber = ? WHERE UserID = ?');
+  $stmt->bind_param('ssssi', $firstName, $lastName, $email, $phoneNumber, $userID);
   $stmt->execute();
   header('Location: ../../account-details.php?msg=updated');
 }

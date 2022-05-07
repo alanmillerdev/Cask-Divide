@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+session_start();
 if (!defined('SecurityCheck')) {
   exit(header("Location: ../../index.php"));
 }

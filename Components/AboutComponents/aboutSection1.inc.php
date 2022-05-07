@@ -6,9 +6,8 @@
       <img src="images/highlands.jpg" class="d-block mx-lg-auto img-fluid"  width="700" height="500" loading="lazy" alt="Cask Exchange image">
     </div>
     <div class="col-lg-6">
-      <h1 class="display-5 fw-bold lh-1 mb-3">Our Story</h1>
-      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi eos accusantium distinctio magni. Perspiciatis soluta saepe, perferendis non eligendi repudiandae qui delectus at aliquam quibusdam aut nemo labore rerum doloremque?
-      Provident, natus non. Similique, perferendis! Voluptatibus, deserunt necessitatibus dolorem et dolore debitis voluptatem nisi voluptate labore ratione eveniet aliquam doloribus, delectus eos quo fugiat esse ad vitae maxime non quos?</p>
+      <h1 class="display-5 fw-bold lh-1 mb-3">Our Mission</h1>
+      <p class="lead">At Cask Divide, we want to open up whiskey to the people and promote inclusivity. We aim to allow everyone the opportunity to purchase a whiskey cask without the yearly insurance and storage costs. This enables everyone to participate in the whiskey cask market.</p>
     </div>
   </div>
 </div>

@@ -10,16 +10,15 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
     <div id="account-content">
         <div class="container rounded mt-5 mb-0">
             <div class="row">
-                <div class="col-md-4 border">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://i.imgflip.com/3f2lx0.jpg"><span class="font-weight-bold text-white"><?php echo $row['FirstName']; ?> <?php echo $row['LastName']; ?></span><span class="text-white-50"><?php echo $row['Email']; ?></span><span> </span></div>
-                </div>
-                <div class="col-md-8 border">
-                    <div class="p-3 py-5">
+                <div class="col-md-12 border">
+                    <div class="p-2 py-3">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">User Details</h4>
                         </div>
                         <form action="Components/UserComponents/updateUser.inc.php" method="post">
                             <div class="row mt-3">
+                                <div class="col-md-12"><label class="labels">First Name</label><input type="text" name="FirstName" class="form-control" placeholder="enter First Name" value="<?php echo $row['FirstName']; ?>"></div>
+                                <div class="col-md-12"><label class="labels">Last Name</label><input type="text" name="LastName" class="form-control" placeholder="enter Last name" value="<?php echo $row['LastName']; ?>"></div>
                                 <div class="col-md-12"><label class="labels">Email</label><input type="text" name="Email" class="form-control" placeholder="enter email" value="<?php echo $row['Email']; ?>"></div>
                                 <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" name="PhoneNumber" class="form-control" placeholder="enter phone number" value="<?php echo $row['PhoneNumber']; ?>"></div>
                             </div>
@@ -28,10 +27,22 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
                                 <input type="submit" name="submit" class="btn btn-primary profile-button" value="Update information">
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="account-content">
+        <div class="container rounded mt-3 mb-0">
+            <div class="row">
+                <div class="col-md-12 border">
+                    <div class="p-2 py-3">
+
+                        
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Change Password</h4>
                         </div>
-                        <form action="Components/UserComponents/updateUser.inc.php" method="post">
+                        <form action="Components/UserComponents/updateUser.inc.php" method="post" class"">
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Current Password</label><input type="text" name="CurrentPassword" class="form-control" placeholder="Current Password" value=""></div>
                                 <div class="col-md-6"><label class="labels">New Password</label><input type="text" name="NewPassword" class="form-control" placeholder="New Password" value=""></div>
@@ -40,7 +51,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="UserID" value='<?php echo $row['UserID']; ?>'>
                                 <input type="submit" name="submit" class="btn btn-primary profile-button" value="Update Password">
-                                <p class="lead">To delete your account, please submit a request on our <a href="contact.php" class="btn btn-primary">Contact Page</a></p>
+                                <p class="lead mt-2 text-white">To delete your account, please submit a request on our <a href="contact.php" class="btn btn-outline-light">Contact Page</a></p>
                             </div>
                         </form>
                     </div>

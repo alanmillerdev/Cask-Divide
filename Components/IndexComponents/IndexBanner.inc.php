@@ -18,7 +18,7 @@ if(!defined('SecurityCheck')) {
       </div>
 
       <div class="col-lg-4">
-        <img class="d-none d-lg-block" src="images/cask1.png" alt="Image of a Scotch Whiskey Cask" height="500" width="450">
+        <img class="d-none d-lg-block" src="images/cask1.png" alt="Image of a Scotch Whiskey Cask" height="auto" width="auto">
       </div>
     </div>
   </div>

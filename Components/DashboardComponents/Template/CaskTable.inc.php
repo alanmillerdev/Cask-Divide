@@ -51,7 +51,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                  <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
+                                    <i><img class="caskimg" src="css/icons/cask-icon.svg"></i>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                 <span class="h6 font-semibold text-muted text-sm d-block mb-2">Highest Percentage Available</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                    echo $maxPercentageAvailable. "%";
+                                    echo $maxPercentageAvailable . "%";
                                     ?>
                                 </span>
 
@@ -90,7 +90,7 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                 <span class="h6 font-semibold text-muted text-sm d-block mb-2">Lowest Percentage Available</span>
                                 <span class="h3 font-bold mb-0">
                                     <?php
-                                   echo $minPercentageAvailable ."%";
+                                    echo $minPercentageAvailable . "%";
                                     ?>
                                 </span>
 
@@ -112,8 +112,8 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                             <div class="col">
                                 <span class="h6 font-semibold text-muted text-sm d-block mb-2">Most Expensive Cask</span>
                                 <span class="h3 font-bold mb-0">
-                                <?php
-                                   echo  "£".$caskExpensive;
+                                    <?php
+                                    echo  "£" . $caskExpensive;
                                     ?>
                                 </span>
 
@@ -142,6 +142,8 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                         <th scope="col">Cask Name</th>
                         <th scope="col">Percentage Available</th>
                         <th scope="col">Whole Cask Price</th>
+                        <th scope="col">OLA</th>
+                        <th scope="col">RLA</th>
                         <th scope="col">Percentage Alcohol</th>
                         <th scope="col">Cask Type</th>
                         <th scope="col">Wood Type</th>
@@ -183,6 +185,12 @@ if ($result = mysqli_query($dbConnection, $sql)) {
                                     </td>
                                     <td>
                                         ' . $row['WholeCaskPrice'] . '
+                                    </td>
+                                    <td>
+                                        ' . $row['OLA'] . '
+                                    </td>
+                                    <td>
+                                        ' . $row['RLA'] . '
                                     </td>
                                     <td>
                                         ' . $row['PercentageAlcohol'] . '

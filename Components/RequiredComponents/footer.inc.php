@@ -12,8 +12,8 @@ include 'bootstrapJS.inc.php'
             <a href="index.php"><img class="footer_logo" src="./images/logo-1.png" alt="Scotch Whiskey Casks Logo"></a>
         </div>
         <div>
-            <ul class="d-flex pl-0 pt-3 ">
-                <li class="border-right px-3 ml-0"><a href="Contact.php" class="nav-link footer-links px-2 text-light">
+            <ul class="d-flex pl-0 pt-3">
+                <li class="border-right px-3 ml-0"><a href="contact.php" class="nav-link footer-links px-2 text-light">
                         <h5>Contact</h5>
                     </a></li>
                 <li class="border-right px-3"><a href="about.php" class="nav-link footer-links px-2 text-light">
@@ -28,18 +28,25 @@ include 'bootstrapJS.inc.php'
             </ul>
             <img class="px-3 pb-2" src="images/payment.png" alt="">
         </div>
-        <div class="d-none d-md-block">
-        <ul class="d-flex p-0 ">
-            <li class="px-3"><a href="#"><i class="fab fa-instagram fa-3x"></i></a></li>
-            <li class="px-3"><a href="#"><i class="fab fa-facebook-square fa-3x"></i></a></li>
-            <li class="px-3"><a href="#"><i class="fab fa-google fa-3x"></i></a></li>
-        </ul>
+        <div class="d-none d-md-block" id="social-icons">
+            <ul style="padding: unset;">
+                <li>
+                    <a href="#">
+                    <i class="fab fa-facebook-f icon"></i>    </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fab fa-instagram icon"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fab fa-google icon"></i></a>
+                </li>
+            </ul>
         </div>
     </div>
 
 
     <div class="d-flex justify-content-around align-items-center border-light border-top">
-        <ul class="d-flex m-0">
+        <ul class="d-flex m-0" style="padding: unset;">
             <li class="nav-item border-right p-3">
                 <div href="#" class="nav-link footer-links">
                     <h6 class="text-muted">&copy; 2022- CASK DIVIDE</h6>
