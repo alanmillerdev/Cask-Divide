@@ -7,7 +7,7 @@ if(!defined('SecurityCheck')) {
   <div class="home-inner container">
     <div class="row">
       <div class="col-lg-8">
-        <h1 class="display-4 text-white " id="main-title">INVEST IN SCOTCH WHISKEY</h1>
+        <h1 class="display-4 text-white " id="main-title">INVEST IN SCOTCH WHISKY</h1>
         <div class="d-flex">
           <div class="py-4 align-self-end text-white" id="subtext">
             Whisky casks are growing as a investment oppertunity for the general public and consumers. With casks ranging from several hundreds to tens of thousands of pounds,
