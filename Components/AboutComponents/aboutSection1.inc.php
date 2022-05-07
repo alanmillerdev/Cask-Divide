@@ -7,7 +7,7 @@
     </div>
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold lh-1 mb-3">Our Mission</h1>
-      <p class="lead">At Cask Divide, we want to open up whiskey to the people and promote inclusivity. We aim to allow everyone the opportunity to purchase a whiskey cask without the yearly insurance and storage costs. This enables everyone to participate in the whiskey cask market.</p>
+      <p class="lead">At Cask Divide, we want to open up whisky to the people and promote inclusivity. We aim to allow everyone the opportunity to purchase a whisky cask without the yearly insurance and storage costs. This enables everyone to participate in the whisky cask market.</p>
     </div>
   </div>
 </div>
