@@ -1,0 +1,667 @@
+@font-face {
+  font-family: 'tequila_sunsetregular';
+  src: url('fonts/tequilasunset-regular-webfont.woff2') format('woff2'),
+    url('fonts/tequilasunset-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600;700&family=Poppins:wght@300;400;700&display=swap');
+
+$colors: (background: #272727,
+  foreground:#B8BABC,
+  primary:#BF9139,
+  text:#ffffff,
+  secondary: #FFA800);
+
+$padding: 20px;
+$borders: 60px;
+
+@function color($color-name) {
+  @return map-get($colors, $color-name)
+}
+
+
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: color(background);
+}
+
+#main-title{
+  font-family: tequila_sunsetregular;
+  font-size: 80px;
+  color: color(text);
+}
+
+@media (max-width: 544px) {  
+  #main-title {font-size:70px;} 
+}
+
+#decor-title{
+  font-family: 'Cormorant', serif;
+  text-transform: uppercase;
+  font-size: 43px;
+  text-align: center;
+  color: #fff;
+}
+
+#subtext{
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Unordered Lists */
+ul {
+  list-style-type: none;
+}
+
+/* Form Styling */
+.input-style {
+  border: 2px solid color(primary);
+  background-color: color(background);
+  width: 400px;
+  height: 50px;
+  margin: auto;
+  margin: 0;
+  display: block;
+}
+
+
+.input-style::placeholder {
+  color: #FFFFFF;
+  padding-left: 10px;
+}
+
+.input-style:focus, input:focus {
+  color: #FFFFFF;
+
+}
+
+.input-style, select, textarea {
+  color: #FFFFFF;
+}
+
+.textarea-style {
+  border: 2px solid color(primary);
+  background-color: color(background);
+  width: 400px;
+  height: 150px;
+  margin: auto;
+  display: block;
+}
+
+
+.textarea-style::placeholder {
+  color: #FFFFFF;
+  padding-left: 10px;
+}
+
+.textarea-style:focus, input:focus {
+  color: #FFFFFF;
+
+}
+
+.textarea-style, select, textarea {
+  color: #FFFFFF;
+}
+
+/* Navbar */
+.navbar {
+  border-bottom: #fff 1px solid;
+  opacity: 0.9;
+}
+
+#home-section {
+  background: url(../images/glencoe.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 90vh;
+}
+
+
+
+#home-section .home-inner {
+  padding-top: 150px;
+}
+
+.browse_button{
+  color: white;
+  background-color: color(primary);
+  border-color: color(primary);
+  text-decoration: none;
+  border-radius: 25px;
+}
+
+.browse_button:hover{
+  color: white;
+  background-color: #505557;
+  border-color: #505557;
+  text-decoration: none;
+}
+
+.purchase-button:hover {
+  color: color(primary) !important;
+  background-color: #fff !important;
+}
+
+/* Icons */
+.fab {
+  color: white;
+}
+
+/* Colours and Fonts */
+.primary-text{
+  color: color(text);
+}
+
+.primary-background{
+  background-color: color(primary);
+}
+
+.form-background{
+  background-color: color(background);
+}
+
+/* FORM STYLING */
+#form-styling{
+  background: url(../images/highlands.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding-top: 150px;
+}
+
+.form-styling-button{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: color(primary);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 10px;
+  width: 250px;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 3px;
+  }
+
+.form-styling-button:hover{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #505557;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 10px;
+  width: 250PX;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 3px;
+}
+  
+.form-styling-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.form-styling-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.3s;
+}
+
+.form-styling-button:hover span {
+  padding-right: 25px;
+}
+
+.form-styling-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.sign-up-button{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: color(primary);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px 20px;
+  transition: all 0.3s;
+  margin: auto;
+  cursor: pointer;
+  }
+
+.sign-up-button:hover{
+    display: inline-block;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #505557;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px 20px;
+    margin: auto;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+  
+.sign-up-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+  
+.sign-up-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.3s;
+}
+  
+.sign-up-button:hover span {
+  padding-right: 15px;
+}
+  
+.sign-up-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* Footer */
+footer{
+  background-color: color(background);
+}
+
+.footer_logo {
+  height: auto;
+  width: 300px;
+}
+
+/*NAVBAR and MAIN CONTENT*/
+
+
+.content {
+
+  background-color: color(background) !important;
+
+  nav {
+    background-color: color(background) !important;
+
+    .navbar-toggler {
+      color: color(text);
+    }
+
+    .nav-link {
+      font-size: 20px;
+      color: color(#fff) !important;
+
+    }
+  }
+
+
+  .btn-primary {
+    color: #fff;
+    background-color: color(primary);
+    border-color: color(primary);
+  }
+
+  .nav-link:hover {
+    color: color(#fff) !important;
+    background-color: color(primary);
+  }
+  
+  
+  .footer-links:hover {
+    color: color(primary) !important;
+    background-color: color(background);
+  }
+
+
+  #right-items {
+    li {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 20px;
+      list-style-type: none;
+    }
+  }
+
+
+  .logo {
+    max-height: 60px;
+  }
+
+
+
+  button {
+    color: color(text);
+
+    button:hover {
+      background-color: white;
+    }
+  }
+
+  .btn-outline-primary:hover {
+    background-color: color(primary);
+    border-color: color(primary);
+  }
+
+
+  .site-section {
+    margin-top: 90px;
+    margin-bottom: 190px;
+  }
+}
+
+/*CASKS PAGE*/
+
+#icon-boxes{
+  .card{
+    background-color: transparent;
+    border-radius: 0px;
+  }
+}
+
+
+
+/*INDEX CASKS*/
+.threecasks{
+
+  .bgimage1{
+    border-radius: 100%;
+    width: 250px;
+    background-size: cover;
+    margin: auto;
+  }
+
+
+  
+  .card{
+    background-color: transparent;
+    border: none;
+    margin-top: 40px;
+  }
+  a{
+    text-decoration: none;
+  }
+  .card-img-top{
+    height: 250px;
+    padding: 20px;
+    width: auto;
+  }
+
+}
+
+#explore-section{
+  h3{
+    font-family: tequila_sunsetregular;
+    color: #272727;
+  }
+  p{
+    font-family: Poppins;
+    color: color(background);
+  }
+
+  #decor-title{
+    color: color(background);
+  }
+}
+
+
+/*ABOUT*/
+
+.title-header {
+  display: block;
+  margin: auto;
+  background-image: url(../images/glencoe.png);
+  background-position: 60%;
+  padding: 70px;
+  text-align: center;
+  color: color(text);
+  font-family: tequila_sunsetregular;
+
+
+
+  h1 {
+    margin: 0;
+    font-size: 80px;
+    margin-bottom: 20px;
+  }
+}
+
+.about-hero {
+
+  .py-5 {
+    padding-bottom: 3rem !important;
+    color: color(text); 
+  }
+}
+
+/*FOOTER*/
+
+footer{
+
+  margin-top: 60px;
+
+  #social-icons{
+    ul {
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  width: 80px;
+  height: 80px;
+  background-color: color(background);
+  text-align: center;
+  line-height: 70px;
+  font-size: 35px;
+  margin: 0 10px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+
+ul li a .icon {
+  position: relative;
+  color: #ffffff;
+  transition: .5s;
+  z-index: 3;
+}
+
+ul li a:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+ul li a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: .5s;
+  z-index: 2;
+}
+
+ul li a:hover:before {
+  top: 0;
+}
+
+ul li:nth-child(1) a:before{
+  background: #3b5999;
+}
+
+ul li:nth-child(2) a:before{
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+ul li:nth-child(3) a:before {
+  background: #ea4335;
+}
+
+  }
+  
+}
+
+/* About the Cask */
+.form-control-range {
+  border-radius: 5%; 
+  width: 100%;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  background: color(primary);
+  color: #000;
+  border-radius: 20%; 
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 30px;
+  -webkit-appearance: none;
+  height: 30px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #434343;
+}
+
+#product-details{
+
+  p{
+    color: color(text);
+  }
+
+  .nav-link{
+    color: color(text);
+    border: none;
+  }
+
+  .nav-link.active{
+    color: color(background);
+  }
+
+  .single-product-tables{
+    color: color(text);
+  }
+
+  .tab-distillery{
+    color: color(text);
+  }
+
+  td{
+    color: color(text);
+  }
+
+  thead{
+    background-color: color(primary);
+  }
+
+}
+
+/*CHECKOUT PAGE*/
+
+.shoppingbag{
+  background: #272727;
+  border: solid 1px color(primary);
+  padding: $padding;
+    margin-bottom: 40px;
+}
+
+.shoppingdetails{
+  background: #272727;
+  border: solid 1px color(primary);
+  padding: $padding;
+
+
+  label{
+    color: color(text);
+  }
+}
+
+.homecask-images{
+  height: 300px;
+  width: auto;
+  padding-top: 20px;
+}
+
+.newcasks{
+  height: 80px;
+}
+
+#account-content {
+
+  .container{
+
+  background-color: color(background);
+
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+    border-color: color(background);
+  }
+
+  .profile-button {
+    background: color(primary);
+    box-shadow: none;
+    border: none;
+  }
+
+  .profile-button:hover {
+    background: color(secondary);
+  }
+
+  .profile-button:focus {
+    background: color(secondary);
+    box-shadow: none;
+  }
+
+  .profile-button:active {
+    background: color(secondary);
+    box-shadow: none;
+  }
+
+  .back:hover {
+    color: color(secondary);
+    cursor: pointer;
+  }
+
+  .labels {
+    font-size: 11px;
+    color: color(text)
+  }
+
+  .text-right{
+    color: color(text);
+  }
+
+}
+
+
+.checkout-header {
+  color: color(primary) !important;
+}
